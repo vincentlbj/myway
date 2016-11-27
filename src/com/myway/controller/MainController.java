@@ -8,7 +8,6 @@ public class MainController {
 
 	@RequestMapping("/index")
 	public String index() {
-		System.out.println(1);
 		return "/index";
 	}
 
