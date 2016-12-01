@@ -1,0 +1,310 @@
+/*--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+body {
+	margin:0;
+	padding:0;
+	background-color:#ff9f3e;
+	font-family: 'Open Sans', sans-serif;
+}
+.content {
+	width:30%;
+	text-align:center;
+	margin:auto;
+	margin-top:5%;
+ }
+.row1 {
+	background-color:#e74c3c;
+	padding-top: 25px;
+	padding-bottom: 32px;
+}
+.row1 p {
+	margin:20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+}
+.row1 h1 {
+	font-family: 'Righteous', cursive;
+}
+.row2 {
+	background-color:#5e4534;
+	padding-top: 25px;
+	padding-bottom: 32px;
+}
+input[type="text"] {
+	padding:10px;
+	width:67%;
+	background-color:#F7B2AB;
+	border:none;
+	color:white;
+	border-radius:4px;
+	outline:none;
+	font-family: 'Open Sans' , sans-serif;
+	font-size:18px;
+	margin-top:9%;
+}
+input[type="password"] {
+	padding:10px;
+	width:67%;
+	background-color:#F7B2AB;
+	border:none;
+	color:white;
+	border-radius:4px;
+	outline:none;
+	font-family: 'Open Sans' , sans-serif;
+	font-size:18px;
+	margin-top:9%;
+}
+.row2 a {
+	margin-left:0%;
+	font-size:22px;
+	text-decoration:none;
+	color:#FFE5CC;
+	font-family: 'Anton', sans-serif;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+.row2 a:hover {
+	color:#ff9f3e;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+input[type="submit"] {
+	padding:10px;
+	background-color:#e74c3c;
+	width:150px;
+	border:none;
+	cursor:pointer;
+	color:white;
+	font-weight:bold;
+	font-family: 'Open Sans', sans-serif;
+	font-size:20px;
+	margin-left: 23%;
+}
+input[type="submit"]:hover {
+	background-color:#ff9f3e;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+.footer {
+	margin-top:5%;
+	text-align:center;
+}
+.footer p {
+	font-weight:bold;
+	font-size:14px;
+	color:#9C5524;
+	line-height:25px;
+}
+.footer a , a:active {
+	text-decoration:none;
+	color:#9C5524;
+	
+}
+.footer a:hover {
+	color:red;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+
+/*-- responsive-mediaquries --*/
+@media(max-width:1280px){
+.content {
+	width:40%;
+}
+}
+
+@media(max-width:1024px){
+.content {
+	width:50%;
+	margin-top:5%;
+}
+.footer {
+	margin-top:5%;
+}	
+}
+
+@media(max-width:800px){
+.content {
+	width:50%;
+}
+}
+
+@media(max-width:768px) {
+.content {
+	width:55%;
+	margin-top:28%;
+}
+.footer {
+	margin-top:22%;
+}
+}
+
+@media(max-width:736px) {
+.content{
+	width:75%;
+	margin-top:6%;
+}
+}
+
+@media(max-width:667px) {
+.content {
+	width:75%;
+	margin-top:5%;
+}
+.footer {
+    margin-top: 7%;
+}
+}
+
+@media(max-width:640px){
+.content {
+	width:58%;
+}
+}
+
+@media(max-width:600px){ 
+.content {
+	width:75%;
+}
+.footer p {
+	font-size:13px;
+}
+}
+
+@media(max-width:568px){ 
+.content {
+    width: 75%;
+}
+.footer {
+	margin-top:7%;
+}
+}
+
+@media(max-width:480px){
+.content {
+	width:62%;
+}
+}
+
+@media(max-width:414px){
+.content {
+	width:76%;
+	margin-top:16%;
+}
+.row1 h1 {
+	font-size:27px;
+}
+input[type="submit"] {
+	width:120px;
+	margin-left:12%;
+}
+.row2 a {
+	font-size:20px;
+}
+.footer {
+	margin-top:17%;
+}
+.footer p {
+	font-size:16px;
+}
+}
+
+@media(max-width:384px){
+.content {
+	margin-top:12%;
+}
+.row1 h1 {
+	font-size:25px;
+}
+.footer {
+	margin-top:10%;
+}
+.footer p {
+	font-size:15px;
+}
+}
+
+@media(max-width:375px){
+.content {
+	width:76%;
+	margin-top:13%;
+}
+.row1 h1 {
+	font-size:24px;
+}
+input[type="text"] {
+	width:70%;
+}
+input[type="password"] {
+	width:70%;
+}
+input[type="submit"] {
+	padding:9px;
+	width:105px;
+	margin-left:20%;
+}
+.row2 {
+	padding-top:28px;
+	padding-bottom:28px;
+	}
+.row2 a {
+	font-size:18px;
+	margin-left:2%;
+}
+.footer p {
+	font-size:14px;
+}
+}
+
+@media(max-width:320px){
+.content {
+	margin-top:8%;
+	width:75%;
+}
+.row1 h1 {
+	font-size:20px;
+}
+.row1 p {
+	font-size:13px;
+}
+.row2 {
+	padding-top:15px;
+	padding-bottom:20px;
+}
+.row2 a {
+	font-size:15px;
+	margin-left:0%;
+}
+input[type="text"] {
+	width:70%;
+}
+input[type="password"] {
+	width:70%;
+}
+input[type="submit"] {
+	width:95px;
+	padding:9px;
+	font-size:19px;
+	margin-left:10%;
+}
+.footer {
+	margin-top:7%;
+}
+.footer p {
+	font-size:12px;
+}
+}

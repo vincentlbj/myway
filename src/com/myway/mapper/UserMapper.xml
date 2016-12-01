@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.myway.mapper.TourPriceMapper" >
-  <resultMap id="BaseResultMap" type="com.myway.pojo.TourPrice" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="t_id" property="tId" jdbcType="INTEGER" />
-    <result column="go" property="go" jdbcType="DATE" />
-    <result column="back" property="back" jdbcType="DATE" />
-    <result column="remain" property="remain" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="INTEGER" />
+<mapper namespace="com.myway.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.myway.pojo.User" >
+    <id column="u_id" property="uId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, t_id, go, back, remain, price
+    u_id, user_name, email, password
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myway.pojo.TourPriceExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myway.pojo.UserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tour_price
+    from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,94 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from tour_price
-    where id = #{id,jdbcType=INTEGER}
+    from user
+    where u_id = #{uId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from tour_price
-    where id = #{id,jdbcType=INTEGER}
+    delete from user
+    where u_id = #{uId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.myway.pojo.TourPriceExample" >
-    delete from tour_price
+  <delete id="deleteByExample" parameterType="com.myway.pojo.UserExample" >
+    delete from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.myway.pojo.TourPrice" >
-    insert into tour_price (id, t_id, go, back, 
-      remain, price)
-    values (#{id,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{go,jdbcType=DATE}, #{back,jdbcType=DATE}, 
-      #{remain,jdbcType=INTEGER}, #{price,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.myway.pojo.User" >
+    insert into user (u_id, user_name, email, 
+      password)
+    values (#{uId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.myway.pojo.TourPrice" >
-    insert into tour_price
+  <insert id="insertSelective" parameterType="com.myway.pojo.User" >
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="uId != null" >
+        u_id,
       </if>
-      <if test="tId != null" >
-        t_id,
+      <if test="userName != null" >
+        user_name,
       </if>
-      <if test="go != null" >
-        go,
+      <if test="email != null" >
+        email,
       </if>
-      <if test="back != null" >
-        back,
-      </if>
-      <if test="remain != null" >
-        remain,
-      </if>
-      <if test="price != null" >
-        price,
+      <if test="password != null" >
+        password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+      <if test="uId != null" >
+        #{uId,jdbcType=INTEGER},
       </if>
-      <if test="tId != null" >
-        #{tId,jdbcType=INTEGER},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="go != null" >
-        #{go,jdbcType=DATE},
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
-      <if test="back != null" >
-        #{back,jdbcType=DATE},
-      </if>
-      <if test="remain != null" >
-        #{remain,jdbcType=INTEGER},
-      </if>
-      <if test="price != null" >
-        #{price,jdbcType=INTEGER},
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.myway.pojo.TourPriceExample" resultType="java.lang.Integer" >
-    select count(*) from tour_price
+  <select id="countByExample" parameterType="com.myway.pojo.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update tour_price
+    update user
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.uId != null" >
+        u_id = #{record.uId,jdbcType=INTEGER},
       </if>
-      <if test="record.tId != null" >
-        t_id = #{record.tId,jdbcType=INTEGER},
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.go != null" >
-        go = #{record.go,jdbcType=DATE},
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="record.back != null" >
-        back = #{record.back,jdbcType=DATE},
-      </if>
-      <if test="record.remain != null" >
-        remain = #{record.remain,jdbcType=INTEGER},
-      </if>
-      <if test="record.price != null" >
-        price = #{record.price,jdbcType=INTEGER},
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -182,45 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update tour_price
-    set id = #{record.id,jdbcType=INTEGER},
-      t_id = #{record.tId,jdbcType=INTEGER},
-      go = #{record.go,jdbcType=DATE},
-      back = #{record.back,jdbcType=DATE},
-      remain = #{record.remain,jdbcType=INTEGER},
-      price = #{record.price,jdbcType=INTEGER}
+    update user
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.myway.pojo.TourPrice" >
-    update tour_price
+  <update id="updateByPrimaryKeySelective" parameterType="com.myway.pojo.User" >
+    update user
     <set >
-      <if test="tId != null" >
-        t_id = #{tId,jdbcType=INTEGER},
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="go != null" >
-        go = #{go,jdbcType=DATE},
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="back != null" >
-        back = #{back,jdbcType=DATE},
-      </if>
-      <if test="remain != null" >
-        remain = #{remain,jdbcType=INTEGER},
-      </if>
-      <if test="price != null" >
-        price = #{price,jdbcType=INTEGER},
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where u_id = #{uId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.myway.pojo.TourPrice" >
-    update tour_price
-    set t_id = #{tId,jdbcType=INTEGER},
-      go = #{go,jdbcType=DATE},
-      back = #{back,jdbcType=DATE},
-      remain = #{remain,jdbcType=INTEGER},
-      price = #{price,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.myway.pojo.User" >
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where u_id = #{uId,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -20,7 +20,7 @@
 										<ul class="clearfix">
 
 											<li class="user-action">
-												<a data-toggle="modal" href="#loginModal" class="btn">登录/注册</a>
+												<a href="<%=request.getContextPath()%>/loginPage" class="btn">登录/注册</a>
 											</li>
 
 										</ul>

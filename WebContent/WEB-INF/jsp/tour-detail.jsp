@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" 
            uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -51,327 +52,9 @@
 </head>
 
 <body class="">
-
-	<!-- BEGIN # MODAL LOGIN -->
-	<div class="modal fade modal-login modal-border-transparent" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				
-				<button type="button" class="btn btn-close close" data-dismiss="modal" aria-label="Close">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				</button>
-				
-				<div class="clear"></div>
-				
-				<!-- Begin # DIV Form -->
-				<div id="modal-login-form-wrapper">
-					
-					<!-- Begin # Login Form -->
-					<form id="login-form">
-					
-						<div class="modal-body pb-5">
-					
-							<h4 class="text-center heading mt-10 mb-20">Sign-in</h4>
-						
-							<button class="btn btn-facebook btn-block">Sign-in with Facebook</button>
-							
-							<div class="modal-seperator">
-								<span>or</span>
-							</div>
-							
-							<div class="form-group"> 
-								<input id="login_username" class="form-control" placeholder="username" type="text"> 
-							</div>
-							<div class="form-group"> 
-								<input id="login_password" class="form-control" placeholder="password" type="password"> 
-							</div>
-			
-							<div class="form-group">
-								<div class="row gap-5">
-									<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="checkbox-block fa-checkbox"> 
-											<input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
-											<label class="" for="remember_me_checkbox">remember</label>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-6 text-right"> 
-										<button id="login_lost_btn" type="button" class="btn btn-link">forgot pass?</button>
-									</div>
-								</div>
-							</div>
-						
-						</div>
-						
-						<div class="modal-footer">
-						
-							<div class="row gap-10">
-								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block">Sign-in</button>
-								</div>
-								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">Cancel</button>
-								</div>
-							</div>
-							<div class="text-left">
-								No account? 
-								<button id="login_register_btn" type="button" class="btn btn-link">Register</button>
-							</div>
-							
-						</div>
-					</form>
-					<!-- End # Login Form -->
-								
-					<!-- Begin | Lost Password Form -->
-					<form id="lost-form" style="display:none;">
-						<div class="modal-body pb-5">
-						
-							<h3 class="text-center heading mt-10 mb-20">Forgot password</h3>
-							<div class="form-group mb-10"> 
-								<input id="lost_email" class="form-control" type="text" placeholder="Enter Your Email">
-							</div>
-							
-							<div class="text-center">
-								<button id="lost_login_btn" type="button" class="btn btn-link">Sign-in</button> or 
-								<button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
-							</div>
-							
-						</div>
-						
-						<div class="modal-footer mt-10">
-							
-							<div class="row gap-10">
-								<div class="col-xs-6 col-sm-6">
-									<button type="submit" class="btn btn-primary btn-block">Submit</button>
-								</div>
-								<div class="col-xs-6 col-sm-6">
-									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
-								</div>
-							</div>
-							
-						</div>
-						
-					</form>
-					<!-- End | Lost Password Form -->
-								
-					<!-- Begin | Register Form -->
-					<form id="register-form" style="display:none;">
-					
-						<div class="modal-body pb-5">
-						
-							<h3 class="text-center heading mt-10 mb-20">Register</h3>
-							
-							<button class="btn btn-facebook btn-block">Register with Facebook</button>
-							
-							<div class="modal-seperator">
-								<span>or</span>
-							</div>
-							
-							<div class="form-group"> 
-								<input id="register_username" class="form-control" type="text" placeholder="Username"> 
-							</div>
-							
-							<div class="form-group"> 
-								<input id="register_email" class="form-control" type="email" placeholder="Email">
-							</div>
-							
-							<div class="form-group"> 
-								<input id="register_password" class="form-control" type="password" placeholder="Password">
-							</div>
-							
-							<div class="form-group"> 
-								<input id="register_password_confirm" class="form-control" type="password" placeholder="Confirm Password">
-							</div>
-
-						</div>
-							
-						<div class="modal-footer mt-10">
-						
-							<div class="row gap-10">
-								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-block">Register</button>
-								</div>
-								<div class="col-xs-6 col-sm-6 mb-10">
-									<button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">Cancel</button>
-								</div>
-							</div>
-							
-							<div class="text-left">
-									Already have account? <button id="register_login_btn" type="button" class="btn btn-link">Sign-in</button>
-							</div>
-							
-						</div>
-							
-					</form>
-					<!-- End | Register Form -->
-								
-				</div>
-				<!-- End # DIV Form -->
-								
-			</div>
-		</div>
-	</div>
-	<!-- END # MODAL LOGIN -->
-	
+		<%@ include file="/common-login.jsp" %>
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
-
-<!-- 		<header id="header">
-	  
-			start Navbar (Header)
-			<nav class="navbar navbar-primary navbar-fixed-top navbar-sticky-function">
-
-				<div class="navbar-top">
-				
-					<div class="container">
-						
-						<div class="flex-row flex-align-middle">
-							<div class="flex-shrink flex-columns">
-								<a class="navbar-logo" href="index.html">
-									<img src="images/logo-white.png" alt="Logo" />
-								</a>
-							</div>
-							<div class="flex-columns">
-								<div class="pull-right">
-								
-									<div class="navbar-mini">
-										<ul class="clearfix">
-										
-											<li class="dropdown bt-dropdown-click hidden-xs">
-												<a id="language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-													<i class="ion-social-usd hidden-xss"></i> Dollar
-													<span class="caret"></span>
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
-													<li><a href="#"><i class="ion-social-usd"></i> Dollar</a></li>
-													<li><a href="#"><i class="ion-social-euro"></i> Europe</a></li>
-													<li><a href="#"><i class="ion-social-yen"></i> Yen</a></li>
-												</ul>
-											</li>
-											
-											<li class="dropdown bt-dropdown-click hidden-xs">
-												<a id="currncy-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-													<i class="ion-android-globe hidden-xss"></i> English
-													<span class="caret"></span>
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
-													<li><a href="#">English</a></li>
-													<li><a href="#">France</a></li>
-													<li><a href="#">Japanese</a></li>
-												</ul>
-											</li>
-											
-											<li class="dropdown bt-dropdown-click visible-xs">
-												<a id="currncy-language-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-													<i class="fa fa-cog"></i>
-												</a>
-												<ul class="dropdown-menu" aria-labelledby="language-dropdown">
-													<li><a href="#"><i class="ion-social-usd"></i> Dollar</a></li>
-													<li><a href="#"><i class="ion-social-euro"></i> Europe</a></li>
-													<li><a href="#"><i class="ion-social-yen"></i> Yen</a></li>
-													<li class="divider"></li>
-													<li><a href="#">English</a></li>
-													<li><a href="#">France</a></li>
-													<li><a href="#">Japanese</a></li>
-												</ul>
-											</li>
-											
-											<li class="user-action">
-												<a data-toggle="modal" href="#loginModal" class="btn">Sign up/in</a>
-											</li>
-
-										</ul>
-									</div>
-						
-								</div>
-							</div>
-						</div>
-
-					</div>
-					
-				</div>
-				
-				<div class="navbar-bottom hidden-sm hidden-xs">
-				
-					<div class="container">
-					
-						<div class="row">
-						
-							<div class="col-sm-9">
-								
-								<div id="navbar" class="collapse navbar-collapse navbar-arrow">
-									<ul class="nav navbar-nav" id="responsive-menu">
-										<li><a href="index.html">Home</a>
-											<ul>
-												<li><a href="index.html">Home 01 - Default</a></li>
-												<li><a href="index-02.html">Home 02 - Background Slider</a></li>
-												<li><a href="index-03.html">Home 03 - Video Background</a></li>
-												<li><a href="index-04.html">Home 04 - Smaller Package Items</a></li>
-												<li>
-													<a href="#">Sub-menu</a>
-													 <ul>
-														<li><a href="#">Sub-menu 2</a></li>
-														<li><a href="#">Sub-menu 2</a></li>
-														<li><a href="#">Sub-menu 2</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li><a href="result-grid.html">Tour Package</a>
-											<ul>
-												<li><a href="result-list.html">Result - List</a></li>
-												<li><a href="result-grid.html">Result - Grid</a></li>
-												<li><a href="detail-page.html">Detail Page</a></li>
-											</ul>
-										</li>
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="blog.html">Blog</a>
-											<ul>
-												<li><a href="blog.html">Blog</a></li>
-												<li><a href="blog-single.html">Blog Single</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Pages</a>
-											<ul>
-												<li><a href="result-list.html">Result - List</a></li>
-												<li><a href="result-grid.html">Result - Grid</a></li>
-												<li><a href="detail-page.html">Detail Page</a></li>
-												<li><a href="payment.html">Payment</a></li>
-												<li><a href="confirmation.html">Confirmation</a></li>
-												<li><a href="faq.html">FAQ</a></li>
-												<li><a href="about.html">About Us</a></li>
-												<li><a href="static-page.html">Static Page</a></li>
-												<li><a href="blog.html">Blog</a></li>
-												<li><a href="blog-single.html">Blog Single</a></li>
-												<li><a href="contact.html">Contact us</a></li>
-											</ul>
-										</li>
-										<li><a href="contact.html">Contact us</a></li>
-									</ul>
-								</div>/.nav-collapse
-								
-							</div>
-							
-							<div class="col-sm-3">
-							
-								<div class="navbar-phone"><i class="fa fa-phone"></i> Call us: +66 28 878 5452</div>
-							
-							</div>
-
-						</div>
-						
-					</div>
-				
-				</div>
-
-				<div id="slicknav-mobile"></div>
-				
-			</nav>
-			end Navbar (Header)
-
-		</header>
-		
-		<div class="clear"></div> -->
-		
 		<%@ include file="/common-header.jsp" %>
 		
 		<!-- start Main Wrapper -->
@@ -623,64 +306,34 @@
 												
 												</li>
 												<c:forEach items="${ priceList}" var="price">
-													<li class="availabily-content clearfix">
+													<li class="availabily-content <c:if test="${price.remain == 0 }">sold-out</c:if> clearfix">
 														
 														<div class="date-from">
 															<span class="availabily-heading-label">start:</span>
-															<span>${price.go}</span>
+															<span><fmt:formatDate value="${price.go }"  pattern="yyyy-MM-dd"/></span>
 														</div>
 														
 														<div class="date-to">
 															<span class="availabily-heading-label">end:</span>
-															<span>${price.back }</span>
+															<span><fmt:formatDate value="${price.back }"  pattern="yyyy-MM-dd"/></span>
 														</div>
 														
 														<div class="status">
 															<span class="availabily-heading-label">status:</span>
-															seats left
-															<span>${price.left }</span>
+															剩余量
+															<span>${price.remain }</span>
 														</div>
 														
 														<div class="price">
 															<span class="availabily-heading-label">price:</span>
-															<span>${price.price }</span>
+															<span>${price.price }元</span>
 														</div>
 														
 														<div class="action">
-															<a href="#" class="btn btn-primary btn-sm btn-inverse">Book now</a>
+															<a href="#" class="btn btn-primary btn-sm btn-inverse">马上预订</a>
 														</div>
-													
 													</li>
 												</c:forEach>
-												<li class="availabily-content sold-out clearfix">
-													
-													<div class="date-from">
-														<span class="availabily-heading-label">start:</span>
-														Sunday
-														<span>April 10, 2016</span>
-													</div>
-													
-													<div class="date-to">
-														<span class="availabily-heading-label">end:</span>
-														Wednesday
-														<span>April 13, 2016</span>
-													</div>
-													
-													<div class="status">
-														<span class="availabily-heading-label">status:</span>
-														<span class="text-success">sold-out</span>
-													</div>
-													
-													<div class="price">
-														<span class="availabily-heading-label">price:</span>
-														<span>$1300</span>
-													</div>
-													
-													<div class="action">
-														<a href="#" class="btn btn-primary btn-sm btn-inverse">Book now</a>
-													</div>
-												
-												</li>
 											</ul>
 											
 										</div>

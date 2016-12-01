@@ -11,4 +11,14 @@ public class MainController {
 		return "/index";
 	}
 
+	@RequestMapping("/loginPage")
+	public String loginPage() {
+		return "/login";
+	}
+
+	@RequestMapping("/registerPage")
+	public String registerPage() {
+		return "/register";
+	}
+
 }

@@ -43,4 +43,5 @@ public class TourController {
 		model.addAttribute("priceList", priceList);
 		return "tour-detail";
 	}
+
 }

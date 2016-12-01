@@ -11,7 +11,7 @@ public class TourPrice {
 
     private Date back;
 
-    private Integer ramain;
+    private Integer remain;
 
     private Integer price;
 
@@ -47,12 +47,12 @@ public class TourPrice {
         this.back = back;
     }
 
-    public Integer getRamain() {
-        return ramain;
+    public Integer getRemain() {
+        return remain;
     }
 
-    public void setRamain(Integer ramain) {
-        this.ramain = ramain;
+    public void setRemain(Integer remain) {
+        this.remain = remain;
     }
 
     public Integer getPrice() {
