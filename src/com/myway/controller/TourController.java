@@ -28,19 +28,22 @@ public class TourController {
 	@RequestMapping("/detail/{id}")
 	public String detail(@PathVariable int id, Model model)
 			throws JsonParseException, JsonMappingException, IOException {
-		TourWithBLOBs blobs = (TourWithBLOBs) tourService.getTourById(id);
+		TourWithBLOBs tour = (TourWithBLOBs) tourService.getTourById(id);
 		ObjectMapper mapper = new ObjectMapper();
-		List<CommonDto> routeIncludeList = mapper.readValue(blobs.getRouteInclude(),
+		List<CommonDto> routeIncludeList = mapper.readValue(tour.getRouteInclude(),
 				new TypeReference<List<CommonDto>>() {
 				});
-		List<CommonDto> routeContentList = mapper.readValue(blobs.getRouteContent(),
+		List<CommonDto> routeContentList = mapper.readValue(tour.getRouteContent(),
 				new TypeReference<List<CommonDto>>() {
 				});
 		List<TourPrice> priceList = tourService.getTourPriceByTourId(id);
-		model.addAttribute("introduction", StringUtil.convertBr(blobs.getIntroduction()));
+		String pictureListString = tour.getPicture();
+		String[] pictureList = pictureListString.split(";");
+		model.addAttribute("introduction", StringUtil.convertBr(tour.getIntroduction()));
 		model.addAttribute("routeIncludeList", routeIncludeList);
 		model.addAttribute("routeContentList", routeContentList);
 		model.addAttribute("priceList", priceList);
+		model.addAttribute("pictureList", pictureList);
 		return "tour-detail";
 	}
 

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" 
            uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -52,7 +53,6 @@
 </head>
 
 <body class="">
-		<%@ include file="/common-login.jsp" %>
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
 		<%@ include file="/common-header.jsp" %>
@@ -156,46 +156,13 @@
 										<div class="section-title text-left">
 											<h4>图片墙</h4>
 										</div>
-										
 										<div class="slick-gallery-slideshow">
 					
 											<div class="slider gallery-slideshow">
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/01.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/02.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/03.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/04.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/05.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/06.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/07.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/08.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/09.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/10.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/11.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/12.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/13.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/14.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/15.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/16.jpg" alt="Image" /></div></div>
-											</div>
-											<div class="slider gallery-nav">
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/01-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/02-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/03-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/04-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/05-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/06-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/07-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/08-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/09-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/10-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/11-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/12-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/13-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/14-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/15-sm.jpg" alt="Image" /></div></div>
-												<div><div class="image"><img src="http://localhost:8080/myway/images/detail-gallery/16-sm.jpg" alt="Image" /></div></div>
-											</div>
-											
+												<c:forEach items="${pictureList }" var="picture">
+													<div class="image"><img src="${picture }" alt="Image" /></div>
+												</c:forEach>
+											</div>											
 										</div>
 
 									</div>
@@ -255,7 +222,8 @@
 																		</div>
 	
 																	</div>
-																</c:forEach>
+																</div>
+															</c:forEach>
 																<!-- end of panel -->
 
 															</div>
@@ -264,7 +232,6 @@
 														
 													</div>
 													
-												</div>
 												
 											</div>
 										
@@ -1144,7 +1111,7 @@
 			
 		</footer>
 
-	</div>  <!-- end Container Wrapper -->
+	<!-- end Container Wrapper -->
  
 
  

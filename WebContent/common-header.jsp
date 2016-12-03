@@ -52,11 +52,11 @@
 								
 								<div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
-										<li><a href="index.html">主页</a>
+										<li><a href="<%=request.getContextPath()%>/index">主页</a>
 										</li>
 										<li><a href="result-grid.html">度假</a>
 											<ul>
-												<li><a href="result-list.html">Result - List</a></li>
+												<li><a href="result-list.html">线路预订</a></li>
 												<li><a href="result-grid.html">Result - Grid</a></li>
 												<li><a href="detail-page.html">Detail Page</a></li>
 											</ul>
