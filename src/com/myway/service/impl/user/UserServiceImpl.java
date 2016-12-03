@@ -27,4 +27,17 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public void addUser(User user) {
+		userMapper.insert(user);
+	}
+
+	@Override
+	public User getUser(String username) {
+		UserExample example = new UserExample();
+		example.or().andUserNameEqualTo(username);
+		List<User> list = userMapper.selectByExample(example);
+		return list.get(0);
+	}
+
 }

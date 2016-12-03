@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <header id="header">
 			<nav class="navbar navbar-primary navbar-fixed-top navbar-sticky-function">
 
@@ -18,11 +20,17 @@
 								
 									<div class="navbar-mini">
 										<ul class="clearfix">
-
-											<li class="user-action">
-												<a href="<%=request.getContextPath()%>/loginPage" class="btn">登录/注册</a>
-											</li>
-
+											<c:if test="${sessionScope.userInfo==null }">												
+												<li class="user-action">
+													<a href="<%=request.getContextPath()%>/loginPage" class="btn">登录/注册</a>
+												</li>
+											</c:if>
+											<c:if test="${sessionScope.userInfo!=null }">												
+												<li class="user-action">
+													<a href="#" class="btn">欢迎你,${sessionScope.userInfo.userName }</a>
+													<a href="<%=request.getContextPath()%>/user/logout" class="btn">注销</a>
+												</li>
+											</c:if>
 										</ul>
 									</div>
 						

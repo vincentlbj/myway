@@ -49,7 +49,6 @@
 <body style="overflow-x:hidden;">
 
 	<div id="introLoader" class="introLoading"></div>
-		<%@ include file="/common-login.jsp" %>
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
 		<%@ include file="/common-header.jsp" %>
