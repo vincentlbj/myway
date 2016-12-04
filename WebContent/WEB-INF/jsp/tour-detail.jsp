@@ -13,7 +13,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Tour Packer</title>
+	<title>麦味</title>
 	<meta name="description" content="HTML Responsive Template for Tour Agency or Company Based on Twitter Bootstrap 3.x.x" />
 	<meta name="keywords" content="tour package, holiday, hotel, vocation, booking, trip, travel, tourism, tourist" />
 	<meta name="author" content="crenoveative">
@@ -69,15 +69,14 @@
 						
 						<div class="flex-column flex-md-8 flex-sm-12">
 							
-							<h1 class="hero-title">【跟团游】错峰高品低价|升级温泉+赠送260元豪礼|三大古城+双廊-雪山|6日游</h1>
-							<p class="line18">昆明+大理+丽江 | 震撼表演+三大特色餐+升级酒店+马上行动+手慢无 | 团号: DX-1</p>
+							<h1 class="hero-title">${name }</h1>
 							
 							<ul class="list-col clearfix">
 								<li class="rating-box">
 									<div class="rating-wrapper">
 										<div class="raty-wrapper">
-											<div class="star-rating-white" data-rating-score="4.0"></div> 
-											<span style="display: block;"> / 7 条评论</span>
+											<div class="star-rating-white" data-rating-score="${remark }"></div> 
+											<span style="display: block;"> / ${comment }条评论</span>
 										</div>
 									</div>
 								</li>
@@ -85,34 +84,34 @@
 								<li class="fav-box">
 									<div class="meta">
 										<span class="block"><button class="btn btn-fav"><i class="fa fa-book"></i></button></span>
-										成交 98
+										成交 ${deal }
 									</div>
 								</li>
 
 								<li class="fav-box">
 									<div class="meta">
 										<span class="block"><button class="btn btn-fav"><i class="fa fa-heart"></i></button></span>
-										满意度 100% 
+										满意度 ${satisfactory }% 
 									</div>
 								</li>
 								
 								<li class="duration-box">
 									<div class="meta">
-										<span class="block">4</span>
+										<span class="block">${day }</span>
 										天
 									</div>
 									<div class="meta">
 										&amp;
 									</div>
 									<div class="meta">
-										<span class="block">3</span>
+										<span class="block">${night }</span>
 										夜
 									</div>
 								</li>
 								
 								<li class="price-box">
 									<div class="meta">
-										<span class="block">￥1422起</span>
+										<span class="block">￥${price }起</span>
 										价格
 									</div>
 								</li>
@@ -180,9 +179,9 @@
 												<div class="col-sm-4 col-sm-3 mb-30">
 												
 													<ul class="list-info no-icon bb-dotted">
-														<li><span class="font600">产品编号: </span>1375072007</li>
-														<li><span class="font600">历时: </span>4 天 &amp; 3 夜</li>
-														<li><span class="font600">行程套餐:</span> 广州-云南，大理，丽江，昆明 | 4天3夜 | 特色餐饮 | 飞机直飞往返 | 豪华型/高档型酒店</li>
+														<li><span class="font600">产品编号: </span>${productId }</li>
+														<li><span class="font600">历时: </span>${day } 天 &amp; ${night } 夜</li>
+														<li><span class="font600">行程套餐:</span> ${taocan}</li>
 														<li><span class="font600">服务承诺: </span>认证商家 24小时退款保证 安全交易 铁定成团 如实描述</li>
 
 													</ul>
@@ -406,81 +405,22 @@
 										<div class="faq-alt-2-wrapper">
 										
 											<div class="panel-group bootstarp-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-												<div class="panel">
-													<div class="panel-heading" role="tab" id="headingOne">
-														<h6 class="panel-title">
-															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> 重要提示</a>
-														</h6>
-													</div>
-													<div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-														<div class="panel-body">
-															<div class="faq-thread">
-																<p>☆离团说明：本行程安排客人一旦确认，中途不得私自离团或者不走完行程，客人在未征得组团社的允许强制离团或脱团的，组团社不退任何费用，客人并赔偿组团社总团款的50%违约金；如因不可抗拒等原因所产生的费用由客人自理望请谅解，谢谢。<br> 
-																☆ 不同年龄：由于云南地处高原，海拔高低悬殊较大。为了旅客的身体考虑，我们针对不同年龄段的旅客推出了最适合的线路行程，加之年轻人和老年人从思想需求和 身体需求各方面都存在差异，为了保证成团品质，此行程是专门为年龄段的客人定制的，如您不在此区间范围内，请致电客服详询。因为云南是旅游大省，但资源有 限，公司主推的都是明星产品，薄利多销，因此销量很大。如果您看中了此条线路，请在线或者致电客服免费服务热线咨询客服是否还有团位，请体谅！<br>  
-																☆预订须知：
-																1.本产品网页价格只针对此出发地户籍的顾客，如非此出发地户籍，请联系客服咨询！<br>
-																2.此产品单人出游需要预付700元单房差，详情请拨打免费服务热线咨询客服。<br>
-																☆在行程中的自由活动期间，旅游者可自愿参加旅游者与旅行社协商一致的购物活动或另行付费的旅游项目。自由活动的时间、地点由旅行社根据团队行程整体安排确定，并在“行程介绍附表”中注明。 <br>
-																☆另行付费的旅游项目，由旅行社向旅游者明示，旅游者选择的，由旅游者现场签署自愿参加另行付费项目的书面文件。<br> 
-																☆自由活动中可选择的购物场所由旅行社在“行程介绍附表”中向旅游者明示，旅游者可选择进入购物场所购物，也可以选择在自由活动期间自由活动，旅行社不得强迫旅游者进入购物场所，不得强迫购物。<br> 
-																☆由于有关国家和地区的环保法律和政策要求，自由活动期间旅游大巴停运，期间可能不会开放车内空调或暖气。 <br>
-																☆旅游途中遭遇突发事件或者旅游安全事故发生后，旅行社应当对旅游者做出妥善安排。旅游者接受相关组织或者机构救助后，应当支付应由个人承担的费用。 <br>
-																☆旅行社特别提醒旅游者，在自由活动期间，注意自身人身财产安全。<br> 
-																☆如游客在行程进行中因自身原因自愿取消行程或中途离团，未产生的旅游项目，一律视为自动放弃，未产生的费用一概不退。<br> 
-																☆此销售价格为综合旅游报价已经非常优惠，持有老年证、军官证、学生证等证件均不退还所产生的折扣费用。 <br>
-																☆关于发票，我社可提供机打发票（机票发票请在办理登机牌时要求机场打印，我社为旅行社资质，仅可为您提供团费发票。请您谅解。），如需发票的请提前联系客服或拨打。行程结束后索要发票旅行社概不提供，敬请谅解。 <br>
-																☆如果您在行程当中出现任何问题请联系客服，行程结束后的投诉恕旅行社无法处理。 <br>
-																☆儿童费用: 2-12岁儿童仅含半餐车位费700元，不含往返机票、门票、床位、早餐。超高儿童请于景区现付门票。 <br>
-																☆ 酒店：指定入住酒店，空调标准间，参团时发生单房差的客人（指单男单女，我社根据当地酒店情况无法安排三人间或加床），请按规定补足单房差。入住酒店时客 人需缴纳押金，离店时退还。早餐为酒店房费中提供，若不占床则须补早餐费，按酒店收费规定现付；提前入住游客请自行前往入住，延住游客请自行返程。云南因 经济发展相对落后，其同等星级酒店与沿海等发达地区存在一定差距，请谅解。云南气候条件特殊，部分酒店空调定时开放，请游客入乡随俗。 <br>
-																昆明入住准五星级酒店+特色四星温泉酒店。<br> 
-																•昆明：绿洲大酒店，世纪金源北楼，香江大酒店，鸿润酒店， 泰丽酒店；<br>
-																•大理：五星海景酒店金沙半岛或洱海龙湾大酒店，雾社温泉酒店；<br>
-																•丽江：滇菌王大酒店，维也纳国际大酒店，丽苑酒店，鸿一笔、古城假日酒店；<br>
-																•楚雄：悦莱酒店，玉波酒店，世纪星酒店，云华酒店，华升大酒店，凯天酒店；<br>
-																★以上参考酒店无法接待的情况下，我社可选择其他酒店（同等协议价），但标准不低于上述酒店。 <br>
-																☆单房差：单数出游人员需补足单房700元，此价格为淡季价格，旺季如遇黄金周、节假日、泼水节、寒暑假、政府控房等，请咨询客服重新核价。<br></p>
+												<c:forEach items="${noticeList}" var="item">
+													<div class="panel">
+														<div class="panel-heading" role="tab" id="headingOne">
+															<h6 class="panel-title">
+																<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ${item.key }</a>
+															</h6>
+														</div>
+														<div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+															<div class="panel-body">
+																<div class="faq-thread">
+																	<p>${item.value }</p>
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<!-- end of panel -->
-
-												<div class="panel">
-													<div class="panel-heading" role="tab" id="headingOne">
-														<h6 class="panel-title">
-															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne"> 退款说明</a>
-														</h6>
-													</div>
-													<div id="collapseTwo" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-														<div class="panel-body">
-															<div class="faq-thread">
-																<p>所有的产品，在使用有效期内未与商家预约或预约产品出行日期双方未达成一致，且未消费的可以全额退款；如用户已经与商家预约产品，申请退款需要承担实际损失或按照双方签署协议承担损失。<br></p>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- end of panel -->
-
-												<div class="panel">
-													<div class="panel-heading" role="tab" id="headingOne">
-														<h6 class="panel-title">
-															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne"> 友情提示</a>
-														</h6>
-													</div>
-													<div id="collapseThree" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-														<div class="panel-body">
-															<div class="faq-thread">
-																<p>1、请出团前注意当地天气预报，云南地处云贵高原，当地昼夜温差大，请带足保暖防寒衣物，云南日照强，紫外线强。长时间在户外活动,请戴上太阳帽、太阳镜，涂抹防霜,以保护皮肤。天气变化多端，请携带雨具。<br> 
-																2、云南属少数民族地区，请尊重当地少数民族的宗教及生活习俗。<br> 
-																3、云南当地带中央空调的酒店空调均定时开放，还请见谅！<br>  
-																4、出行必备：雨衣或雨伞、运动鞋、感冒药、肠胃药、防虫膏药、防晒油、太阳帽、太阳镜等。（版纳属热带雨林气候，请带适宜的衣服）<br>  
-																5、当地土特产：珠宝玉石、云南白药、大理石、银饰工艺、云南烤烟、火腿、螺旋藻保健品、普洱茶、菌类、各种时令水果等。 <br> 
-																6、由于云南地处高原，海拔较高，故该产品仅适用于65岁以下人群。<br>  
-																7、我社产品品牌保证，请勿与市场其他低价产品相比较！<br></p>
-															</div>
-														</div>
-													</div>
-												</div>
+												</c:forEach>
 												<!-- end of panel -->
 											</div>
 											<!-- end of #accordion -->

@@ -36,12 +36,25 @@ public class TourController {
 		List<CommonDto> routeContentList = mapper.readValue(tour.getRouteContent(),
 				new TypeReference<List<CommonDto>>() {
 				});
+		List<CommonDto> noticeList = mapper.readValue(tour.getNotice(), new TypeReference<List<CommonDto>>() {
+		});
 		List<TourPrice> priceList = tourService.getTourPriceByTourId(id);
 		String pictureListString = tour.getPicture();
 		String[] pictureList = pictureListString.split(";");
+		model.addAttribute("name", tour.getName());
+		model.addAttribute("productId", tour.getProductId());
+		model.addAttribute("price", tour.getPrice());
+		model.addAttribute("taocan", tour.getTaocan());
+		model.addAttribute("remark", tour.getRemark());
+		model.addAttribute("comment", tour.getComment());
+		model.addAttribute("deal", tour.getDeal());
+		model.addAttribute("satisfactory", tour.getSatisfactory());
+		model.addAttribute("day", tour.getDuring().split(",")[0]);
+		model.addAttribute("night", tour.getDuring().split(",")[1]);
 		model.addAttribute("introduction", StringUtil.convertBr(tour.getIntroduction()));
 		model.addAttribute("routeIncludeList", routeIncludeList);
 		model.addAttribute("routeContentList", routeContentList);
+		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("priceList", priceList);
 		model.addAttribute("pictureList", pictureList);
 		return "tour-detail";

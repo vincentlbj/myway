@@ -3,15 +3,25 @@ package com.myway.pojo;
 public class Tour {
     private Integer id;
 
+    private String productId;
+
     private String name;
 
     private String subname;
+
+    private String taocan;
 
     private String during;
 
     private Integer price;
 
-    private String remark;
+    private Float remark;
+
+    private Integer comment;
+
+    private Integer deal;
+
+    private Integer satisfactory;
 
     public Integer getId() {
         return id;
@@ -19,6 +29,14 @@ public class Tour {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId == null ? null : productId.trim();
     }
 
     public String getName() {
@@ -37,6 +55,14 @@ public class Tour {
         this.subname = subname == null ? null : subname.trim();
     }
 
+    public String getTaocan() {
+        return taocan;
+    }
+
+    public void setTaocan(String taocan) {
+        this.taocan = taocan == null ? null : taocan.trim();
+    }
+
     public String getDuring() {
         return during;
     }
@@ -53,11 +79,35 @@ public class Tour {
         this.price = price;
     }
 
-    public String getRemark() {
+    public Float getRemark() {
         return remark;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+    public void setRemark(Float remark) {
+        this.remark = remark;
+    }
+
+    public Integer getComment() {
+        return comment;
+    }
+
+    public void setComment(Integer comment) {
+        this.comment = comment;
+    }
+
+    public Integer getDeal() {
+        return deal;
+    }
+
+    public void setDeal(Integer deal) {
+        this.deal = deal;
+    }
+
+    public Integer getSatisfactory() {
+        return satisfactory;
+    }
+
+    public void setSatisfactory(Integer satisfactory) {
+        this.satisfactory = satisfactory;
     }
 }
