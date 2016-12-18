@@ -16,22 +16,43 @@
 </head>
 <body>
 	<div class="content">
-		<c:if test="${formatErrors!=null}">
-			<c:forEach items="${formatErrors}" var="error">
-				${error.defaultMessage }
-			</c:forEach>
-		</c:if>
-		<c:if test="${existError!=null}">
-			${existError.message }
-		</c:if>
 		<form action="<%=request.getContextPath()%>/user/register" method="post">
 			<div class="row1">
 				<h1>REGISTER</h1>
-					<input type="text" name="userName" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}">
-					<input type="text" name="email" value="EMAIL" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'EMAIL';}">
-					<input type="password" name="password" value="PASSWORD" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'PASSWORD';}">
+					<span>账号：</span><input type="text" name="userName" value="<c:if test='${user!=null}'>${user.userName }</c:if>">
+					<c:if test="${userNameError!=null }">
+						<br>
+						<font style="color: yellow;">${userNameError }</font>
+					</c:if>
+					<c:if test="${existError!=null }">
+						<br>
+						<font style="color: yellow;">${existError.message }</font>
+					</c:if>
+					<br>
+					<span>邮箱：</span><input type="text" name="email" value="<c:if test='${user!=null}'>${user.email }</c:if>">					
+					<c:if test="${emailError!=null }">
+						<br>
+						<font style="color: yellow;">${emailError }</font>
+					</c:if>
+					<br>
+					<span>密码：</span><input type="password" name="password" value="">
+					<c:if test="${passwordError!=null }">
+						<br>
+						<font style="color: yellow;">${passwordError }</font>
+					</c:if>
+					<br>
+					<span>重复密码：</span><input type="password" name="rePassword" value="">
+					<c:if test="${rePasswordError!=null }">
+						<br>
+						<font style="color: yellow;">${rePasswordError }</font>
+					</c:if>
+					<c:if test="${reEqualsError!=null }">
+						<br>
+						<font style="color: yellow;">${reEqualsError }</font>
+					</c:if>
 			</div>
 			<div class="row2">
+				<a href="<%=request.getContextPath()%>/loginPage">Login</a>
 				<input type="submit" value="Confirm" >
 			</div>
 		</form>

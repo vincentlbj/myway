@@ -27,8 +27,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size:14px;
 }
-.row1 h1 {
+.row1 h1{
 	font-family: 'Righteous', cursive;
+}
+.row1 span{
+	width: 80px;
+	display: inline-block;
+	text-align: right;
 }
 .row2 {
 	background-color:#5e4534;

@@ -11,8 +11,8 @@
 						
 						<div class="flex-row flex-align-middle">
 							<div class="flex-shrink flex-columns">
-								<a class="navbar-logo" href="index.html">
-									<img src="http://localhost:8080/myway/images/logo-white.png" alt="Logo" />
+								<a class="navbar-logo" href="<%=request.getContextPath()%>/index">
+									<img src="<%=request.getContextPath()%>/images/logo-white.png" alt="Logo" />
 								</a>
 							</div>
 							<div class="flex-columns">

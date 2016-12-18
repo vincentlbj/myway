@@ -57,7 +57,11 @@ public class TourController {
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("priceList", priceList);
 		model.addAttribute("pictureList", pictureList);
-		return "tour-detail";
+		return "/tour-detail";
 	}
 
+	@RequestMapping("/pay/{priceId}")
+	public String payPage(@PathVariable int priceId) {
+		return "/tour-payment";
+	}
 }

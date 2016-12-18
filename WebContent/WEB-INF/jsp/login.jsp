@@ -16,21 +16,31 @@
 </head>
 <body>
 	<div class="content">
-		<c:if test="${formatErrors!=null}">
-			<c:forEach items="${formatErrors}" var="error">
-				${error.defaultMessage }
-			</c:forEach>
-		</c:if>
 		<form action="<%=request.getContextPath()%>/user/login" method="post">
 			<div class="row1">
 				<h1>LOGIN</h1>
-					<input type="text" name="userName" value="USERNAME" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'USERNAME';}">
-					<input type="password" name="password" value="PASSWORD" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'PASSWORD';}">
+					<span>账号：</span><input type="text" name="userName" value="<c:if test='${user!=null}'>${user.userName }</c:if>" class="a">
+					<c:if test="${userNameError!=null }">
+						<br>
+						<font style="color: yellow;">${userNameError }</font>
+					</c:if>
+					<br>
+					<span>密码：</span><input type="password" name="password" value="<c:if test='${user!=null}'>${user.password }</c:if>" class="a">
+					<c:if test="${passwordError!=null }">
+						<br>
+						<font style="color: yellow;">${passwordError }</font>
+					</c:if>
+					<c:if test="${loginError!=null }">
+						<br>
+						<font style="color: yellow;">${loginError.message }</font>
+					</c:if>
 			</div>
 			<div class="row2">
-				<a href="#">Register</a>
+				<a href="<%=request.getContextPath()%>/registerPage">Register</a>
 				<input type="submit" value="Login">
 			</div>
+			<!-- 记录上一个页面 -->
+			<input type="hidden" name="referer" value="${referer }">
 		</form>
 	</div>
 	<div class="footer">
