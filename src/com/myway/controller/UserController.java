@@ -45,7 +45,11 @@ public class UserController {
 		}
 		User userInfo = userService.getUser(user.getUserName());
 		session.setAttribute("userInfo", userInfo);
-		return "redirect:" + referer;
+		if (referer != null && !referer.equals("")) {
+			return "redirect:" + referer;
+		} else {
+			return "redirect:/index";
+		}
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)

@@ -20,29 +20,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:8080/myway/images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:8080/myway/images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:8080/myway/images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="http://localhost:8080/myway/images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="http://localhost:8080/myway/images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/ico/favicon.png">
 
 	<!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="http://localhost:8080/myway/bootstrap/css/bootstrap.min.css" media="screen">	
-	<link href="http://localhost:8080/myway/css/animate.css" rel="stylesheet">
-	<link href="http://localhost:8080/myway/css/main.css" rel="stylesheet">
-	<link href="http://localhost:8080/myway/css/component.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" media="screen">	
+	<link href="<%=request.getContextPath()%>/css/animate.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/component.css" rel="stylesheet">
 	
 	<!-- CSS Font Icons -->
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/ionicons/css/ionicons.css">
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/simple-line-icons/css/simple-line-icons.css">
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/themify-icons/themify-icons.css">
-	<link rel="stylesheet" href="http://localhost:8080/myway/icons/rivolicons/style.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/ionicons/css/ionicons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/simple-line-icons/css/simple-line-icons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/rivolicons/style.css">
 
 
 	<!-- CSS Custom -->
-	<link href="http://localhost:8080/myway/css/style.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -61,7 +61,7 @@
 		<div class="main-wrapper scrollspy-container">
 		
 			<!-- start end Page title -->
-			<div class="page-title detail-page-title" style="background-image:url('http://localhost:8080/myway/images/detail/header.jpg');">
+			<div class="page-title detail-page-title" style="background-image:url('<%=request.getContextPath()%>/images/detail/header.jpg');">
 				
 				<div class="container">
 				
@@ -319,7 +319,7 @@
 													<div class="package-grid-item"> 
 														<a href="#">
 															<div class="image">
-																<img src="http://localhost:8080/myway/images/tour-package/01.jpg" alt="Tour Package" />
+																<img src="<%=request.getContextPath()%>/images/tour-package/01.jpg" alt="Tour Package" />
 																<div class="absolute-in-image">
 																	<div class="duration"><span>4 days 3 nights</span></div>
 																</div>
@@ -344,7 +344,7 @@
 													<div class="package-grid-item"> 
 														<a href="#">
 															<div class="image">
-																<img src="http://localhost:8080/myway/images/tour-package/02.jpg" alt="Tour Package" />
+																<img src="<%=request.getContextPath()%>/images/tour-package/02.jpg" alt="Tour Package" />
 																<div class="absolute-in-image">
 																	<div class="duration"><span>4 days 3 nights</span></div>
 																</div>
@@ -369,7 +369,7 @@
 													<div class="package-grid-item"> 
 														<a href="#">
 															<div class="image">
-																<img src="http://localhost:8080/myway/images/tour-package/03.jpg" alt="Tour Package" />
+																<img src="<%=request.getContextPath()%>/images/tour-package/03.jpg" alt="Tour Package" />
 																<div class="absolute-in-image">
 																	<div class="duration"><span>4 days 3 nights</span></div>
 																</div>
@@ -557,7 +557,7 @@
 												
 													<li class="clearfix">
 														<div class="image img-circle">
-															<img class="img-circle" src="http://localhost:8080/myway/images/man/01.jpg" alt="Man" />
+															<img class="img-circle" src="<%=request.getContextPath()%>/images/man/01.jpg" alt="Man" />
 														</div>
 														<div class="content">
 															<div class="row gap-20 mb-0">
@@ -619,7 +619,7 @@
 													
 													<li class="clearfix">
 														<div class="image img-circle">
-															<img class="img-circle" src="http://localhost:8080/myway/images/man/02.jpg" alt="Man" />
+															<img class="img-circle" src="<%=request.getContextPath()%>/images/man/02.jpg" alt="Man" />
 														</div>
 														<div class="content">
 															<div class="row gap-20">
@@ -711,7 +711,7 @@
 													
 													<li class="clearfix">
 														<div class="image img-circle">
-															<img class="img-circle" src="http://localhost:8080/myway/images/man/03.jpg" alt="Man" />
+															<img class="img-circle" src="<%=request.getContextPath()%>/images/man/03.jpg" alt="Man" />
 														</div>
 														<div class="content">
 															<div class="row gap-20">
@@ -769,7 +769,7 @@
 													
 													<li class="clearfix">
 														<div class="image">
-															<img class="img-circle" src="http://localhost:8080/myway/images/man/04.jpg" alt="Man" />
+															<img class="img-circle" src="<%=request.getContextPath()%>/images/man/04.jpg" alt="Man" />
 														</div>
 														<div class="content">
 															<div class="row gap-20">
@@ -969,25 +969,25 @@
 
  
 <!-- JS -->
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.placeholder.min.js"></script>
 <!--<script type="text/javascript" src="js/instagram.min.js"></script>-->
-<script type="text/javascript" src="http://localhost:8080/myway/js/spin.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/select2.full.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.responsivegrid.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/readmore.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/slick.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/validator.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/myway/js/jquery.raty.js"></script> 
-<script type="text/javascript" src="http://localhost:8080/myway/js/customs.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/spin.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/select2.full.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/readmore.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/slick.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
 
 <script>
 

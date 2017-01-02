@@ -14,29 +14,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="images/ico/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/ico/favicon.png">
 
 	<!-- CSS Plugins -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen">	
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/component.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" media="screen">	
+	<link href="<%=request.getContextPath()%>/css/animate.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/component.css" rel="stylesheet">
 	
 	<!-- CSS Font Icons -->
 	<!-- CSS Font Icons -->
-	<link rel="stylesheet" href="icons/ionicons/css/ionicons.css">
-	<link rel="stylesheet" href="icons/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-	<link rel="stylesheet" href="icons/simple-line-icons/css/simple-line-icons.css">
-	<link rel="stylesheet" href="icons/themify-icons/themify-icons.css">
-	<link rel="stylesheet" href="icons/rivolicons/style.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/ionicons/css/ionicons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/simple-line-icons/css/simple-line-icons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/rivolicons/style.css">
 
 	<!-- CSS Custom -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -203,7 +203,7 @@
 								
 									<div class="form-group">
 									
-										<a href="#" class="btn btn-primary btn-block">Search</a>
+										<a href="<%=request.getContextPath()%>/#" class="btn btn-primary btn-block">Search</a>
 										
 									</div>
 								
@@ -285,7 +285,7 @@
 					<div class="grid destination-grid-wrapper">
 			
 						<div class="grid-item" data-colspan="10" data-rowspan="10">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/index/01.jpg');">
+							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/index/01.jpg');">
 								<div class="relative">
 									<h4>昆明</h4>
 									<span>1500元以上</span>
@@ -294,7 +294,7 @@
 						</div>
 						
 						<div class="grid-item" data-colspan="10" data-rowspan="4">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
+							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
 								<div class="relative">
 									<h4>Croatia</h4>
 									<span>Starting from $322</span>
@@ -303,7 +303,7 @@
 						</div>
 						
 						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/03.jpg');">
+							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/03.jpg');">
 								<div class="relative">
 									<h4>USA</h4>
 									<span>Starting from $322</span>
@@ -312,7 +312,7 @@
 						</div>
 						
 						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
+							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
 								<div class="relative">
 									<h4>Emirates</h4>
 									<span>Starting from $322</span>
@@ -350,7 +350,7 @@
 						
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/01.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -375,7 +375,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/02.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -400,7 +400,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/03.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -425,7 +425,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/04.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -450,7 +450,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/05.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -475,7 +475,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/06.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -500,7 +500,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/07.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -525,7 +525,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/08.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -550,7 +550,7 @@
 							
 							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
 								<div class="package-grid-item"> 
-									<a href="detail-page.html">
+									<a href="<%=request.getContextPath()%>/detail-page.html">
 										<div class="image">
 											<img src="images/tour-package/09.jpg" alt="Tour Package" />
 											<div class="absolute-in-image">
@@ -730,7 +730,7 @@
  
 	<!-- start Back To Top -->
 	<div id="back-to-top">
-		 <a href="#"><i class="fa fa-angle-up"></i></a>
+		 <a href="<%=request.getContextPath()%>/#"><i class="fa fa-angle-up"></i></a>
 	</div>
 	<!-- end Back To Top -->
 

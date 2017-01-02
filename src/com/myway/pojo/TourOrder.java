@@ -2,18 +2,20 @@ package com.myway.pojo;
 
 import java.util.Date;
 
-public class Order {
+public class TourOrder {
     private Integer oId;
 
-    private String uId;
+    private Integer uId;
 
-    private String people;
+    private Integer people;
 
     private String oType;
 
     private Integer pId;
 
     private Date oDate;
+
+    private String token;
 
     public Integer getoId() {
         return oId;
@@ -23,20 +25,20 @@ public class Order {
         this.oId = oId;
     }
 
-    public String getuId() {
+    public Integer getuId() {
         return uId;
     }
 
-    public void setuId(String uId) {
-        this.uId = uId == null ? null : uId.trim();
+    public void setuId(Integer uId) {
+        this.uId = uId;
     }
 
-    public String getPeople() {
+    public Integer getPeople() {
         return people;
     }
 
-    public void setPeople(String people) {
-        this.people = people == null ? null : people.trim();
+    public void setPeople(Integer people) {
+        this.people = people;
     }
 
     public String getoType() {
@@ -61,5 +63,13 @@ public class Order {
 
     public void setoDate(Date oDate) {
         this.oDate = oDate;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
     }
 }

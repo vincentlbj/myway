@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.myway.mapper.OrderMapper" >
-  <resultMap id="BaseResultMap" type="com.myway.pojo.Order" >
+<mapper namespace="com.myway.mapper.TourOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.myway.pojo.TourOrder" >
     <id column="o_id" property="oId" jdbcType="INTEGER" />
-    <result column="u_id" property="uId" jdbcType="VARCHAR" />
-    <result column="people" property="people" jdbcType="VARCHAR" />
+    <result column="u_id" property="uId" jdbcType="INTEGER" />
+    <result column="people" property="people" jdbcType="INTEGER" />
     <result column="o_type" property="oType" jdbcType="VARCHAR" />
     <result column="p_id" property="pId" jdbcType="INTEGER" />
     <result column="o_date" property="oDate" jdbcType="TIMESTAMP" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    o_id, u_id, people, o_type, p_id, o_date
+    o_id, u_id, people, o_type, p_id, o_date, token
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myway.pojo.OrderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.myway.pojo.TourOrderExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from tour_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,29 +88,35 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from order
+    from tour_order
     where o_id = #{oId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order
+    delete from tour_order
     where o_id = #{oId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.myway.pojo.OrderExample" >
-    delete from order
+  <delete id="deleteByExample" parameterType="com.myway.pojo.TourOrderExample" >
+    delete from tour_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.myway.pojo.Order" >
-    insert into order (o_id, u_id, people, 
-      o_type, p_id, o_date
-      )
-    values (#{oId,jdbcType=INTEGER}, #{uId,jdbcType=VARCHAR}, #{people,jdbcType=VARCHAR}, 
-      #{oType,jdbcType=VARCHAR}, #{pId,jdbcType=INTEGER}, #{oDate,jdbcType=TIMESTAMP}
-      )
+  <insert id="insert" parameterType="com.myway.pojo.TourOrder" >
+  	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="oId">
+		SELECT LAST_INSERT_ID() AS id
+	</selectKey>
+    insert into tour_order (o_id, u_id, people, 
+      o_type, p_id, o_date, 
+      token)
+    values (#{oId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{people,jdbcType=INTEGER}, 
+      #{oType,jdbcType=VARCHAR}, #{pId,jdbcType=INTEGER}, #{oDate,jdbcType=TIMESTAMP}, 
+      #{token,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.myway.pojo.Order" >
-    insert into order
+  <insert id="insertSelective" parameterType="com.myway.pojo.TourOrder" >
+  	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="oId">
+		SELECT LAST_INSERT_ID() AS id
+	</selectKey>
+    insert into tour_order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="oId != null" >
         o_id,
@@ -129,16 +136,19 @@
       <if test="oDate != null" >
         o_date,
       </if>
+      <if test="token != null" >
+        token,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="oId != null" >
         #{oId,jdbcType=INTEGER},
       </if>
       <if test="uId != null" >
-        #{uId,jdbcType=VARCHAR},
+        #{uId,jdbcType=INTEGER},
       </if>
       <if test="people != null" >
-        #{people,jdbcType=VARCHAR},
+        #{people,jdbcType=INTEGER},
       </if>
       <if test="oType != null" >
         #{oType,jdbcType=VARCHAR},
@@ -149,25 +159,28 @@
       <if test="oDate != null" >
         #{oDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.myway.pojo.OrderExample" resultType="java.lang.Integer" >
-    select count(*) from order
+  <select id="countByExample" parameterType="com.myway.pojo.TourOrderExample" resultType="java.lang.Integer" >
+    select count(*) from tour_order
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update order
+    update tour_order
     <set >
       <if test="record.oId != null" >
         o_id = #{record.oId,jdbcType=INTEGER},
       </if>
       <if test="record.uId != null" >
-        u_id = #{record.uId,jdbcType=VARCHAR},
+        u_id = #{record.uId,jdbcType=INTEGER},
       </if>
       <if test="record.people != null" >
-        people = #{record.people,jdbcType=VARCHAR},
+        people = #{record.people,jdbcType=INTEGER},
       </if>
       <if test="record.oType != null" >
         o_type = #{record.oType,jdbcType=VARCHAR},
@@ -178,31 +191,35 @@
       <if test="record.oDate != null" >
         o_date = #{record.oDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.token != null" >
+        token = #{record.token,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update order
+    update tour_order
     set o_id = #{record.oId,jdbcType=INTEGER},
-      u_id = #{record.uId,jdbcType=VARCHAR},
-      people = #{record.people,jdbcType=VARCHAR},
+      u_id = #{record.uId,jdbcType=INTEGER},
+      people = #{record.people,jdbcType=INTEGER},
       o_type = #{record.oType,jdbcType=VARCHAR},
       p_id = #{record.pId,jdbcType=INTEGER},
-      o_date = #{record.oDate,jdbcType=TIMESTAMP}
+      o_date = #{record.oDate,jdbcType=TIMESTAMP},
+      token = #{record.token,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.myway.pojo.Order" >
-    update order
+  <update id="updateByPrimaryKeySelective" parameterType="com.myway.pojo.TourOrder" >
+    update tour_order
     <set >
       <if test="uId != null" >
-        u_id = #{uId,jdbcType=VARCHAR},
+        u_id = #{uId,jdbcType=INTEGER},
       </if>
       <if test="people != null" >
-        people = #{people,jdbcType=VARCHAR},
+        people = #{people,jdbcType=INTEGER},
       </if>
       <if test="oType != null" >
         o_type = #{oType,jdbcType=VARCHAR},
@@ -213,16 +230,20 @@
       <if test="oDate != null" >
         o_date = #{oDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=VARCHAR},
+      </if>
     </set>
     where o_id = #{oId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.myway.pojo.Order" >
-    update order
-    set u_id = #{uId,jdbcType=VARCHAR},
-      people = #{people,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.myway.pojo.TourOrder" >
+    update tour_order
+    set u_id = #{uId,jdbcType=INTEGER},
+      people = #{people,jdbcType=INTEGER},
       o_type = #{oType,jdbcType=VARCHAR},
       p_id = #{pId,jdbcType=INTEGER},
-      o_date = #{oDate,jdbcType=TIMESTAMP}
+      o_date = #{oDate,jdbcType=TIMESTAMP},
+      token = #{token,jdbcType=VARCHAR}
     where o_id = #{oId,jdbcType=INTEGER}
   </update>
 </mapper>
