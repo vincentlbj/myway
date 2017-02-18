@@ -27,7 +27,7 @@
 											</c:if>
 											<c:if test="${sessionScope.userInfo!=null }">												
 												<li class="user-action">
-													<a href="#" class="btn">欢迎你,${sessionScope.userInfo.userName }</a>
+													<a href="<%=request.getContextPath()%>/user/info" class="btn">欢迎你,${sessionScope.userInfo.userName }</a>
 													<a href="<%=request.getContextPath()%>/user/logout" class="btn">注销</a>
 												</li>
 											</c:if>
@@ -54,30 +54,36 @@
 									<ul class="nav navbar-nav" id="responsive-menu">
 										<li><a href="<%=request.getContextPath()%>/index">主页</a>
 										</li>
-										<li><a href="result-grid.html">度假</a>
-											<ul>
-												<li><a href="result-list.html">线路预订</a></li>
-												<li><a href="result-grid.html">Result - Grid</a></li>
-												<li><a href="detail-page.html">Detail Page</a></li>
-											</ul>
+										<li><a href="<%=request.getContextPath()%>/tour/result/grid">度假</a>
 										</li>
 										<li><a href="#">酒店</a>
 										</li>
-										<li><a href="#">交通出行</a>
+										<li><a href="<%=request.getContextPath()%>/traffic/checkTraffic">交通出行</a>
 										</li>
-										<li><a href="#">驴友日记</a>
+										<li>
+											<a href="<%=request.getContextPath()%>/blog/result">驴友日记</a>
+											<ul>
+												<li><a href="<%=request.getContextPath()%>/blog/writeBlog">写日记</a></li>
+												<li><a href="<%=request.getContextPath()%>/blog/result">看日记</a></li>
+											</ul>
 										</li>
 										<li><a href="#">门票</a>
 										</li>
-										<li><a href="#">路况天气</a>
-										</li>
 										<li><a href="#">周边推荐</a>
 										</li>
-										<li><a href="#">个人中心</a>
+										<li>
+											<a href="#">个人中心</a>
+											<ul>
+												<li><a href="<%=request.getContextPath()%>/user/info">我的信息</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/info">我的行程</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/info">我的酒店</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/info">我的门票</a></li>
+											</ul>
 										</li>
 										<li><a href="#">联系我们</a></li>
 										<li><a href="#">关于我们</a></li>
 									</ul>
+									
 								</div>
 								
 							</div>
@@ -85,14 +91,23 @@
 							<div class="col-sm-3">
 							
 								<div class="navbar-phone"><i class="fa fa-phone"></i> 联系我们: +66 28 878 5452</div>
-							
 							</div>
 
-						</div>
-						
 					</div>
-				
+					
+					<div class="row">
+						<div class="col-sm-8" style="margin-top:10px;">
+							<img src="<%=request.getContextPath()%>/images/common-stripe.jpg" style="height:75px;">
+						</div>
+						<div class="col-sm-4">
+							<iframe allowtransparency="true" frameborder="0" width="410" height="98" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=1&v=0&d=2&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=410&h=98&align=center">
+							</iframe>
+						</div>
+					</div>
+						
 				</div>
+				
+			</div>
 
 				<div id="slicknav-mobile"></div>
 				

@@ -499,7 +499,9 @@
  * Bootstrap ScrollSpy
  */
 
-.scrollspy-sidebar {}
+.scrollspy-sidebar {
+	margin-top: 60px;
+}
 
 .scrollspy-sidebar.affix {
     position: static;

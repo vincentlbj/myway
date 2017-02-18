@@ -40,4 +40,16 @@ public class UserServiceImpl implements UserService {
 		return list.get(0);
 	}
 
+	@Override
+	public void updateUser(User user) {
+		UserExample example = new UserExample();
+		example.or().andUIdEqualTo(user.getuId());
+		userMapper.updateByExampleSelective(user, example);
+	}
+
+	@Override
+	public User getUserById(Integer id) {
+		return userMapper.selectByPrimaryKey(id);
+	}
+
 }

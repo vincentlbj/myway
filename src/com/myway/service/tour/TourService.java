@@ -15,4 +15,9 @@ public interface TourService {
 	TourPrice getTourPriceByPriceId(int id);
 
 	int confirmTourOrder(String token, TourOrder tourOrder, TourMember tourMember);
+
+	List<Tour> getTourByCriteria(Tour queryTour, Integer pageNum, Integer pageSize);
+
+	List<Tour> searchTourByNames(String[] names, Integer pageNum, Integer pageSize);
+
 }

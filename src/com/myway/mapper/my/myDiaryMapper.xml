@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myway.mapper.my.myDiaryMapper" >
+	<select id="hotCity" resultType="com.myway.dto.CommonDto">
+		SELECT place as "key",COUNT(place) as "value"
+		FROM diary
+		GROUP BY(place)
+		ORDER BY COUNT(place) desc
+		LIMIT 5
+	</select>
+	<select id="newBlog" resultType="com.myway.pojo.Diary">
+		SELECT d_id dId,u_id uId,username,title,picture,content,create_date createDate,update_date updateDate,place
+		FROM diary
+		ORDER BY createDate desc
+		LIMIT 5
+	</select>
+	<select id="getRemarkCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM diary_remark
+		WHERE d_id = #{dId};
+	</select>
+</mapper>

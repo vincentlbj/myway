@@ -4,10 +4,15 @@
   <resultMap id="BaseResultMap" type="com.myway.pojo.Diary" >
     <id column="d_id" property="dId" jdbcType="INTEGER" />
     <result column="u_id" property="uId" jdbcType="INTEGER" />
-    <result column="d_picture" property="dPicture" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="place" property="place" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.myway.pojo.Diary" extends="BaseResultMap" >
-    <result column="d_content" property="dContent" jdbcType="LONGVARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,10 +73,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    d_id, u_id, d_picture
+    d_id, u_id, username, title, picture, create_date, update_date, place
   </sql>
   <sql id="Blob_Column_List" >
-    d_content
+    content
   </sql>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.myway.pojo.DiaryExample" >
     select
@@ -122,10 +127,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.myway.pojo.Diary" >
-    insert into diary (d_id, u_id, d_picture, 
-      d_content)
-    values (#{dId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{dPicture,jdbcType=VARCHAR}, 
-      #{dContent,jdbcType=LONGVARCHAR})
+    insert into diary (d_id, u_id, username, 
+      title, picture, create_date, 
+      update_date, place, content
+      )
+    values (#{dId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{place,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.myway.pojo.Diary" >
     insert into diary
@@ -136,11 +145,26 @@
       <if test="uId != null" >
         u_id,
       </if>
-      <if test="dPicture != null" >
-        d_picture,
+      <if test="username != null" >
+        username,
       </if>
-      <if test="dContent != null" >
-        d_content,
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="place != null" >
+        place,
+      </if>
+      <if test="content != null" >
+        content,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -150,11 +174,26 @@
       <if test="uId != null" >
         #{uId,jdbcType=INTEGER},
       </if>
-      <if test="dPicture != null" >
-        #{dPicture,jdbcType=VARCHAR},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
-      <if test="dContent != null" >
-        #{dContent,jdbcType=LONGVARCHAR},
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="place != null" >
+        #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -173,11 +212,26 @@
       <if test="record.uId != null" >
         u_id = #{record.uId,jdbcType=INTEGER},
       </if>
-      <if test="record.dPicture != null" >
-        d_picture = #{record.dPicture,jdbcType=VARCHAR},
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.dContent != null" >
-        d_content = #{record.dContent,jdbcType=LONGVARCHAR},
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picture != null" >
+        picture = #{record.picture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.place != null" >
+        place = #{record.place,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -188,8 +242,13 @@
     update diary
     set d_id = #{record.dId,jdbcType=INTEGER},
       u_id = #{record.uId,jdbcType=INTEGER},
-      d_picture = #{record.dPicture,jdbcType=VARCHAR},
-      d_content = #{record.dContent,jdbcType=LONGVARCHAR}
+      username = #{record.username,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      picture = #{record.picture,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      place = #{record.place,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,7 +257,12 @@
     update diary
     set d_id = #{record.dId,jdbcType=INTEGER},
       u_id = #{record.uId,jdbcType=INTEGER},
-      d_picture = #{record.dPicture,jdbcType=VARCHAR}
+      username = #{record.username,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      picture = #{record.picture,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      place = #{record.place,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -209,11 +273,26 @@
       <if test="uId != null" >
         u_id = #{uId,jdbcType=INTEGER},
       </if>
-      <if test="dPicture != null" >
-        d_picture = #{dPicture,jdbcType=VARCHAR},
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="dContent != null" >
-        d_content = #{dContent,jdbcType=LONGVARCHAR},
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="place != null" >
+        place = #{place,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where d_id = #{dId,jdbcType=INTEGER}
@@ -221,14 +300,24 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.myway.pojo.Diary" >
     update diary
     set u_id = #{uId,jdbcType=INTEGER},
-      d_picture = #{dPicture,jdbcType=VARCHAR},
-      d_content = #{dContent,jdbcType=LONGVARCHAR}
+      username = #{username,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      place = #{place,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.myway.pojo.Diary" >
     update diary
     set u_id = #{uId,jdbcType=INTEGER},
-      d_picture = #{dPicture,jdbcType=VARCHAR}
+      username = #{username,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      place = #{place,jdbcType=VARCHAR}
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
 </mapper>

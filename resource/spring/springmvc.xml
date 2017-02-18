@@ -9,7 +9,8 @@
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:resource/*.properties" />
 	
-	<context:component-scan base-package="com.myway" />
+	<!-- 扫描controller -->
+	<context:component-scan base-package="com.myway.controller" ></context:component-scan>
 	
 	<mvc:annotation-driven validator="validator"></mvc:annotation-driven>
 	
@@ -30,9 +31,21 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8" />
+        <!-- 指定所上传文件的总大小,单位字节。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+        <property name="maxUploadSize" value="10240000" />
+    </bean>
+	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/tour/pay/*"/>
+			<mvc:mapping path="/blog/writeBlog"/>
+			<mvc:mapping path="/blog/writeBlogSubmit"/>
+			<mvc:mapping path="/blog/blogRemarkSubmit"/>
+			<mvc:mapping path="/user/info"/>
 			<bean class="com.myway.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

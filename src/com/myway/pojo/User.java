@@ -9,6 +9,8 @@ public class User {
 
     private String password;
 
+    private String picture;
+
     public Integer getuId() {
         return uId;
     }
@@ -39,5 +41,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture == null ? null : picture.trim();
     }
 }

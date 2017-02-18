@@ -15,6 +15,8 @@ public class Tour {
 
     private Integer price;
 
+    private String picture;
+
     private Float remark;
 
     private Integer comment;
@@ -77,6 +79,14 @@ public class Tour {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture == null ? null : picture.trim();
     }
 
     public Float getRemark() {

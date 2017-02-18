@@ -61,23 +61,23 @@
 					<div class="flexslider">
 						<ul class="slides">
 							<li class="slide">
-								<div class="flexslider-image-bg" style="background: url(images/hero-header/01.jpg) center center no-repeat; background-size:cover"></div>
+								<div class="flexslider-image-bg" style="background: url(<%=request.getContextPath()%>/images/hero-header/01.jpg) center center no-repeat; background-size:cover"></div>
 							</li><!-- slide1 end -->
 
 							<li class="slide">
-								<div class="flexslider-image-bg" style="background: url(images/hero-header/02.jpg) center center no-repeat; background-size:cover"></div>
+								<div class="flexslider-image-bg" style="background: url(<%=request.getContextPath()%>/images/hero-header/02.jpg) center center no-repeat; background-size:cover"></div>
 							</li><!-- slide2 end -->
 
 							<li class="slide">
-								<div class="flexslider-image-bg" style="background: url(images/hero-header/03.jpg) center center no-repeat; background-size:cover"></div>
+								<div class="flexslider-image-bg" style="background: url(<%=request.getContextPath()%>/images/hero-header/03.jpg) center center no-repeat; background-size:cover"></div>
 							</li><!-- slide3 end -->
 
 							<li class="slide">
-								<div class="flexslider-image-bg" style="background: url(images/hero-header/04.jpg) center center no-repeat; background-size:cover"></div>
+								<div class="flexslider-image-bg" style="background: url(<%=request.getContextPath()%>/images/hero-header/04.jpg) center center no-repeat; background-size:cover"></div>
 							</li><!-- slide4 end -->
 							
 							<li class="slide">
-								<div class="flexslider-image-bg" style="background: url(images/hero-header/05.jpg) center center no-repeat; background-size:cover"></div>
+								<div class="flexslider-image-bg" style="background: url(<%=request.getContextPath()%>/images/hero-header/05.jpg) center center no-repeat; background-size:cover"></div>
 							</li><!-- slide5 end -->
 							
 							
@@ -721,9 +721,7 @@
 			
 		</div>
 		<!-- end Main Wrapper -->
-
 		<%@ include file="/common-footer.jsp" %>
-		
 	</div>  <!-- end Container Wrapper -->
  
 
@@ -737,27 +735,27 @@
 
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.placeholder.min.js"></script>
 <!--<script type="text/javascript" src="js/instagram.min.js"></script>-->
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/validator.min.js"></script>
-<script type="text/javascript" src="js/jquery.raty.js"></script> 
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/spin.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/select2.full.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/readmore.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/slick.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
 
-<script type="text/javascript" src="js/jquery.flexslider-min.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.flexslider-min.js"></script> 
 <script>
 $(document).ready(function(){
 

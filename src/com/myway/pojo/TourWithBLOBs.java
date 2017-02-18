@@ -7,8 +7,6 @@ public class TourWithBLOBs extends Tour {
 
     private String routeContent;
 
-    private String picture;
-
     private String notice;
 
     public String getIntroduction() {
@@ -33,14 +31,6 @@ public class TourWithBLOBs extends Tour {
 
     public void setRouteContent(String routeContent) {
         this.routeContent = routeContent == null ? null : routeContent.trim();
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture == null ? null : picture.trim();
     }
 
     public String getNotice() {

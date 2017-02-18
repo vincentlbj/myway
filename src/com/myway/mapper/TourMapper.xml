@@ -9,6 +9,7 @@
     <result column="taocan" property="taocan" jdbcType="VARCHAR" />
     <result column="during" property="during" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="REAL" />
     <result column="comment" property="comment" jdbcType="INTEGER" />
     <result column="deal" property="deal" jdbcType="INTEGER" />
@@ -18,7 +19,6 @@
     <result column="introduction" property="introduction" jdbcType="LONGVARCHAR" />
     <result column="route_include" property="routeInclude" jdbcType="LONGVARCHAR" />
     <result column="route_content" property="routeContent" jdbcType="LONGVARCHAR" />
-    <result column="picture" property="picture" jdbcType="LONGVARCHAR" />
     <result column="notice" property="notice" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -80,10 +80,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, product_id, name, subname, taocan, during, price, remark, comment, deal, satisfactory
+    id, product_id, name, subname, taocan, during, price, picture, remark, comment, deal, 
+    satisfactory
   </sql>
   <sql id="Blob_Column_List" >
-    introduction, route_include, route_content, picture, notice
+    introduction, route_include, route_content, notice
   </sql>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.myway.pojo.TourExample" >
     select
@@ -136,15 +137,15 @@
   <insert id="insert" parameterType="com.myway.pojo.TourWithBLOBs" >
     insert into tour (id, product_id, name, 
       subname, taocan, during, 
-      price, remark, comment, 
-      deal, satisfactory, introduction, 
-      route_include, route_content, picture, 
+      price, picture, remark, 
+      comment, deal, satisfactory, 
+      introduction, route_include, route_content, 
       notice)
     values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{subname,jdbcType=VARCHAR}, #{taocan,jdbcType=VARCHAR}, #{during,jdbcType=VARCHAR}, 
-      #{price,jdbcType=INTEGER}, #{remark,jdbcType=REAL}, #{comment,jdbcType=INTEGER}, 
-      #{deal,jdbcType=INTEGER}, #{satisfactory,jdbcType=INTEGER}, #{introduction,jdbcType=LONGVARCHAR}, 
-      #{routeInclude,jdbcType=LONGVARCHAR}, #{routeContent,jdbcType=LONGVARCHAR}, #{picture,jdbcType=LONGVARCHAR}, 
+      #{price,jdbcType=INTEGER}, #{picture,jdbcType=VARCHAR}, #{remark,jdbcType=REAL}, 
+      #{comment,jdbcType=INTEGER}, #{deal,jdbcType=INTEGER}, #{satisfactory,jdbcType=INTEGER}, 
+      #{introduction,jdbcType=LONGVARCHAR}, #{routeInclude,jdbcType=LONGVARCHAR}, #{routeContent,jdbcType=LONGVARCHAR}, 
       #{notice,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.myway.pojo.TourWithBLOBs" >
@@ -171,6 +172,9 @@
       <if test="price != null" >
         price,
       </if>
+      <if test="picture != null" >
+        picture,
+      </if>
       <if test="remark != null" >
         remark,
       </if>
@@ -191,9 +195,6 @@
       </if>
       <if test="routeContent != null" >
         route_content,
-      </if>
-      <if test="picture != null" >
-        picture,
       </if>
       <if test="notice != null" >
         notice,
@@ -221,6 +222,9 @@
       <if test="price != null" >
         #{price,jdbcType=INTEGER},
       </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null" >
         #{remark,jdbcType=REAL},
       </if>
@@ -241,9 +245,6 @@
       </if>
       <if test="routeContent != null" >
         #{routeContent,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="picture != null" >
-        #{picture,jdbcType=LONGVARCHAR},
       </if>
       <if test="notice != null" >
         #{notice,jdbcType=LONGVARCHAR},
@@ -280,6 +281,9 @@
       <if test="record.price != null" >
         price = #{record.price,jdbcType=INTEGER},
       </if>
+      <if test="record.picture != null" >
+        picture = #{record.picture,jdbcType=VARCHAR},
+      </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=REAL},
       </if>
@@ -301,9 +305,6 @@
       <if test="record.routeContent != null" >
         route_content = #{record.routeContent,jdbcType=LONGVARCHAR},
       </if>
-      <if test="record.picture != null" >
-        picture = #{record.picture,jdbcType=LONGVARCHAR},
-      </if>
       <if test="record.notice != null" >
         notice = #{record.notice,jdbcType=LONGVARCHAR},
       </if>
@@ -321,6 +322,7 @@
       taocan = #{record.taocan,jdbcType=VARCHAR},
       during = #{record.during,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=INTEGER},
+      picture = #{record.picture,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=REAL},
       comment = #{record.comment,jdbcType=INTEGER},
       deal = #{record.deal,jdbcType=INTEGER},
@@ -328,7 +330,6 @@
       introduction = #{record.introduction,jdbcType=LONGVARCHAR},
       route_include = #{record.routeInclude,jdbcType=LONGVARCHAR},
       route_content = #{record.routeContent,jdbcType=LONGVARCHAR},
-      picture = #{record.picture,jdbcType=LONGVARCHAR},
       notice = #{record.notice,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -343,6 +344,7 @@
       taocan = #{record.taocan,jdbcType=VARCHAR},
       during = #{record.during,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=INTEGER},
+      picture = #{record.picture,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=REAL},
       comment = #{record.comment,jdbcType=INTEGER},
       deal = #{record.deal,jdbcType=INTEGER},
@@ -372,6 +374,9 @@
       <if test="price != null" >
         price = #{price,jdbcType=INTEGER},
       </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=REAL},
       </if>
@@ -393,9 +398,6 @@
       <if test="routeContent != null" >
         route_content = #{routeContent,jdbcType=LONGVARCHAR},
       </if>
-      <if test="picture != null" >
-        picture = #{picture,jdbcType=LONGVARCHAR},
-      </if>
       <if test="notice != null" >
         notice = #{notice,jdbcType=LONGVARCHAR},
       </if>
@@ -410,6 +412,7 @@
       taocan = #{taocan,jdbcType=VARCHAR},
       during = #{during,jdbcType=VARCHAR},
       price = #{price,jdbcType=INTEGER},
+      picture = #{picture,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=REAL},
       comment = #{comment,jdbcType=INTEGER},
       deal = #{deal,jdbcType=INTEGER},
@@ -417,7 +420,6 @@
       introduction = #{introduction,jdbcType=LONGVARCHAR},
       route_include = #{routeInclude,jdbcType=LONGVARCHAR},
       route_content = #{routeContent,jdbcType=LONGVARCHAR},
-      picture = #{picture,jdbcType=LONGVARCHAR},
       notice = #{notice,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -429,6 +431,7 @@
       taocan = #{taocan,jdbcType=VARCHAR},
       during = #{during,jdbcType=VARCHAR},
       price = #{price,jdbcType=INTEGER},
+      picture = #{picture,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=REAL},
       comment = #{comment,jdbcType=INTEGER},
       deal = #{deal,jdbcType=INTEGER},

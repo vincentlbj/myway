@@ -1,4 +1,7 @@
-package com.myway.controller;
+package com.myway.controller.user;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myway.pojo.User;
 import com.myway.service.user.UserService;
@@ -74,5 +79,30 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("userInfo");
 		return "redirect:/index";
+	}
+
+	@RequestMapping(value = "/info")
+	public String info() {
+		return "user-info";
+	}
+
+	@RequestMapping(value = "/modifyInfo")
+	@ResponseBody
+	public Map<String, Object> modifyInfo(@RequestBody User user, HttpSession session) {
+
+		Map<String, Object> result = new HashMap<String, Object>();
+		// 用户名和密码暂时不可以修改
+		user.setUserName(null);
+		user.setPassword(null);
+		try {
+			userService.updateUser(user);
+		} catch (Exception e) {
+			result.put("status", "fail");
+			return result;
+		}
+		result.put("status", "success");
+		User newUser = userService.getUserById(user.getuId());
+		session.setAttribute("userInfo", newUser);
+		return result;
 	}
 }

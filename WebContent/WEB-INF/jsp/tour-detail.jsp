@@ -148,7 +148,7 @@
 											<h4>简介</h4>
 										</div>
 											${introduction }
-										</div>
+									</div>
 									
 									<div id="section-1" class="detail-content">
 									

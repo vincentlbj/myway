@@ -1,6 +1,5 @@
-package com.myway.controller;
+package com.myway.controller.tour;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -13,11 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.Page;
 import com.myway.dto.CommonDto;
+import com.myway.dto.MyPage;
 import com.myway.pojo.Tour;
 import com.myway.pojo.TourMember;
 import com.myway.pojo.TourOrder;
@@ -33,10 +32,48 @@ public class TourController {
 	@Autowired
 	private TourService tourService;
 
+	@RequestMapping("/result/grid")
+	public String result(Tour queryTour, Integer pageNum, Integer pageSize, Model model) {
+		if (pageNum == null || pageNum < 0) {
+			pageNum = 1;
+		}
+		if (pageSize == null || pageSize < 0) {
+			pageSize = 9;
+		}
+		List<Tour> list = tourService.getTourByCriteria(queryTour, pageNum, pageSize);
+		MyPage myPage = new MyPage();
+		myPage.setResultList(list);
+		myPage.setAllCount(((Page) list).getTotal());
+		myPage.setCurrPage(pageNum.longValue());
+		model.addAttribute("myPage", myPage);
+		return "/tour-result-grid";
+	}
+
+	@RequestMapping("/result/search")
+	public String search(String names, Integer pageNum, Integer pageSize, Model model) {
+		if (pageNum == null || pageNum < 0) {
+			pageNum = 1;
+		}
+		if (pageSize == null || pageSize < 0) {
+			pageSize = 9;
+		}
+		String[] nameArray = names.split("#");
+		List<Tour> list = tourService.searchTourByNames(nameArray, pageNum, pageSize);
+
+		MyPage myPage = new MyPage();
+		myPage.setResultList(list);
+		myPage.setAllCount(((Page) list).getTotal());
+		myPage.setCurrPage(pageNum.longValue());
+		model.addAttribute("myPage", myPage);
+		return "/tour-result-grid";
+	}
+
 	@RequestMapping("/detail/{id}")
-	public String detail(@PathVariable int id, Model model)
-			throws JsonParseException, JsonMappingException, IOException {
+	public String detail(@PathVariable int id, Model model) throws Exception {
 		TourWithBLOBs tour = (TourWithBLOBs) tourService.getTourById(id);
+		if (tour == null) {
+			throw new Exception("线路编号不存在");
+		}
 		ObjectMapper mapper = new ObjectMapper();
 		List<CommonDto> routeIncludeList = mapper.readValue(tour.getRouteInclude(),
 				new TypeReference<List<CommonDto>>() {

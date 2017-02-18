@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
 import com.myway.mapper.TourMapper;
 import com.myway.mapper.TourMemberMapper;
 import com.myway.mapper.TourOrderMapper;
 import com.myway.mapper.TourPriceMapper;
+import com.myway.mapper.UserMapper;
 import com.myway.pojo.Tour;
+import com.myway.pojo.TourExample;
 import com.myway.pojo.TourMember;
 import com.myway.pojo.TourOrder;
 import com.myway.pojo.TourOrderExample;
@@ -31,6 +34,9 @@ public class TourServiceImpl implements TourService {
 
 	@Autowired
 	private TourOrderMapper tourOrderMapper;
+
+	@Autowired
+	private UserMapper userMapper;
 
 	@Override
 	public Tour getTourById(int id) {
@@ -73,6 +79,25 @@ public class TourServiceImpl implements TourService {
 		tourPriceExample.or().andIdEqualTo(tourPrice.getId());
 		tourPriceMapper.updateByExampleSelective(tourPrice, tourPriceExample);
 		return o_id;
+	}
+
+	@Override
+	public List<Tour> getTourByCriteria(Tour queryTour, Integer pageNum, Integer pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		TourExample tourExample = new TourExample();
+		List<Tour> list = tourMapper.selectByExample(tourExample);
+		return list;
+	}
+
+	@Override
+	public List<Tour> searchTourByNames(String[] names, Integer pageNum, Integer pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		TourExample tourExample = new TourExample();
+		for (String name : names) {
+			tourExample.or().andNameLike(name);
+		}
+		List<Tour> list = tourMapper.selectByExample(tourExample);
+		return list;
 	}
 
 }
