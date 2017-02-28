@@ -15,7 +15,7 @@
 						<img src="http://localhost:8080/myway/images/logo-white.png" alt="Logo" />
 					</div>
 					
-					<p class="footer-address">324 Yarang Road, T.Chabangtigo, Muanng Pattani 9400 <br/> <i class="fa fa-phone"></i> +66 28 878 5452 <br/> <i class="fa fa-phone"></i> +66 2 547 2223 <br/> <i class="fa fa-envelope-o"></i> <a href="#">support@tourpacker.com</a></p>
+					<p class="footer-address">华南农业大学华山学生公寓15栋302 <br/> <i class="fa fa-phone"></i> 18813752486 <br/> <i class="fa fa-phone"></i> 18813752486 <br/> <i class="fa fa-envelope-o"></i> <a href="#">450080380@qq.com</a></p>
 					
 					<div class="footer-social">
 					
@@ -36,16 +36,16 @@
 					
 						<div class="col-xs-12 col-sm-4 col-md-3 col-md-offset-3 mt-30-xs">
 						
-							<h5 class="footer-title">About Tour Packer</h5>
+							<h5 class="footer-title">相关信息</h5>
 							
 							<ul class="footer-menu">
 							
-								<li><a href="static-page.html">Who we are</a></li>
-								<li><a href="static-page.html">Careers</a></li>
-								<li><a href="static-page.html">Company history</a></li>
-								<li><a href="static-page.html">Legal</a></li>
-								<li><a href="static-page.html">Partners</a></li>
-								<li><a href="static-page.html">Privacy notice</a></li>
+								<li><a href="#">我们是谁</a></li>
+								<li><a href="#">业务范围</a></li>
+								<li><a href="#">公司历史</a></li>
+								<li><a href="#">法规</a></li>
+								<li><a href="#">合作伙伴</a></li>
+								<li><a href="#">版权限制</a></li>
 								
 							</ul>
 							
@@ -53,16 +53,15 @@
 						
 						<div class="col-xs-12 col-sm-4 col-md-3 mt-30-xs">
 
-							<h5 class="footer-title">Customer service</h5>
+							<h5 class="footer-title">客户服务</h5>
 							
 							<ul class="footer-menu">
 							
-								<li><a href="static-page.html">Payment</a></li>
-								<li><a href="static-page.html">Feedback</a></li>
-								<li><a href="static-page.html">Contact us</a></li>
-								<li><a href="static-page.html">Travel advisories</a></li>
-								<li><a href="static-page.html">FAQ</a></li>
-								<li><a href="static-page.html">Site map</a></li>
+								<li><a href="#">支付</a></li>
+								<li><a href="#">回馈</a></li>
+								<li><a href="#">联系我们</a></li>
+								<li><a href="#">旅游建议</a></li>
+								<li><a href="#">FAQ</a></li>
 								
 							</ul>
 							
@@ -70,16 +69,16 @@
 						
 						<div class="col-xs-12 col-sm-4 col-md-3 mt-30-xs">
 
-							<h5 class="footer-title">Others</h5>
+							<h5 class="footer-title">其他</h5>
 							
 							<ul class="footer-menu">
 							
-								<li><a href="static-page.html">Destinations</a></li>
-								<li><a href="static-page.html">Blog</a></li>
-								<li><a href="static-page.html">Pre Departure Planning</a></li>
-								<li><a href="static-page.html">Visas</a></li>
-								<li><a href="static-page.html">Insurance</a></li>
-								<li><a href="static-page.html">Travel Guide</a></li>
+								<li><a href="#">目的地</a></li>
+								<li><a href="#">博客</a></li>
+								<li><a href="#">提前计划</a></li>
+								<li><a href="#">银联</a></li>
+								<li><a href="#">保障</a></li>
+								<li><a href="#">旅游指导</a></li>
 								
 							</ul>
 							

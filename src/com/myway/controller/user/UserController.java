@@ -1,6 +1,7 @@
 package com.myway.controller.user;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.myway.dto.UserTourOrder;
 import com.myway.pojo.User;
+import com.myway.service.tour.TourOrderService;
 import com.myway.service.user.UserService;
 import com.myway.util.PageError;
 import com.myway.validation.Login;
@@ -28,6 +31,9 @@ import com.myway.validation.ValidationUtil;
 public class UserController {
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	TourOrderService tourOrderService;
 
 	private static final Logger logger = Logger.getLogger(UserController.class);
 
@@ -84,6 +90,14 @@ public class UserController {
 	@RequestMapping(value = "/info")
 	public String info() {
 		return "user-info";
+	}
+
+	@RequestMapping(value = "/tour")
+	public String tour(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("userInfo");
+		List<UserTourOrder> userTourOrderList = tourOrderService.getUserTourOrderByUserId(user.getuId());
+		model.addAttribute("userTourOrderList", userTourOrderList);
+		return "user-tour";
 	}
 
 	@RequestMapping(value = "/modifyInfo")

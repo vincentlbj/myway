@@ -14,13 +14,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
+ 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-114-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-57-precomposed.png">
 	<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/ico/favicon.png">
-
-	<!-- CSS Plugins -->
+	
+ 	<!-- CSS Plugins -->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" media="screen">	
 	<link href="<%=request.getContextPath()%>/css/animate.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
 	<!-- CSS Custom -->
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
-	<link href="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.css" rel="stylesheet" type="text/css" />
+	
 	
 	<style type="text/css">
 		#l-map{height:400px;width:100%;}
@@ -82,34 +82,12 @@
 			<div class="content-wrapper">
 			
 				<div class="container">
-					<div class="row form-group">
 						<div id="l-map"></div>
-					</div>
-					
-					<div class="row form-group">
-						<div class="col-sm-2"><label>起点:</label></div>
-						<div class="col-sm-6">
-							<input type="text" id="start" size="20" value="" class="col-sm-9 form-control">
-						</div>
-						<div id="searchResultPanel1" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
-					</div>
-					
-					<div class="row form-group">
-						<div class="col-sm-2"><label>终点:</label></div>
-						<div class="col-sm-6">
-							<input type="text" id="end" size="20" value="" class="col-sm-9 form-control">
-						</div>
-						<div id="searchResultPanel2" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
-					</div>
-					
-					<div class="row form-group">
-						<div class="col-sm-2"><button onclick="findBus();" class="btn btn-primary">查询公交路线</button></div>
-						<div class="col-sm-2"><button onclick="findCar();" class="btn btn-primary">查询驾车路线</button></div>
-						<div class="col-sm-2"><button onclick="findWalk();" class="btn btn-primary">查询步行路线</button></div>
-					</div>
-					
-					<div class="row form-group">
 						<div id="r-result"></div>
+					<div class="row form-group">
+					</div>
+					
+					<div class="row form-group">
 					</div>
 				</div>
 				
@@ -154,136 +132,13 @@
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.flexslider-min.js"></script> 
 <script>
-//百度地图API功能
-function G(id) {
-	return document.getElementById(id);
-}
-
-var map = new BMap.Map("l-map");
-var point = new BMap.Point(116.331398,39.897445);
-map.centerAndZoom(point,20);
-
-
-function locateCity(result){
-	var cityName = result.name;
-	map.setCenter(cityName);
-	alert("当前定位城市:"+cityName);
-}
-var myCity = new BMap.LocalCity();
-myCity.get(locateCity);
-
-var ctrl = new BMapLib.TrafficControl({//实时路况
-       showPanel: false //是否显示路况提示面板
-   });      
-map.addControl(ctrl);
-ctrl.setAnchor(BMAP_ANCHOR_BOTTOM_RIGHT);
-
-map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-
-var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-	{"input" : "start"
-	,"location" : map
+// 百度地图API功能
+var map = new BMap.Map("l-map");            // 创建Map实例
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);
+var local = new BMap.LocalSearch(map, {
+	renderOptions: {map: map, panel: "r-result"}
 });
-
-var bc = new BMap.Autocomplete(    //建立一个自动完成的对象
-	{"input" : "end"
-	,"location" : map
-});
-
-ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
-var str = "";
-	var _value = e.fromitem.value;
-	var value = "";
-	if (e.fromitem.index > -1) {
-		value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	}    
-	str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-	
-	value = "";
-	if (e.toitem.index > -1) {
-		_value = e.toitem.value;
-		value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	}    
-	str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-	G("searchResultPanel1").innerHTML = str;
-});
-
-bc.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
-var str = "";
-	var _value = e.fromitem.value;
-	var value = "";
-	if (e.fromitem.index > -1) {
-		value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	}    
-	str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-	
-	value = "";
-	if (e.toitem.index > -1) {
-		_value = e.toitem.value;
-		value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	}    
-	str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-	G("searchResultPanel2").innerHTML = str;
-});
-
-var myValue;
-ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
-var _value = e.item.value;
-	myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	G("searchResultPanel1").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-	
-	setPlace();
-});
-
-bc.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
-var _value = e.item.value;
-	myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-	G("searchResultPanel2").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-	
-	setPlace();
-});
-
-function setPlace(){
-	map.clearOverlays();    //清除地图上所有覆盖物
-	function myFun(){
-		var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-		map.centerAndZoom(pp, 18);
-		map.addOverlay(new BMap.Marker(pp));    //添加标注
-	}
-	var local = new BMap.LocalSearch(map, { //智能搜索
-	  onSearchComplete: myFun
-	});
-	local.search(myValue);
-}
-
-function findBus(){
-	if(document.getElementById("start").value==""||document.getElementById("end").value==""){
-		alert("请输入起点和终点");
-		return false;
-	}
-	var transit = new BMap.TransitRoute(map, {
-		renderOptions: {map: map, panel: "r-result"}
-	});
-	transit.search(document.getElementById("start").value, document.getElementById("end").value);
-}
-
-function findCar(){
-	if(document.getElementById("start").value==""||document.getElementById("end").value==""){
-		alert("请输入起点和终点");
-		return false;
-	}
-	var driving = new BMap.DrivingRoute(map, {renderOptions: {map: map, panel: "r-result", autoViewport: true}});
-	driving.search(document.getElementById("start").value, document.getElementById("end").value);
-}
-
-function findWalk(){
-	if(document.getElementById("start").value==""||document.getElementById("end").value==""){
-		alert("请输入起点和终点");
-		return false;
-	}
-	var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, panel: "r-result", autoViewport: true}});
-	walking.search(document.getElementById("start").value, document.getElementById("end").value);
-}
+local.search("餐饮");
 </script> 
 
 </body>

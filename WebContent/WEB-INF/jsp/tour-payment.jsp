@@ -250,7 +250,7 @@
 														<h5 class="mb-15">订单单价:  <span id="price">${tour.price }</span> 元</h5>
 														<h5 class="mb-15">参团人数:  <span id="number2"></span> 位</h5>
 														<h5 class="mb-15">总金额:  <span id="allPrice"></span> 元</h5>
-														<p>一旦预订成功，将会从您的信用卡账户中扣取300元 </p>
+														<p>一旦预订成功，将会从您的信用卡账户中扣取<span id="allPrice2"></span>元 </p>
 													
 														<div class="form-horizontal">
 															<div class="form-group gap-20">
@@ -320,6 +320,7 @@
 									<input name="tourId" type="hidden" value="${tour.id }">
 									<input name="pId" type="hidden" value="${tourPrice.id }">
 									<input name="token" type="hidden" value="${token }">
+									<input id="pricestr" name="price" type="hidden" value="">
 								</form>
 								
 							</div>
@@ -429,6 +430,8 @@ function changeNumber(){
 	$("#number2").html($("#number").val());
 	var allPrice = parseInt($("#price").html()) * parseInt($("#number2").html());
 	$("#allPrice").html(allPrice);
+	$("#allPrice2").html(allPrice);
+	$("#pricestr").val(allPrice);
 }
   
 $().ready(function(){

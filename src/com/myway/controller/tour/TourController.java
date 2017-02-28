@@ -1,5 +1,6 @@
 package com.myway.controller.tour;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -116,8 +117,8 @@ public class TourController {
 	}
 
 	@RequestMapping("/pay/confirm")
-	public String payConfirm(String token, Integer number, Integer pId, TourMember tourMember, HttpSession session,
-			Model model) {
+	public String payConfirm(String token, Integer number, Integer pId, String price, TourMember tourMember,
+			HttpSession session, Model model) {
 		User user = (User) session.getAttribute("userInfo");
 		TourOrder tourOrder = new TourOrder();
 		tourOrder.setPeople(number);
@@ -125,6 +126,8 @@ public class TourController {
 		tourOrder.setuId(user.getuId());
 		tourOrder.setoDate(new Date());
 		tourOrder.setToken(token);
+		BigDecimal priceDecimal = new BigDecimal(price);
+		tourOrder.setPrice(priceDecimal);
 		int o_id = tourService.confirmTourOrder(token, tourOrder, tourMember);
 		if (o_id == -1) {
 			return "redirect:/index";

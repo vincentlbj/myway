@@ -58,6 +58,8 @@
 										</li>
 										<li><a href="#">酒店</a>
 										</li>
+										<li><a href="#">门票</a>
+										</li>
 										<li><a href="<%=request.getContextPath()%>/traffic/checkTraffic">交通出行</a>
 										</li>
 										<li>
@@ -67,15 +69,15 @@
 												<li><a href="<%=request.getContextPath()%>/blog/result">看日记</a></li>
 											</ul>
 										</li>
-										<li><a href="#">门票</a>
+										<li><a href="#">热门问答</a>
 										</li>
-										<li><a href="#">周边推荐</a>
+										<li><a href="#">曝光台</a>
 										</li>
 										<li>
 											<a href="#">个人中心</a>
 											<ul>
 												<li><a href="<%=request.getContextPath()%>/user/info">我的信息</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/info">我的行程</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/tour">我的行程</a></li>
 												<li><a href="<%=request.getContextPath()%>/user/info">我的酒店</a></li>
 												<li><a href="<%=request.getContextPath()%>/user/info">我的门票</a></li>
 											</ul>
@@ -95,7 +97,7 @@
 
 					</div>
 					
-					<div class="row">
+<%-- 					<div class="row">
 						<div class="col-sm-8" style="margin-top:10px;">
 							<img src="<%=request.getContextPath()%>/images/common-stripe.jpg" style="height:75px;">
 						</div>
@@ -103,7 +105,7 @@
 							<iframe allowtransparency="true" frameborder="0" width="410" height="98" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=1&z=1&t=1&v=0&d=2&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=410&h=98&align=center">
 							</iframe>
 						</div>
-					</div>
+					</div> --%>
 						
 				</div>
 				

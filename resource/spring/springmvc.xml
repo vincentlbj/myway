@@ -46,6 +46,7 @@
 			<mvc:mapping path="/blog/writeBlogSubmit"/>
 			<mvc:mapping path="/blog/blogRemarkSubmit"/>
 			<mvc:mapping path="/user/info"/>
+			<mvc:mapping path="/user/tour"/>
 			<bean class="com.myway.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

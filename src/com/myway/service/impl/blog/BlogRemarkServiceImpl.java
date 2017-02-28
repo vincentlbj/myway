@@ -10,6 +10,7 @@ import com.myway.mapper.DiaryRemarkMapper;
 import com.myway.pojo.DiaryRemark;
 import com.myway.pojo.DiaryRemarkExample;
 import com.myway.service.blog.BlogRemarkService;
+import com.myway.util.sensetiveword.SensitivewordFilter;
 
 @Service
 public class BlogRemarkServiceImpl implements BlogRemarkService {
@@ -29,6 +30,9 @@ public class BlogRemarkServiceImpl implements BlogRemarkService {
 
 	@Override
 	public void saveBlogRemark(DiaryRemark diaryRemark) {
+		// 过滤垃圾评论词
+		SensitivewordFilter filter = new SensitivewordFilter();
+		diaryRemark.setContent(filter.replaceSensitiveWord(diaryRemark.getContent(), 1, "*"));
 		diaryRemarkMapper.insert(diaryRemark);
 	}
 

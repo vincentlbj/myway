@@ -4,7 +4,7 @@
            uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
 <head>
@@ -40,6 +40,7 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/themify-icons/themify-icons.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/icons/rivolicons/style.css">
 
+
 	<!-- CSS Custom -->
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 
@@ -52,25 +53,28 @@
 </head>
 
 <body class="">
-	
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
-		
 		<%@ include file="/common-header.jsp" %>
 		
 		<!-- start Main Wrapper -->
-		<div class="main-wrapper">
-			
-			<div class="breadcrumb-wrapper bg-light-2">
+		<div class="main-wrapper scrollspy-container">
+		
+			<!-- start end Page title -->
+			<div class="page-title" style="background-image:url('<%=request.getContextPath()%>/images/hero-header/breadcrumb.jpg');">
 				
 				<div class="container">
 				
-					<ol class="breadcrumb-list booking-step">
-						<li><span>详情</span></li>
-						<li><span>付款</span></li>
-						<li><span>确认</span></li>
-					</ol>
+					<div class="row">
 					
+						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+						
+							<h1 class="hero-title">个人中心</h1>
+							
+						</div>
+						
+					</div>
+
 				</div>
 				
 			</div>
@@ -81,74 +85,34 @@
 			
 					<div class="row">
 					
-						<div class="col-sm-8 col-md-9">
-	
-							<div class="confirmation-wrapper">
-							
-								<div class="payment-success">
-								
-									<div class="icon">
-										<i class="pe-7s-check text-success"></i>
+						<div class="col-md-9" role="main">
+							<div class="detail-content-wrapper">
+									<div id="section-0" class="detail-content">
+											<div class="section-title text-left">
+												<h4>我的行程</h4>
+											</div>
+											
+											<table class="table">
+											   <thead>
+											      <tr>
+											         <th>旅程</th>
+											         <th>人数</th>
+											         <th>总价</th>
+											      </tr>
+											   </thead>
+											   <tbody>
+											   	  <c:forEach items="${userTourOrderList}" var="userTourOrder">
+												      <tr>
+												         <td><a href="<%=request.getContextPath()%>/tour/detail/${userTourOrder.tour.id}">${userTourOrder.tour.name} </a></td>
+												         <td>${userTourOrder.tourOrder.people }</td>
+												         <td>￥${userTourOrder.tourOrder.price }</td>
+												      </tr>
+											      </c:forEach>
+											   </tbody>
+											</table>				
 									</div>
-								
-									<div class="content">
-										
-										<h2 class="heading uppercase mt-0 text-success">您的订单已成功提交</h2>
-										<p>您的订单编号为 <span class="text-primary font700">${tourOrder.oId }</span></p>
-									
-									</div>
-									
-								</div>
-							
-								<div class="confirmation-content">
-								
-									<div class="section-title text-left">
-										<h4>订单详情</h4>
-									</div>
-								
-									<ul class="book-sum-list">
-										<li><span class="font600">订单编号: </span>${tourOrder.oId }</li>
-										<li><span class="font600">价格: </span>￥${tourOrder.price }</li>
-										<li><span class="font600">参团人: </span>${tourMember.name }</li>
-										<li><span class="font600">团名: </span>${tour.name }</li>
-										<li><span class="font600">出发: </span><fmt:formatDate value="${tourPrice.go }"  pattern="yyyy-MM-dd"/></li>
-										<li><span class="font600">返程: </span><fmt:formatDate value="${tourPrice.back }"  pattern="yyyy-MM-dd"/></li>
-										<li><span class="font600">联系电话: </span>${tourMember.phone } </li>
-									</ul>
-									
-								</div>
-								
-								
-								<a href="<%=request.getContextPath()%>/index" class="btn btn-primary">返回主页</a>
-							
 							</div>
-							
 						</div>
-
-						<div class="col-sm-4 col-md-3 mt-50-xs">
-
-							<aside class="sidebar with-filter">
-							
-								<div class="sidebar-inner">
-								
-									<div class="sidebar-module">
-										<h4 class="heading mt-0">需要帮助?</h4>
-										<div class="sidebar-module-inner">
-											<p class="mb-10">随时联系我们</p>
-											<ul class="help-list">
-												<li><span class="font600">客服电话</span>: 18813712345</li>
-												<li><span class="font600">客服邮箱</span>: 123456@qq.com</li>
-												<li><span class="font600">客服QQ</span>: 123456</li>
-											</ul>
-										</div>
-									</div>
-									
-								</div>
-								
-							</aside>
-
-						</div>
-
 					</div>
 				
 				</div>
@@ -160,18 +124,18 @@
 
 		<%@ include file="/common-footer.jsp" %>
 
-	</div>  <!-- end Container Wrapper -->
+	<!-- end Container Wrapper -->
  
 
  
-<!-- start Back To Top -->
-<div id="back-to-top">
-   <a href="#"><i class="fa fa-angle-up"></i></a>
-</div>
-<!-- end Back To Top -->
+	<!-- start Back To Top -->
+	<div id="back-to-top">
+		 <a href="#"><i class="fa fa-angle-up"></i></a>
+	</div>
+	<!-- end Back To Top -->
 
 
-
+ 
 <!-- JS -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-migrate-1.2.1.min.js"></script>
@@ -192,6 +156,9 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
+
+<script>
+</script>
 
 </body>
 
