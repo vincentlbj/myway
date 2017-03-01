@@ -46,7 +46,11 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	
+	<style type="text/css">
+		p{
+			text-indent:2em;
+		}
+	</style>
 </head>
 
 <body class="">	
@@ -67,7 +71,7 @@
 					
 						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 						
-							<h1 class="hero-title">驴友日记</h1>
+							<h1 class="hero-title">旅游曝光台</h1>
 							
 						</div>
 						
@@ -83,132 +87,13 @@
 				<div class="container">
 				
 					<div class="row">
-					
-						<div class="col-sm-8 col-md-9">
+						<div class="col-sm-2"></div>
 						
-							<div class="blog-wrapper">
-								<c:forEach items="${myPage.resultList}" var="result">
-									<div class="blog-item">
-									
-										<div class="blog-media">
-											<div class="overlay-box">
-												<a class="blog-image" href="<%=request.getContextPath()%>/blog/detail/${result.dId}">
-													<img src="${result.picture }" alt="" />
-													<div class="image-overlay">
-														<div class="overlay-content">
-															<div class="overlay-icon"><i class="pe-7s-link"></i></div>
-														</div>
-													</div>
-												</a>
-											</div>
-										</div>
-												
-										<div class="blog-content">
-											<h3><a href="<%=request.getContextPath()%>/blog/detail/${result.dId}" class="inverse">${result.title }</a></h3>
-											<ul class="blog-meta clearfix">
-												<li>由 ${result.username } 编辑</li>
-												<li>更新于 <fmt:formatDate value="${result.updateDate }"  pattern="yyyy-MM-dd"/></li>
-												<li>在 ${result.place }</li>
-											</ul>
-											<a href="<%=request.getContextPath()%>/blog/detail/${result.dId}" class="btn-blog">查看 <i class="fa fa-long-arrow-right"></i></a>
-										</div>
-									
-									</div>
-						
-									<div class="clear"></div>
-								</c:forEach>
-								<div class="pager-wrappper mt-30 clearfix">
-			
-									<div class="pager-innner">
-										
-										<div class="flex-row flex-align-middle">
-												
-											<div class="flex-column flex-sm-12">
-												当前是第 ${myPage.currPage } 页
-											</div>
-											
-											<div class="flex-column flex-sm-12">
-												<nav class="pager-right">
-													<ul class="pagination" id="pageul">
-	
-													</ul>
-												</nav>
-											</div>
-										
-										</div>
-										
-									</div>
-									
-								</div>
-								
-							</div>
-						
-						</div>
-						
-						<div class="col-sm-4 col-md-3 mt-50-xs">
-						
-							<aside class="sidebar">
-						
-								<div class="sidebar-inner no-border for-blog">
-								
-									<div class="sidebar-module">
-										<div class="sidebar-module-inner">
-											<div class="sidebar-mini-search">
-												<div class="input-group">
-													<input id="title" type="text" class="form-control" placeholder="输入驴友日记名称...">
-													<span class="input-group-btn">
-														<button class="btn btn-primary" type="button" onclick="search();"><i class="fa fa-search"></i></button>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="clear"></div>
-
-									<div class="sidebar-module">
-										<h4 class="sidebar-title">热门地点</h4>
-										<div class="sidebar-module-inner">
-											<ul class="sidebar-category">
-												<c:forEach items="${hotCityList}" var="result">
-													<li><a href="<%=request.getContextPath()%>/blog/result?place=${result.key}">${result.key}<span>(${result.value})</span></a></li>
-												</c:forEach>
-											</ul>
-										</div>
-									</div>
-									
-									
-									<div class="clear"></div>
-									
-									<div class="sidebar-module">
-										<h4 class="sidebar-title">最新投稿</h4>
-										<div class="sidebar-module-inner">
-										
-											<ul class="sidebar-post">
-												<c:forEach items="${newBlogList}" var="result">
-													<li class="clearfix">
-															<a href="<%=request.getContextPath()%>/blog/detail/${result.dId}">
-																<div class="image">
-																	<img src="${result.picture }" alt="Popular Post" />
-																</div>
-																<div class="content">
-																	<h6>${result.title }</h6>
-																	<p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i><fmt:formatDate value="${result.createDate }"  pattern="yyyy-MM-dd"/></p>
-																</div>
-															</a>
-													</li>
-												</c:forEach>
-											</ul>
-										
-										</div>
-									</div>
-									
-									<div class="clear"></div>
-
-								</div>
-							
-							</aside>
-							
+						<div class="col-sm-8">
+							<center><h1>${exposure.title }</h1></center>
+							<center><img src="${exposure.picture }" style="width:400px;"></center>
+							<br>
+							${exposure.content }
 						</div>
 					
 					</div>
@@ -256,22 +141,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
 
 <script type="text/javascript">
-$('#pageul').jqPaginator({
-	totalCounts: ${myPage.allCount},
-	pageSize: 5,
-    visiblePages: 5,
-    currentPage: ${myPage.currPage},
 
-    first: '<li><a href="<%=request.getContextPath()%>/blog/result" style="width:50px">首页</a></li>',
-    last: '<li><a href="<%=request.getContextPath()%>/blog/result?pageNum={{totalPages}}" style="width:50px">尾页</a></li>',
-    page: '<li><a href="<%=request.getContextPath()%>/blog/result?pageNum={{page}}">{{page}}</a></li>',
-});
-function search(){
-	if($("#title").val()==""){
-		return false;
-	}
-	window.location.href="<%=request.getContextPath()%>/blog/result?title="+$("#title").val();
-}
 </script>
 </body>
 </html>

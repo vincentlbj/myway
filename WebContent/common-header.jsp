@@ -71,7 +71,7 @@
 										</li>
 										<li><a href="#">热门问答</a>
 										</li>
-										<li><a href="#">曝光台</a>
+										<li><a href="<%=request.getContextPath()%>/exposure/list">曝光台</a>
 										</li>
 										<li>
 											<a href="#">个人中心</a>
