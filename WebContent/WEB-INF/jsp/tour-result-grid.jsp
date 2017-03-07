@@ -276,27 +276,6 @@
 									<h3 class="sorting-title uppercase">搜索：广西, 南宁, 昆明</h3>
 									<p class="sorting-lead">搜索到${myPage.allCount}条结果</p>
 								</div>
-								
-								<div class="sorting-content">
-								
-									<div class="row">
-									
-										<div class="col-sm-12 col-md-8">
-										</div>
-										
-										<div class="col-sm-12 col-md-4">
-											<div class="sort-by-wrapper mt pull-right pull-left-sm mt-10-sm">
-												<label class="sorting-label">更换视图: </label> 
-												<div class="sorting-middle-holder">
-													<a href="result-list.html" class="btn btn-sorting"><i class="fa fa-th-list"></i></a>
-													<a href="result-grid.html" class="btn btn-sorting active"><i class="fa fa-th-large"></i></a>
-												</div>
-											</div>
-										</div>
-										
-									</div>
-								
-								</div>
 
 							</div>
 							

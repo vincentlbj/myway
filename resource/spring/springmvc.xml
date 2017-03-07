@@ -42,6 +42,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/tour/pay/*"/>
+			<mvc:mapping path="/ticket/pay/*"/>
 			<mvc:mapping path="/blog/writeBlog"/>
 			<mvc:mapping path="/blog/writeBlogSubmit"/>
 			<mvc:mapping path="/blog/blogRemarkSubmit"/>
