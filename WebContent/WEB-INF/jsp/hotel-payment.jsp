@@ -88,7 +88,7 @@
 							
 							<div class="payment-container">
 							
-								<form id="form" action="<%=request.getContextPath()%>/ticket/pay/confirm" method="post">
+								<form id="form" action="<%=request.getContextPath()%>/hotel/pay/confirm" method="post">
 									
 									<div class="payment-box">
 									
@@ -116,9 +116,18 @@
 													
 													<div class="form-horizontal">
 														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">报名人数:</label>
+															<label class="col-sm-3 col-md-2 control-label">住店人数:</label>
 															<div class="col-sm-5 col-md-4">
-																<input id="number" name="number" type="text" class="form-control digits" onblur="changeNumber();" value="" required>
+																<input id="people" name="people" type="text" class="form-control digits" onblur="changeNumber();" value="1" required>
+															</div>
+														</div>
+													</div>
+													
+													<div class="form-horizontal">
+														<div class="form-group gap-20">
+															<label class="col-sm-3 col-md-2 control-label">住店天数:</label>
+															<div class="col-sm-5 col-md-4">
+																<input id="day" name="day" type="text" class="form-control digits" onblur="changeNumber();" value="1" required>
 															</div>
 														</div>
 													</div>
@@ -127,7 +136,7 @@
 														<div class="form-group gap-20">
 															<label class="col-sm-3 col-md-2 control-label">联系电话:</label>
 															<div class="col-sm-5 col-md-4">
-																<input id="phone" name="phone" class="form-control digits" value="" required>
+																<input id="memberPhone" name="memberPhone" class="form-control digits" value="" required>
 															</div>
 														</div>
 													</div>
@@ -174,8 +183,9 @@
 												
 													<div class="inner">
 													
-														<h5 class="mb-15">订单单价:  <span id="price">${ticket.price }</span> 元</h5>
-														<h5 class="mb-15">报名人数:  <span id="number2"></span> 位</h5>
+														<h5 class="mb-15">订单单价:  <span id="price">${hotel.price }</span> 元</h5>
+														<h5 class="mb-15">住店人数:  <span id="number2"></span> 位</h5>
+														<h5 class="mb-15">住店天数:  <span id="number3"></span> 天</h5>
 														<h5 class="mb-15">总金额:  <span id="allPrice"></span> 元</h5>
 														<p>一旦预订成功，将会从您的信用卡账户中扣取<span id="allPrice2"></span>元 </p>
 													
@@ -246,7 +256,7 @@
 									</div>
 									<input name="token" type="hidden" value="${token }">
 									<input id="pricestr" name="price" type="hidden" value="">
-									<input name="ticketId" type="hidden" value="${ticket.id }">
+									<input name="hotelId" type="hidden" value="${hotel.id }">
 								</form>
 								
 							</div>
@@ -353,8 +363,9 @@
 }(window.jQuery)
 
 function changeNumber(){
-	$("#number2").html($("#number").val());
-	var allPrice = parseInt($("#price").html()) * parseInt($("#number2").html());
+	$("#number2").html($("#people").val());
+	$("#number3").html($("#day").val());
+	var allPrice = parseInt($("#price").html()) * parseInt($("#number2").html()) * parseInt($("#number3").html());
 	$("#allPrice").html(allPrice);
 	$("#allPrice2").html(allPrice);
 	$("#pricestr").val(allPrice);

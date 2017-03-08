@@ -94,7 +94,7 @@
 									<div class="content">
 										
 										<h2 class="heading uppercase mt-0 text-success">您的门票已成功预订</h2>
-										<p>您的订单编号为 <span class="text-primary font700">${ticket.id }</span></p>
+										<p>您的订单编号为 <span class="text-primary font700">${ticketOrder.id }</span></p>
 									
 									</div>
 									

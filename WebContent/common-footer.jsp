@@ -15,7 +15,7 @@
 						<img src="http://localhost:8080/myway/images/logo-white.png" alt="Logo" />
 					</div>
 					
-					<p class="footer-address">华南农业大学华山学生公寓15栋302 <br/> <i class="fa fa-phone"></i> 18813752486 <br/> <i class="fa fa-phone"></i> 18813752486 <br/> <i class="fa fa-envelope-o"></i> <a href="#">450080380@qq.com</a></p>
+					<p class="footer-address">华南农业大学华山学生公寓 <br/> <i class="fa fa-phone"></i> 18888888888 <br/> <i class="fa fa-phone"></i> 18888888888 <br/> <i class="fa fa-envelope-o"></i> <a href="#">666666@qq.com</a></p>
 					
 					<div class="footer-social">
 					

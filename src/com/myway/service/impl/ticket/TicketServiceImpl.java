@@ -39,8 +39,8 @@ public class TicketServiceImpl implements TicketService {
 		if (existOrderList.size() > 0) {
 			return -1;
 		}
-		int o_id = tickerOrderMapper.insertSelective(ticketOrder);
-		return o_id;
+		tickerOrderMapper.insertSelective(ticketOrder);
+		return ticketOrder.getId();
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class TicketServiceImpl implements TicketService {
 		PageHelper.startPage(pageNum, pageSize);
 		TicketExample ticketExample = new TicketExample();
 		if (queryTicket.getName() != null)
-			ticketExample.or().andNameEqualTo(queryTicket.getName());
+			ticketExample.or().andNameLike("%" + queryTicket.getName() + "%");
 		List<Ticket> list = ticketMapper.selectByExample(ticketExample);
 		return list;
 	}

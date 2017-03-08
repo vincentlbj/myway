@@ -103,10 +103,7 @@
 										<div class="form-group">
 											<form action="">
 												<h6 class="sidebar-title">买哪儿的门票</h6>
-												<select id="destination" class="select2-multi form-control" data-placeholder="想去哪里游玩..." multiple>
-													<option value="">请选择</option>
-													<option value="广州塔">广州塔</option>
-												</select>
+												<input id="destination" type="text" class="form-control">
 											</form>
 										</div>
 										<a href="#" class="btn btn-primary btn-block" onclick="check();">搜索</a>

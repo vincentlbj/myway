@@ -43,6 +43,10 @@
 
 	<!-- CSS Custom -->
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
+	
+	<style type="text/css">
+		#allmap {width: 100%;height: 400px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -61,7 +65,7 @@
 		<div class="main-wrapper scrollspy-container">
 		
 			<!-- start end Page title -->
-			<div class="page-title detail-page-title" style="background-image:url('<%=request.getContextPath()%>/images/detail/header.jpg');">
+			<div class="page-title detail-page-title" style="background-image:url('${hotel.headerPicture}');">
 				
 				<div class="container">
 				
@@ -69,52 +73,22 @@
 						
 						<div class="flex-column flex-md-8 flex-sm-12">
 							
-							<h1 class="hero-title">${name }</h1>
+							<h1 class="hero-title">${hotel.name }</h1>
 							
-							<ul class="list-col clearfix">
-								
-								<li class="fav-box">
-									<div class="meta">
-										<span class="block"><button class="btn btn-fav"><i class="fa fa-book"></i></button></span>
-										成交 ${deal }
-									</div>
-								</li>
-
-								<li class="fav-box">
-									<div class="meta">
-										<span class="block"><button class="btn btn-fav"><i class="fa fa-heart"></i></button></span>
-										满意度 ${satisfactory }% 
-									</div>
-								</li>
-								
-								<li class="duration-box">
-									<div class="meta">
-										<span class="block">${day }</span>
-										天
-									</div>
-									<div class="meta">
-										&amp;
-									</div>
-									<div class="meta">
-										<span class="block">${night }</span>
-										夜
-									</div>
-								</li>
-								
+							<ul class="list-col clearfix">							
 								<li class="price-box">
 									<div class="meta">
-										<span class="block">￥${price }起</span>
-										价格
+										<span class="block"><span style="color: red;">地址：</span>${hotel.address }</span>									
 									</div>
-								</li>
-								
+								</li>								
+								<br>							
 							</ul>
 							
 						</div>
 						
 						<div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
 							<div class="text-right text-left-sm">
-								<a href="#section-5" class="anchor btn btn-primary">马上预订</a>
+								<a href="<%=request.getContextPath()%>/hotel/pay/${hotel.id}" class="anchor btn btn-primary">马上预订</a>
 							</div>
 						</div>
 					
@@ -139,10 +113,86 @@
 										<div class="section-title text-left">
 											<h4>简介</h4>
 										</div>
-											${introduction }
+											${hotel.introduction }
 									</div>
 									
 									<div id="section-1" class="detail-content">
+									
+										<div class="section-title text-left">
+											<h4>酒店设施</h4>
+										</div>
+										
+										<div class="faq-alt-2-wrapper">
+										
+											<div class="panel-group bootstarp-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+												<c:forEach items="${installation}" var="item">
+													<div class="panel">
+														<div class="panel-heading" role="tab" id="headingOne">
+															<h6 class="panel-title">
+																<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ${item.key }</a>
+															</h6>
+														</div>
+														<div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+															<div class="panel-body">
+																<div class="faq-thread">
+																	<p>${item.value }</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</c:forEach>
+												<!-- end of panel -->
+											</div>
+											<!-- end of #accordion -->
+											
+											
+										</div>
+										
+									</div>
+									
+									<div id="section-2" class="detail-content">
+									
+										<div class="section-title text-left">
+											<h4>酒店政策</h4>
+										</div>
+										
+										<div class="faq-alt-2-wrapper">
+										
+											<div class="panel-group bootstarp-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+												<c:forEach items="${policy}" var="item">
+													<div class="panel">
+														<div class="panel-heading" role="tab" id="headingOne">
+															<h6 class="panel-title">
+																<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ${item.key }</a>
+															</h6>
+														</div>
+														<div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
+															<div class="panel-body">
+																<div class="faq-thread">
+																	<p>${item.value }</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</c:forEach>
+												<!-- end of panel -->
+											</div>
+											<!-- end of #accordion -->
+											
+											
+										</div>
+										
+									</div>
+									
+									<div id="section-3" class="detail-content">
+										
+										<div class="section-title text-left">
+											<h4>周边设施</h4>
+										</div>
+											${hotel.around }
+									</div>
+									
+									<div id="section-4" class="detail-content">
 									
 										<div class="section-title text-left">
 											<h4>图片墙</h4>
@@ -150,7 +200,7 @@
 										<div class="slick-gallery-slideshow">
 					
 											<div class="slider gallery-slideshow">
-												<c:forEach items="${pictureList }" var="picture">
+												<c:forEach items="${fn:split(hotel.picture,';') }" var="picture">
 													<div class="image"><img src="${picture }" alt="Image" /></div>
 												</c:forEach>
 											</div>											
@@ -158,143 +208,13 @@
 
 									</div>
 									
-									<div id="section-2" class="detail-content">
-										
-										<div class="section-title text-left">
-											<h4>行程介绍</h4>
-										</div>
-										
-										<div class="detail-item">
-										
-											<div class="row">
-											
-												<div class="col-sm-4 col-sm-3 mb-30">
-												
-													<ul class="list-info no-icon bb-dotted">
-														<li><span class="font600">产品编号: </span>${productId }</li>
-														<li><span class="font600">历时: </span>${day } 天 &amp; ${night } 夜</li>
-														<li><span class="font600">行程套餐:</span> ${taocan}</li>
-														<li><span class="font600">服务承诺: </span>认证商家 24小时退款保证 安全交易 铁定成团 如实描述</li>
-
-													</ul>
-												
-												</div>
-												
-												<div class="col-sm-8 col-md-9">
-												
-													<div class="itinerary-wrapper">													
-														<c:forEach items="${routeIncludeList }" var="item">
-															<div class="itinerary-item intro-item">
-																<h5>${item.key }</h5>
-																<div class="intro-item-body">
-																	<p>${item.value }</p>
-																	
-																</div>
-															</div>
-														</c:forEach>
-														<div class="itinerary-day-label font600 uppercase"><span>Day</span></div>
-														
-														<div class="itinerary-item-wrapper">
-															<c:forEach items="${routeContentList }" var="item" varStatus="status">
-																<div class="panel-group bootstarp-toggle">
-																
-																	<div class="panel itinerary-item">
-																		<div class="panel-heading">
-																			<h5 class="panel-title">
-																				<a data-toggle="collapse" data-parent="#" href="#bootstarp-toggle-one"><span class="absolute-day-number">${status.count }</span> ${item.key }</a>
-																			</h5>
-																		</div>
-																		<div id="bootstarp-toggle-one" class="panel-collapse">
-																			<div class="panel-body">
-																			
-																				<p>${item.value }</p>
-																				
-																			</div>
-																		</div>
-	
-																	</div>
-																</div>
-															</c:forEach>
-																<!-- end of panel -->
-
-															</div>
-														
-														</div>
-														
-													</div>
-													
-												
-											</div>
-										
-										</div>
-
-									</div>
-									
 									<div id="section-5" class="detail-content">
-
+										
 										<div class="section-title text-left">
-											<h4>选择出游日期</h4>
+											<h4>地址</h4>
 										</div>
-										
-										<div class="availabily-wrapper">
-										
-											<ul class="availabily-list">
-												
-												<li class="availabily-heading clearfix">
-												
-													<div class="date-from">
-														出发
-													</div>
-													
-													<div class="date-to">
-														返程
-													</div>
-													
-													<div class="status">
-														剩余量
-													</div>
-													
-													<div class="price">
-														价格
-													</div>
-													
-													<div class="action">
-														&nbsp;
-													</div>
-												
-												</li>
-												<c:forEach items="${ priceList}" var="price">
-													<li class="availabily-content <c:if test="${price.remain == 0 }">sold-out</c:if> clearfix">
-														
-														<div class="date-from">
-															<span class="availabily-heading-label">start:</span>
-															<span><fmt:formatDate value="${price.go }"  pattern="yyyy-MM-dd"/></span>
-														</div>
-														
-														<div class="date-to">
-															<span class="availabily-heading-label">end:</span>
-															<span><fmt:formatDate value="${price.back }"  pattern="yyyy-MM-dd"/></span>
-														</div>
-														
-														<div class="status">
-															<span class="availabily-heading-label">status:</span>
-															剩余量
-															<span>${price.remain }</span>
-														</div>
-														
-														<div class="price">
-															<span class="availabily-heading-label">price:</span>
-															<span>${price.price }元</span>
-														</div>
-														
-														<div class="action">
-															<a href="<%=request.getContextPath()%>/tour/pay/${price.id}" class="btn btn-primary btn-sm btn-inverse">马上预订</a>
-														</div>
-													</li>
-												</c:forEach>
-											</ul>
+										<div id="allmap"></div>
 											
-										</div>
 									</div>
 									
 									<div class="detail-content">
@@ -387,44 +307,10 @@
 										</div>
 
 									</div>
-									
-									<div id="section-6" class="detail-content">
-									
-										<div class="section-title text-left">
-											<h4>预订须知</h4>
-										</div>
-										
-										<div class="faq-alt-2-wrapper">
-										
-											<div class="panel-group bootstarp-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-												<c:forEach items="${noticeList}" var="item">
-													<div class="panel">
-														<div class="panel-heading" role="tab" id="headingOne">
-															<h6 class="panel-title">
-																<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> ${item.key }</a>
-															</h6>
-														</div>
-														<div id="collapseOne" class="panel-collapse" role="tabpanel" aria-labelledby="headingOne">
-															<div class="panel-body">
-																<div class="faq-thread">
-																	<p>${item.value }</p>
-																</div>
-															</div>
-														</div>
-													</div>
-												</c:forEach>
-												<!-- end of panel -->
-											</div>
-											<!-- end of #accordion -->
-											
-											
-										</div>
-										
-									</div>	
-									
+
 									<div class="call-to-action">
 									
-										有问题? 拨打 +88888888
+										有问题? 拨打 88888888
 									
 									</div>
 										
@@ -441,10 +327,11 @@
 									<li>
 										<ul class="nav">
 											<li><a href="#section-0" class="anchor">简介</a></li>
-											<li><a href="#section-1" class="anchor">图片墙</a></li>
-											<li><a href="#section-2" class="anchor">行程介绍</a></li>
-											<li><a href="#section-5" class="anchor">出游日期</a></li>
-											<li><a href="#section-6" class="anchor">预订须知</a></li>
+											<li><a href="#section-1" class="anchor">酒店设施</a></li>
+											<li><a href="#section-2" class="anchor">酒店政策</a></li>
+											<li><a href="#section-3" class="anchor">周边信息</a></li>
+											<li><a href="#section-4" class="anchor">图片墙</a></li>
+											<li><a href="#section-5" class="anchor">地址</a></li>
 										</ul>
 									</li>
 
@@ -499,6 +386,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ofIpSEaXIvq8dVHRm52uVwCVnBzLNiPq"></script>
 
 <script>
 
@@ -552,6 +440,21 @@
 
 }(window.jQuery)
 
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.331398,39.897445);
+map.centerAndZoom(point,12);
+// 创建地址解析器实例
+var myGeo = new BMap.Geocoder();
+// 将地址解析结果显示在地图上,并调整地图视野
+myGeo.getPoint("${fn:split(hotel.baiduPoint,';')[0] }", function(point){
+	if (point) {
+		map.centerAndZoom(point, 16);
+		map.addOverlay(new BMap.Marker(point));
+	}else{
+		alert("您选择地址没有解析到结果!");
+	}
+}, "${fn:split(hotel.baiduPoint,';')[1] }");
 </script>
 
 </body>

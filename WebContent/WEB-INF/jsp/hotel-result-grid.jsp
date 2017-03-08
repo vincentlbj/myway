@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!doctype html>
+<html lang="en">
+
 <head>
 
 	<meta charset="utf-8">
@@ -14,13 +18,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
 	<!-- Fav and Touch Icons -->
- 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-144-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-114-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="<%=request.getContextPath()%>/images/ico/apple-touch-icon-57-precomposed.png">
 	<link rel="shortcut icon" href="<%=request.getContextPath()%>/images/ico/favicon.png">
-	
- 	<!-- CSS Plugins -->
+
+	<!-- CSS Plugins -->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" media="screen">	
 	<link href="<%=request.getContextPath()%>/css/animate.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet">
@@ -37,28 +41,15 @@
 	<!-- CSS Custom -->
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet">
 	
-	
-	<style type="text/css">
-		#l-map{height:400px;width:100%;}
-		#r-result{width:100%;}
-	</style>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-	
 </head>
+
 <body class="">
-	
 	<!-- start Container Wrapper -->
 	<div class="container-wrapper">
-
 		<%@ include file="/common-header.jsp" %>
 		
 		<!-- start Main Wrapper -->
-		<div class="main-wrapper scrollspy-container">
+		<div class="main-wrapper">
 		
 			<!-- start end Page title -->
 			<div class="page-title" style="background-image:url('<%=request.getContextPath()%>/images/hero-header/breadcrumb.jpg');">
@@ -69,7 +60,7 @@
 					
 						<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
 						
-							<h1 class="hero-title">交通出行</h1>
+							<h1 class="hero-title">想去哪</h1>
 							
 						</div>
 						
@@ -78,17 +69,120 @@
 				</div>
 				
 			</div>
-
+			<!-- end Page title -->
+			
+			<div class="breadcrumb-wrapper bg-light-2">
+				
+				<div class="container">
+				
+					<ol class="breadcrumb-list booking-step">
+						<li><span>> 酒店</span></li>
+					</ol>
+					
+				</div>
+				
+			</div>
+			
 			<div class="content-wrapper">
 			
 				<div class="container">
-						<div id="l-map"></div>
-						<div id="r-result"></div>
-					<div class="row form-group">
+									
+					<div class="row">
+						
+						<div class="col-sm-4 col-md-3">
+							
+							<aside class="sidebar with-filter">
+				
+								<div class="sidebar-search-wrapper bg-light-2">
+								
+									<div class="sidebar-search-header">
+										<h4>搜索</h4>
+									</div>
+									
+									<div class="sidebar-search-content">
+										<div class="form-group">
+											<form action="">
+												<h6 class="sidebar-title">住哪儿</h6>
+												<input id="destination" type="text" class="form-control">
+											</form>
+										</div>
+										<a href="#" class="btn btn-primary btn-block" onclick="check();">搜索</a>
+									</div>
+									
+								</div>
+								
+								<div class="sidebar-box">
+									<p>本搜索结果一切解释权属于本网站</p>
+								</div>
+							
+							</aside>
+							
+							
+						</div>
+						
+						<div class="col-sm-8 col-md-9">
+							
+							<div class="sorting-wrappper">
+			
+								<div class="sorting-header">
+									<h3 class="sorting-title uppercase">搜索：${queryName }</h3>
+									<p class="sorting-lead">搜索到${myPage.allCount}条结果</p>
+								</div>
+
+							</div>
+							
+							<div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
+						
+								<div class="GridLex-grid-noGutter-equalHeight">
+									<c:forEach items="${myPage.resultList}" var="result">
+										<div class="GridLex-col-4_sm-6_xs-12 mb-20">
+											<div class="package-grid-item"> 
+												<a href="<%=request.getContextPath()%>/hotel/detail/${result.id}">
+													<div class="image">
+														<img src="${fn:split(result.picture,";")[0]}" alt="Tour Package" />
+													</div>
+													<div class="content clearfix">
+														<h6>${result.name }</h6>
+														<div class="absolute-in-content">
+															<span class="btn"><i class="fa fa-heart-o"></i></span>
+															<div class="price">￥${result.price }</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										</div>
+									</c:forEach>									
+								</div>							
+							</div>
+							
+							<div class="pager-wrappper mt-30 clearfix">
+			
+								<div class="pager-innner">
+									
+									<div class="flex-row flex-align-middle">
+											
+										<div class="flex-column flex-sm-12">
+											当前是第 ${myPage.currPage } 页
+										</div>
+										
+										<div class="flex-column flex-sm-12">
+											<nav class="pager-right">
+												<ul class="pagination" id="pageul">
+
+												</ul>
+											</nav>
+										</div>
+									
+									</div>
+									
+								</div>
+								
+							</div>
+							
+						</div>
+						
 					</div>
 					
-					<div class="row form-group">
-					</div>
 				</div>
 				
 			</div>
@@ -100,14 +194,20 @@
 		<%@ include file="/common-footer.jsp" %>
 
 	</div>  <!-- end Container Wrapper -->
-	
-<!-- start Back To Top -->
-<div id="back-to-top">
-   <a href="#"><i class="fa fa-angle-up"></i></a>
-</div>
-<!-- end Back To Top -->
+ 
+
+ 
+	<!-- start Back To Top -->
+	<div id="back-to-top">
+		 <a href="#"><i class="fa fa-angle-up"></i></a>
+	</div>
+	<!-- end Back To Top -->
+
+
+ 
 <!-- JS -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jqPaginator.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.waypoints.min.js"></script>
@@ -126,20 +226,23 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
-<!-- 加入百度地图api-->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ofIpSEaXIvq8dVHRm52uVwCVnBzLNiPq"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.flexslider-min.js"></script> 
-<script>
-// 百度地图API功能
-var map = new BMap.Map("l-map");            // 创建Map实例
-map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);
-var local = new BMap.LocalSearch(map, {
-	renderOptions: {map: map, panel: "r-result"}
+<script type="text/javascript">
+function check(){
+	window.location.href="<%=request.getContextPath()%>/hotel/result/grid?name="+$("#destination").val();
+}
+
+$('#pageul').jqPaginator({
+	totalCounts: ${myPage.allCount},
+	pageSize: 9,
+    visiblePages: 5,
+    currentPage: ${myPage.currPage},
+
+    first: '<li><a href="<%=request.getContextPath()%>/hotel/result/grid?name=${queryName}" style="width:50px">首页</a></li>',
+    last: '<li><a href="<%=request.getContextPath()%>/hotel/result/grid?pageNum={{totalPages}}&name=${queryName}" style="width:50px">尾页</a></li>',
+    page: '<li><a href="<%=request.getContextPath()%>/hotel/result/grid?pageNum={{page}}&name=${queryName}">{{page}}</a></li>',
 });
-local.search("餐饮");
-</script> 
-
+</script>
 </body>
+
 </html>

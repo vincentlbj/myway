@@ -85,6 +85,9 @@ public class TourServiceImpl implements TourService {
 	public List<Tour> getTourByCriteria(Tour queryTour, Integer pageNum, Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		TourExample tourExample = new TourExample();
+		if (queryTour.getName() != null && !queryTour.getName().equals("")) {
+			tourExample.or().andNameLike("%" + queryTour.getName() + "%");
+		}
 		List<Tour> list = tourMapper.selectByExample(tourExample);
 		return list;
 	}

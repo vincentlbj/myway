@@ -56,9 +56,9 @@
 										</li>
 										<li><a href="<%=request.getContextPath()%>/tour/result/grid">度假</a>
 										</li>
-										<li><a href="#">酒店</a>
+										<li><a href="<%=request.getContextPath()%>/hotel/result/grid">酒店</a>
 										</li>
-										<li><a href="#">门票</a>
+										<li><a href="<%=request.getContextPath()%>/ticket/result/grid">门票</a>
 										</li>
 										<li><a href="<%=request.getContextPath()%>/traffic/checkTraffic">交通出行</a>
 										</li>
@@ -92,7 +92,7 @@
 							
 							<div class="col-sm-3">
 							
-								<div class="navbar-phone"><i class="fa fa-phone"></i> 联系我们: +66 28 878 5452</div>
+								<div class="navbar-phone"><i class="fa fa-phone"></i> 联系我们: +88888888</div>
 							</div>
 
 					</div>

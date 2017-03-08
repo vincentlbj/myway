@@ -32,7 +32,7 @@ public class TicketController {
 	private TicketOrderService tickerOrderService;
 
 	@RequestMapping("/result/grid")
-	public String result(Ticket queryTicket, Integer pageNum, Integer pageSize, Model model) {
+	public String result(Ticket queryTicket, Integer pageNum, Integer pageSize, Model model) throws Exception {
 		if (pageNum == null || pageNum < 0) {
 			pageNum = 1;
 		}
@@ -61,7 +61,7 @@ public class TicketController {
 	}
 
 	@RequestMapping("/pay/{id}")
-	public String payPage(@PathVariable int id, Model model) {
+	public String payPage(@PathVariable int id, Model model) throws Exception {
 		Ticket ticket = ticketService.getTicketById(id);
 		model.addAttribute("ticket", ticket);
 		model.addAttribute("token", UUID.randomUUID());
@@ -70,7 +70,7 @@ public class TicketController {
 
 	@RequestMapping("/pay/confirm")
 	public String payConfirm(String token, Integer number, String price, String phone, Integer ticketId,
-			HttpSession session, Model model) {
+			HttpSession session, Model model) throws Exception {
 		User user = (User) session.getAttribute("userInfo");
 		TicketOrder ticketOrder = new TicketOrder();
 		ticketOrder.setPeople(number);
