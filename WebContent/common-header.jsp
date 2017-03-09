@@ -69,8 +69,6 @@
 												<li><a href="<%=request.getContextPath()%>/blog/result">看日记</a></li>
 											</ul>
 										</li>
-										<li><a href="#">热门问答</a>
-										</li>
 										<li><a href="<%=request.getContextPath()%>/exposure/list">曝光台</a>
 										</li>
 										<li>
@@ -78,12 +76,11 @@
 											<ul>
 												<li><a href="<%=request.getContextPath()%>/user/info">我的信息</a></li>
 												<li><a href="<%=request.getContextPath()%>/user/tour">我的行程</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/info">我的酒店</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/info">我的门票</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/hotel">我的酒店</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/ticket">我的门票</a></li>
 											</ul>
 										</li>
-										<li><a href="#">联系我们</a></li>
-										<li><a href="#">关于我们</a></li>
+										<li><a href="<%=request.getContextPath()%>/contact">联系我们</a></li>
 									</ul>
 									
 								</div>

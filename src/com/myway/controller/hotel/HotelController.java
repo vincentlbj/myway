@@ -19,6 +19,7 @@ import com.myway.dto.MyPage;
 import com.myway.pojo.Hotel;
 import com.myway.pojo.HotelOrder;
 import com.myway.pojo.HotelWithBLOBs;
+import com.myway.pojo.User;
 import com.myway.service.hotel.HotelOrderService;
 import com.myway.service.hotel.HotelService;
 
@@ -77,6 +78,8 @@ public class HotelController {
 
 	@RequestMapping("/pay/confirm")
 	public String payConfirm(HotelOrder hotelOrder, HttpSession session, Model model) throws Exception {
+		User user = (User) session.getAttribute("userInfo");
+		hotelOrder.setUserId(user.getuId());
 		int o_id = hotelService.confirmHotelOrder(hotelOrder);
 		if (o_id == -1) {
 			return "redirect:/index";

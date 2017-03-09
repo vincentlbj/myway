@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.myway.dto.UserHotelOrder;
+import com.myway.dto.UserTicketOrder;
 import com.myway.dto.UserTourOrder;
 import com.myway.pojo.User;
+import com.myway.service.hotel.HotelOrderService;
+import com.myway.service.ticket.TicketOrderService;
 import com.myway.service.tour.TourOrderService;
 import com.myway.service.user.UserService;
 import com.myway.util.PageError;
@@ -34,6 +38,12 @@ public class UserController {
 
 	@Autowired
 	TourOrderService tourOrderService;
+
+	@Autowired
+	HotelOrderService hotelOrderService;
+
+	@Autowired
+	TicketOrderService ticketOrderService;
 
 	private static final Logger logger = Logger.getLogger(UserController.class);
 
@@ -98,6 +108,22 @@ public class UserController {
 		List<UserTourOrder> userTourOrderList = tourOrderService.getUserTourOrderByUserId(user.getuId());
 		model.addAttribute("userTourOrderList", userTourOrderList);
 		return "user-tour";
+	}
+
+	@RequestMapping(value = "/hotel")
+	public String hotel(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("userInfo");
+		List<UserHotelOrder> userHotelOrderList = hotelOrderService.getUserHotelOrderByUserId(user.getuId());
+		model.addAttribute("hotelOrderList", userHotelOrderList);
+		return "user-hotel";
+	}
+
+	@RequestMapping(value = "/ticket")
+	public String ticket(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("userInfo");
+		List<UserTicketOrder> userTicketOrderList = ticketOrderService.getUserTicketOrderByUserId(user.getuId());
+		model.addAttribute("ticketOrderList", userTicketOrderList);
+		return "user-ticket";
 	}
 
 	@RequestMapping(value = "/modifyInfo")

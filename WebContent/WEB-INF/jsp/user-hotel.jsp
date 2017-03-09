@@ -89,23 +89,25 @@
 							<div class="detail-content-wrapper">
 									<div id="section-0" class="detail-content">
 											<div class="section-title text-left">
-												<h4>我的行程</h4>
+												<h4>我的酒店</h4>
 											</div>
 											
 											<table class="table">
 											   <thead>
 											      <tr>
-											         <th>旅程</th>
+											         <th>酒店</th>
 											         <th>人数</th>
+											         <th>天数</th>
 											         <th>总价</th>
 											      </tr>
 											   </thead>
 											   <tbody>
-											   	  <c:forEach items="${userTourOrderList}" var="userTourOrder">
+											   	  <c:forEach items="${hotelOrderList}" var="hotelOrder">
 												      <tr>
-												         <td><a href="<%=request.getContextPath()%>/tour/detail/${userTourOrder.tour.id}">${userTourOrder.tour.name} </a></td>
-												         <td>${userTourOrder.tourOrder.people } 人</td>
-												         <td>￥${userTourOrder.tourOrder.price } 元</td>
+												         <td><a href="<%=request.getContextPath()%>/hotel/detail/${hotelOrder.hotel.id}">${hotelOrder.hotel.name} </a></td>
+												         <td>${hotelOrder.hotelOrder.people } 人</td>
+												         <td>${hotelOrder.hotelOrder.day } 天</td>
+												         <td>￥${hotelOrder.hotelOrder.price } 元</td>
 												      </tr>
 											      </c:forEach>
 											   </tbody>

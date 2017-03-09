@@ -33,4 +33,9 @@ public class MainController {
 		return "register";
 	}
 
+	@RequestMapping("/contact")
+	public String contact() {
+		return "contact";
+	}
+
 }
