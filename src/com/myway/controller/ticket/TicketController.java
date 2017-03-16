@@ -19,8 +19,10 @@ import com.myway.pojo.Ticket;
 import com.myway.pojo.TicketOrder;
 import com.myway.pojo.TicketWithBLOBs;
 import com.myway.pojo.User;
+import com.myway.service.showpage.ShowService;
 import com.myway.service.ticket.TicketOrderService;
 import com.myway.service.ticket.TicketService;
+import com.myway.util.StringUtil;
 
 @Controller
 @RequestMapping("/ticket")
@@ -30,6 +32,9 @@ public class TicketController {
 
 	@Autowired
 	private TicketOrderService tickerOrderService;
+
+	@Autowired
+	private ShowService showService;
 
 	@RequestMapping("/result/grid")
 	public String result(Ticket queryTicket, Integer pageNum, Integer pageSize, Model model) throws Exception {
@@ -56,7 +61,12 @@ public class TicketController {
 	@RequestMapping("/detail/{id}")
 	public String detail(@PathVariable int id, Model model) throws Exception {
 		TicketWithBLOBs ticket = ticketService.getTicketById(id);
+		ticket.setBookNotice(StringUtil.convertBr(ticket.getBookNotice()));
+		ticket.setSpotSummary(StringUtil.convertBr(ticket.getSpotSummary()));
+		ticket.setTrafficMessage(StringUtil.convertBr(ticket.getTrafficMessage()));
 		model.addAttribute("ticket", ticket);
+		List<Ticket> showTicketList = showService.getShowTicket();
+		model.addAttribute("showTicketList", showTicketList);
 		return "/ticket-detail";
 	}
 

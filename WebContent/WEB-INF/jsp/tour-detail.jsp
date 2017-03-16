@@ -61,7 +61,7 @@
 		<div class="main-wrapper scrollspy-container">
 		
 			<!-- start end Page title -->
-			<div class="page-title detail-page-title" style="background-image:url('<%=request.getContextPath()%>/images/detail/header.jpg');">
+			<div class="page-title detail-page-title" style="background-image:url('${pictureList[0]}');">
 				
 				<div class="container">
 				
@@ -72,20 +72,6 @@
 							<h1 class="hero-title">${name }</h1>
 							
 							<ul class="list-col clearfix">
-								
-								<li class="fav-box">
-									<div class="meta">
-										<span class="block"><button class="btn btn-fav"><i class="fa fa-book"></i></button></span>
-										成交 ${deal }
-									</div>
-								</li>
-
-								<li class="fav-box">
-									<div class="meta">
-										<span class="block"><button class="btn btn-fav"><i class="fa fa-heart"></i></button></span>
-										满意度 ${satisfactory }% 
-									</div>
-								</li>
 								
 								<li class="duration-box">
 									<div class="meta">
@@ -306,82 +292,27 @@
 										<div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
 						
 											<div class="GridLex-grid-noGutter-equalHeight">
-											
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/01.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
-																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Paris in Love</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="4.0"></div> <span> / 7 review</span>
+												<c:forEach items="${showTourList}" var="tour">
+													<div class="GridLex-col-4_sm-4_xs-12 mb-20">
+														<div class="package-grid-item"> 
+															<a href="<%=request.getContextPath()%>/tour/detail/${tour.id}">
+																<div class="image">
+																	<img src="${fn:split(tour.picture,";")[0]}" alt="Tour Package" />
+																	<div class="absolute-in-image">
+																		<div class="duration"><span>${fn:split(tour.during,",")[0]} 天 ${fn:split(tour.during,",")[1]} 夜</span></div>
 																	</div>
 																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
-													</div>
-												</div>
-												
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/02.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
-																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Classic Europe</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="3.5"></div> <span> / 7 review</span>
+																<div class="content clearfix">
+																	<h6>${tour.name }</h6>
+																	<div class="absolute-in-content">
+																		<span class="btn"><i class="fa fa-heart-o"></i></span>
+																		<div class="price">￥${tour.price }</div>
 																	</div>
 																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
+															</a>
+														</div>
 													</div>
-												</div>
-												
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/03.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
-																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Best of Egypt</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="4.5"></div> <span> / 7 review</span>
-																	</div>
-																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
-													</div>
-												</div>
-									
+												</c:forEach>									
 											</div>
 									
 										</div>

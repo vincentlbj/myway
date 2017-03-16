@@ -22,12 +22,16 @@ import com.myway.pojo.HotelWithBLOBs;
 import com.myway.pojo.User;
 import com.myway.service.hotel.HotelOrderService;
 import com.myway.service.hotel.HotelService;
+import com.myway.service.showpage.ShowService;
 
 @Controller
 @RequestMapping("/hotel")
 public class HotelController {
 	@Autowired
 	private HotelService hotelService;
+
+	@Autowired
+	private ShowService showService;
 
 	@Autowired
 	private HotelOrderService hotelOrderService;
@@ -65,6 +69,8 @@ public class HotelController {
 		model.addAttribute("hotel", hotel);
 		model.addAttribute("installation", installation);
 		model.addAttribute("policy", policy);
+		List<Hotel> showHotelList = showService.getShowHotel();
+		model.addAttribute("showHotelList", showHotelList);
 		return "hotel-detail";
 	}
 

@@ -226,82 +226,24 @@
 										<div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
 						
 											<div class="GridLex-grid-noGutter-equalHeight">
-											
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/01.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
+												<c:forEach items="${showHotelList}" var="hotel">
+													<div class="GridLex-col-4_sm-6_xs-12 mb-30">
+														<div class="package-grid-item"> 
+															<a href="<%=request.getContextPath()%>/hotel/detail/${hotel.id}">
+																<div class="image">
+																	<img src="${hotel.headerPicture}" />
 																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Paris in Love</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="4.0"></div> <span> / 7 review</span>
+																<div class="content clearfix">
+																	<h5>${hotel.name }</h5>
+																	<div class="absolute-in-content">
+																		<span class="btn"><i class="fa fa-heart-o"></i></span>
+																		<div class="price">￥${hotel.price }</div>
 																	</div>
 																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
+															</a>
+														</div>
 													</div>
-												</div>
-												
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/02.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
-																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Classic Europe</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="3.5"></div> <span> / 7 review</span>
-																	</div>
-																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
-													</div>
-												</div>
-												
-												<div class="GridLex-col-4_sm-4_xs-12 mb-20">
-													<div class="package-grid-item"> 
-														<a href="#">
-															<div class="image">
-																<img src="<%=request.getContextPath()%>/images/tour-package/03.jpg" alt="Tour Package" />
-																<div class="absolute-in-image">
-																	<div class="duration"><span>4 days 3 nights</span></div>
-																</div>
-															</div>
-															<div class="content clearfix">
-																<h6>Best of Egypt</h6>
-																<div class="rating-wrapper">
-																	<div class="raty-wrapper">
-																		<div class="star-rating-12px" data-rating-score="4.5"></div> <span> / 7 review</span>
-																	</div>
-																</div>
-																<div class="absolute-in-content">
-																	<span class="btn"><i class="fa fa-heart-o"></i></span>
-																	<div class="price">$1422</div>
-																</div>
-															</div>
-														</a>
-													</div>
-												</div>
-									
+												</c:forEach>
 											</div>
 									
 										</div>

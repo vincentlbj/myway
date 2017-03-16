@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 
@@ -96,104 +98,36 @@
 					
 							<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 							
-								<h1 class="hero-title">My way</h1>
-								<p class="lead">Go where you wanna go!</p>
+								<h1 class="hero-title">旅游综合服务平台</h1>
+								<p class="lead">想去哪，就去哪!</p>
 
 							</div>
 							
 						</div>
 						
 						<div class="main-search-wrapper full-width">
-						
 							<div class="inner">
 							
 								<div class="column-item">
 								
 									<div class="form-group">
 									
-										<select name="destination" class="select2-multi form-control" data-placeholder="目的地" multiple>
-											<option value="">Choose a Destination</option>
-											<option value="0">Any Destination</option>
-											<option value="Albania">Albania</option>
-											<option value="Austria">Austria</option>
-											<option value="Belgium">Belgium</option>
-											<option value="Bosnia">Bosnia</option>
-											<option value="Croatia">Croatia</option>
-											<option value="Czech Republic">Czech Republic</option>
-											<option value="Denmark">Denmark</option>
-											<option value="Egypt">Egypt</option>
-											<option value="England">England</option>
-											<option value="Estonia">Estonia</option>
-											<option value="Finland">Finland</option>
-											<option value="France">France</option>
-											<option value="Germany">Germany</option>
-											<option value="Greece">Greece</option>
-											<option value="Herzegovina">Herzegovina</option>
-											<option value="Hungary">Hungary</option>
-											<option value="Ireland">Ireland</option>
-											<option value="Italy">Italy</option>
-											<option value="Latvia">Latvia</option>
-											<option value="Liechtenstein">Liechtenstein</option>
-											<option value="Lithuania">Lithuania</option>
-											<option value="Luxembourg">Luxembourg</option>
-											<option value="Monaco">Monaco</option>
-											<option value="Montenegro">Montenegro</option>
-											<option value="Netherlands">Netherlands</option>
-											<option value="Northern Ireland">Northern Ireland</option>
-											<option value="Poland">Poland</option>
-											<option value="Portugal">Portugal</option>
-											<option value="Russia">Russia</option>
-											<option value="Scotland">Scotland</option>
-											<option value="Serbia">Serbia</option>
-											<option value="Slovakia">Slovakia</option>
-											<option value="Slovenia">Slovenia</option>
-											<option value="Spain">Spain</option>
-											<option value="Sweden">Sweden</option>
-											<option value="Switzerland">Switzerland</option>
-											<option value="Turkey">Turkey</option>
-											<option value="Vatican City">Vatican City</option>
-											<option value="Wales">Wales</option>
+										<select id="type" class="form-control" data-placeholder="目的地">
+											<option value="">选择搜索类型</option>
+											<option value="tour">旅游</option>
+											<option value="hotel">酒店</option>
+											<option value="ticket">门票</option>
 										</select>
 
 									</div>
 								
 								</div>
 								
-								<div class="column-item">
-								
-									<div class="form-group">
-									
-										<select name="month" class="select2-multi form-control" data-placeholder="出发月份" multiple>
-											<option value="">Choose a Departure Month</option>
-											<option value="0">Any Departure Month</option>
-											<option value="1">January</option>
-											<option value="2">February</option>
-											<option value="3">March</option>
-											<option value="4">April</option>
-											<option value="5">May</option>
-											<option value="6">June</option>
-											<option value="7">July</option>
-											<option value="8">August</option>
-											<option value="9">September</option>
-											<option value="10">October</option>
-											<option value="11">November</option>
-											<option value="12">December</option>
-										</select>
-										
-									</div>
-								
-								</div>
-								
-								<div class="column-item">
+								<div class="column-item" style="width:450px;">
 								
 									<div class="form-group">
 
-										<select name="year" class="select2-multi form-control" data-placeholder="出发年份" multiple>
-											<option value="">Choose a Departure Year</option>
-											<option value="0">Any Departure Year</option>
-											<option value="2016">2016</option>
-											<option value="2017">2017</option>
-										</select>
+										<input type="text" class="form-control" id="content" data-placeholder="搜索内容">
 										
 									</div>
 								
@@ -203,7 +137,7 @@
 								
 									<div class="form-group">
 									
-										<a href="<%=request.getContextPath()%>/#" class="btn btn-primary btn-block">Search</a>
+										<button id="search" class="btn btn-primary btn-block">搜索</button>
 										
 									</div>
 								
@@ -263,8 +197,8 @@
 				</div>
 				
 			</div>
-
-			<section>
+			
+			<section class="bg-light">
 			
 				<div class="container">
 				
@@ -282,44 +216,33 @@
 					
 					</div>
 					
-					<div class="grid destination-grid-wrapper">
-			
-						<div class="grid-item" data-colspan="10" data-rowspan="10">
-							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/index/01.jpg');">
-								<div class="relative">
-									<h4>昆明</h4>
-									<span>1500元以上</span>
-								</div>
-							</a>
-						</div>
+					<div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
 						
-						<div class="grid-item" data-colspan="10" data-rowspan="4">
-							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/02.jpg');">
-								<div class="relative">
-									<h4>Croatia</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
+						<div class="GridLex-grid-noGutter-equalHeight">
 						
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/03.jpg');">
-								<div class="relative">
-									<h4>USA</h4>
-									<span>Starting from $322</span>
+							<c:forEach items="${showTourList}" var="tour">
+								<div class="GridLex-col-4_sm-6_xs-12 mb-30">
+									<div class="package-grid-item"> 
+										<a href="<%=request.getContextPath()%>/tour/detail/${tour.id}">
+											<div class="image">
+												<img src="${fn:split(tour.picture,";")[0]}" />
+												<div class="absolute-in-image">
+													<div class="duration"><span>${fn:split(tour.during,",")[0]} 天 ${fn:split(tour.during,",")[1]} 夜</span></div>
+												</div>
+											</div>
+											<div class="content clearfix">
+												<h5>${tour.name }</h5>
+												<div class="absolute-in-content">
+													<span class="btn"><i class="fa fa-heart-o"></i></span>
+													<div class="price">￥${tour.price }</div>
+												</div>
+											</div>
+										</a>
+									</div>
 								</div>
-							</a>
+							</c:forEach>
 						</div>
-						
-						<div class="grid-item" data-colspan="5" data-rowspan="6">
-							<a href="<%=request.getContextPath()%>/result-grid.html" class="top-destination-image-bg" style="background-image:url('images/destination-grid/04.jpg');">
-								<div class="relative">
-									<h4>Emirates</h4>
-									<span>Starting from $322</span>
-								</div>
-							</a>
-						</div>
-						
+					
 					</div>
 					
 				</div>
@@ -336,7 +259,7 @@
 							
 							<div class="section-title">
 							
-								<h3>特惠门票</h3>
+								<h3>优惠酒店</h3>
 								
 							</div>
 							
@@ -348,231 +271,72 @@
 						
 						<div class="GridLex-grid-noGutter-equalHeight">
 						
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/01.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
+							<c:forEach items="${showHotelList}" var="hotel">
+								<div class="GridLex-col-4_sm-6_xs-12 mb-30">
+									<div class="package-grid-item"> 
+										<a href="<%=request.getContextPath()%>/hotel/detail/${hotel.id}">
+											<div class="image">
+												<img src="${hotel.headerPicture}" />
 											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Paris in Love</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
+											<div class="content clearfix">
+												<h5>${hotel.name }</h5>
+												<div class="absolute-in-content">
+													<span class="btn"><i class="fa fa-heart-o"></i></span>
+													<div class="price">￥${hotel.price }</div>
 												</div>
 											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
+										</a>
+									</div>
 								</div>
+							</c:forEach>
+						</div>
+					
+					</div>
+					
+				</div>
+				
+			</section>
+			
+			<section class="bg-light">
+			
+				<div class="container">
+				
+					<div class="row">
+						
+						<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+							
+							<div class="section-title">
+							
+								<h3>优美景点</h3>
+								
 							</div>
 							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/02.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
+						</div>
+					
+					</div>
+					
+					<div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
+						
+						<div class="GridLex-grid-noGutter-equalHeight">
+						
+							<c:forEach items="${showTicketList}" var="ticket">
+								<div class="GridLex-col-4_sm-6_xs-12 mb-30">
+									<div class="package-grid-item"> 
+										<a href="<%=request.getContextPath()%>/ticket/detail/${ticket.id}">
+											<div class="image">
+												<img src="${ticket.headerPicture}" />
 											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Classic Europe</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="3.5"></div> <span> / 7 review</span>
+											<div class="content clearfix">
+												<h5>${ticket.name }</h5>
+												<div class="absolute-in-content">
+													<span class="btn"><i class="fa fa-heart-o"></i></span>
+													<div class="price">￥${ticket.price }</div>
 												</div>
 											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
+										</a>
+									</div>
 								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/03.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Best of Egypt</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/04.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Adriatic Coastal Explorer</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/05.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Athens, Mykonos &amp; Santorini</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/06.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Honeymoon Time in Maldives</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/07.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Scandinavia Attractions</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/08.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Monaco in Love</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-							<div class="GridLex-col-4_sm-6_xs-12 mb-30">
-								<div class="package-grid-item"> 
-									<a href="<%=request.getContextPath()%>/detail-page.html">
-										<div class="image">
-											<img src="images/tour-package/09.jpg" alt="Tour Package" />
-											<div class="absolute-in-image">
-												<div class="duration"><span>4 days 3 nights</span></div>
-											</div>
-										</div>
-										<div class="content clearfix">
-											<h5>Highlights of Italy</h5>
-											<div class="rating-wrapper">
-												<div class="raty-wrapper">
-													<div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-												</div>
-											</div>
-											<div class="absolute-in-content">
-												<span class="btn"><i class="fa fa-heart-o"></i></span>
-												<div class="price">$1422</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
+							</c:forEach>
 						</div>
 					
 					</div>
@@ -592,13 +356,12 @@
 							<div class="section-title text-left">
 							
 								<h3>为什么选择我们</h3>
-								<p>我们是旅行专家</p>
 								
 							</div>
 							
 							<div class="featured-item">
 							
-								<h4>Experts On Tour</h4>
+								<h4>我们是旅行专家</h4>
 								
 								<div class="content clearfix">
 								
@@ -757,6 +520,25 @@
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.flexslider-min.js"></script> 
 <script>
+$("#search").click(function(){
+	if($("#type").val()==""){
+		alert("请选择一个类型");
+		return false;
+	}
+	if($("#content").val()==""){
+		alert("请输入搜索内容");
+		return false;
+	}
+	if($("#type").val()=="tour"){
+		window.location.href="<%=request.getContextPath()%>/tour/result/grid?name="+$("#content").val();
+	}
+	if($("#type").val()=="hotel"){
+		window.location.href="<%=request.getContextPath()%>/hotel/result/grid?name="+$("#content").val();
+	}
+	if($("#type").val()=="ticket"){
+		window.location.href="<%=request.getContextPath()%>/ticket/result/grid?name="+$("#content").val();
+	}
+});
 $(document).ready(function(){
 
 	$('#mainFlexSlider').flexslider(
@@ -770,6 +552,7 @@ $(document).ready(function(){
 		}
 	);
 });
+
 </script> 
 
 </body>

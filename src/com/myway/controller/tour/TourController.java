@@ -24,6 +24,7 @@ import com.myway.pojo.TourOrder;
 import com.myway.pojo.TourPrice;
 import com.myway.pojo.TourWithBLOBs;
 import com.myway.pojo.User;
+import com.myway.service.showpage.ShowService;
 import com.myway.service.tour.TourService;
 import com.myway.util.StringUtil;
 
@@ -32,6 +33,9 @@ import com.myway.util.StringUtil;
 public class TourController {
 	@Autowired
 	private TourService tourService;
+
+	@Autowired
+	private ShowService showService;
 
 	@RequestMapping("/result/grid")
 	public String result(Tour queryTour, Integer pageNum, Integer pageSize, Model model) {
@@ -103,6 +107,9 @@ public class TourController {
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("priceList", priceList);
 		model.addAttribute("pictureList", pictureList);
+		// 推荐
+		List<Tour> showTourList = showService.getShowTour();
+		model.addAttribute("showTourList", showTourList);
 		return "/tour-detail";
 	}
 

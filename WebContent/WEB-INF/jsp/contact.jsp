@@ -246,7 +246,7 @@
 						
 						</div>
 						
-						<form class="contact-form-wrapper" data-toggle="validator">
+						<form class="contact-form-wrapper" data-toggle="validator" method="post" action="<%=request.getContextPath()%>/contactSubmit">
 						
 							<div class="row">
 							
@@ -272,20 +272,20 @@
 										<div class="col-sm-6">
 										
 											<div class="form-group">
-												<label for="inputName">你的名字 <span class="font10 text-danger">(必填)</span></label>
-												<input id="inputName" type="text" class="form-control" data-error="Your name is required" required>
+												<label for="name">你的名字 <span class="font10 text-danger">(必填)</span></label>
+												<input id="name" name="name" type="text" class="form-control" data-error="你的名字是必填的" required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
 											<div class="form-group">
-												<label for="inputEmail">你的邮箱 <span class="font10 text-danger">(必填)</span></label>
-												<input id="inputEmail" type="email" class="form-control" data-error="Your email is required and must be a valid email address" required>
+												<label for="email">你的邮箱 <span class="font10 text-danger">(必填)</span></label>
+												<input id="email" name="email" type="email" class="form-control" data-error="必须是一个有效的邮箱格式" required>
 												<div class="help-block with-errors"></div>
 											</div>
 											
 											<div class="form-group">
-												<label>主题</label>
-												<input type="text" class="form-control" />
+												<label for="theme">主题</label>
+												<input id="theme" name="theme" type="text" class="form-control" />
 											</div>
 										
 										</div>
@@ -293,8 +293,8 @@
 										<div class="col-sm-6">
 										
 											<div class="form-group">
-												<label for="inputMessage">内容 <span class="font10 text-danger">(必填)</span></label>
-												<textarea id="inputMessage" class="form-control" rows="9" data-minlength="50" data-error="Your message is required and must not less than 50 characters" required></textarea>
+												<label for="content">内容 <span class="font10 text-danger">(必填)</span></label>
+												<textarea id="content" name="content" class="form-control" rows="9" data-minlength="20" data-error="内容不得小于20字" required></textarea>
 												<div class="help-block with-errors"></div>
 											</div>
 										
@@ -399,6 +399,10 @@ $(function () {
 	};
 
 });
+
+if("${message}"!=""){
+	alert("${message}");
+}
 </script>
 
 </body>
