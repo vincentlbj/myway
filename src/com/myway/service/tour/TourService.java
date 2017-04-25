@@ -3,7 +3,6 @@ package com.myway.service.tour;
 import java.util.List;
 
 import com.myway.pojo.Tour;
-import com.myway.pojo.TourMember;
 import com.myway.pojo.TourOrder;
 import com.myway.pojo.TourPrice;
 
@@ -14,7 +13,7 @@ public interface TourService {
 
 	TourPrice getTourPriceByPriceId(int id);
 
-	int confirmTourOrder(String token, TourOrder tourOrder, TourMember tourMember);
+	int confirmTourOrder(String token, TourOrder tourOrder);
 
 	List<Tour> getTourByCriteria(Tour queryTour, Integer pageNum, Integer pageSize);
 

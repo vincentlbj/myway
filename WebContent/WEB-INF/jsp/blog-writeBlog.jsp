@@ -83,24 +83,24 @@
 			
 				<div class="container">
 						<div class="row form-group">
-							<div class="col-sm-2"><label>文章标题:</label></div>
+							<div class="col-sm-2" style="font-size:20px"><label>文章标题:</label></div>
 							<div class="col-sm-6">
 								<input id="title_s" name="title_s" type="text" class="col-sm-9 form-control">
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-sm-2"><label>旅游地点:</label></div>
+							<div class="col-sm-2" style="font-size:20px"><label>旅游地点:</label></div>
 							<div class="col-sm-6">
 									<input id="place_s" name="place_s" type="text" class="col-sm-9 form-control">
 							</div>
 						</div>	
 						<div class="row form-group">
-							<div class="col-sm-2"><label>文章封面:</label></div>
+							<div class="col-sm-2" style="font-size:20px"><label>文章封面:</label></div>
 							<div class="col-sm-4">
 								<input id="photo" name="photo" type="file"></input>
 							</div>
 							<div class="col-sm-2">
-								<button onclick="uploadPhoto();" type="button" class="btn btn-primary">上传</button>
+								<button onclick="uploadPhoto();" type="button" class="btn btn-primary" style="font-size:20px">上传</button>
 							</div>
 						</div>
 						<div class="row form-group">
@@ -114,7 +114,7 @@
 							</div>
 						</div>
 						<div class="row form-group">
-							<div class="col-sm-2"><button onclick="submitForm();" class="btn btn-primary">提交</button></div>
+							<div class="col-sm-2"><button onclick="submitForm();" class="btn btn-primary" style="font-size:20px">提交</button></div>
 						</div>
 				</div>
 				

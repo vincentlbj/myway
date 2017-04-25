@@ -76,7 +76,7 @@
 				<div class="container">
 				
 					<ol class="breadcrumb-list booking-step">
-						<li><span>> 度假</span></li>
+						<li><span style="font-size:20px">> 度假</span></li>
 					</ol>
 					
 				</div>
@@ -96,17 +96,17 @@
 								<div class="sidebar-search-wrapper bg-light-2">
 								
 									<div class="sidebar-search-header">
-										<h4>搜索</h4>
+										<h4 style="font-size:20px">搜索</h4>
 									</div>
 									
 									<div class="sidebar-search-content">
 										<div class="form-group">
 											<form action="">
-												<h6 class="sidebar-title">去哪儿</h6>
+												<h6 class="sidebar-title" style="font-size:20px">去哪儿</h6>
 												<input id="destination" type="text" class="form-control">
 											</form>
 										</div>
-										<a href="#" class="btn btn-primary btn-block" onclick="check();">搜索</a>
+										<a href="#" class="btn btn-primary btn-block" onclick="check();" style="font-size:20px">搜索</a>
 									</div>
 									
 								</div>
@@ -126,7 +126,7 @@
 			
 								<div class="sorting-header">
 									<h3 class="sorting-title uppercase">搜索：${queryName }</h3>
-									<p class="sorting-lead">搜索到${myPage.allCount}条结果</p>
+									<p class="sorting-lead" style="font-size:20px">搜索到${myPage.allCount}条结果</p>
 								</div>
 
 							</div>

@@ -115,7 +115,7 @@
 								</div>
 								
 								
-								<a href="<%=request.getContextPath()%>/index" class="btn btn-primary">返回主页</a>
+								<a href="<%=request.getContextPath()%>/mockPay/show/ticket/${ticketOrder.id }" class="btn btn-primary" target="_blank">马上支付</a>
 							
 							</div>
 							

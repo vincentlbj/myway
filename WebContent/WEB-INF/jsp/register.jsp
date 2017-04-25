@@ -18,8 +18,8 @@
 	<div class="content">
 		<form action="<%=request.getContextPath()%>/user/register" method="post">
 			<div class="row1">
-				<h1>REGISTER</h1>
-					<span>账号：</span><input type="text" name="userName" value="<c:if test='${user!=null}'>${user.userName }</c:if>">
+				<h1>注册</h1>
+					<span style="font-size:20px">账号：</span><input type="text" name="userName" value="<c:if test='${user!=null}'>${user.userName }</c:if>">
 					<c:if test="${userNameError!=null }">
 						<br>
 						<font style="color: yellow;">${userNameError }</font>
@@ -29,19 +29,19 @@
 						<font style="color: yellow;">${existError.message }</font>
 					</c:if>
 					<br>
-					<span>邮箱：</span><input type="text" name="email" value="<c:if test='${user!=null}'>${user.email }</c:if>">					
+					<span style="font-size:20px">邮箱：</span><input type="text" name="email" value="<c:if test='${user!=null}'>${user.email }</c:if>">					
 					<c:if test="${emailError!=null }">
 						<br>
 						<font style="color: yellow;">${emailError }</font>
 					</c:if>
 					<br>
-					<span>密码：</span><input type="password" name="password" value="">
+					<span style="font-size:20px">密码：</span><input type="password" name="password" value="">
 					<c:if test="${passwordError!=null }">
 						<br>
 						<font style="color: yellow;">${passwordError }</font>
 					</c:if>
 					<br>
-					<span>重复密码：</span><input type="password" name="rePassword" value="">
+					<span style="font-size:20px">重复密码：</span><input type="password" name="rePassword" value="">
 					<c:if test="${rePasswordError!=null }">
 						<br>
 						<font style="color: yellow;">${rePasswordError }</font>
@@ -52,8 +52,8 @@
 					</c:if>
 			</div>
 			<div class="row2">
-				<a href="<%=request.getContextPath()%>/loginPage">Login</a>
-				<input type="submit" value="Confirm" >
+				<a href="<%=request.getContextPath()%>/loginPage">已有账号</a>
+				<input type="submit" value="注册" >
 			</div>
 		</form>
 	</div>

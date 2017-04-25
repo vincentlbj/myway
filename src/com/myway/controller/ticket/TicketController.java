@@ -91,6 +91,7 @@ public class TicketController {
 		ticketOrder.setUserId(user.getuId());
 		ticketOrder.setMemberPhone(phone);
 		ticketOrder.setTicketId(ticketId);
+		ticketOrder.setoType("unsuccess");
 		int o_id = ticketService.confirmTicketOrder(ticketOrder);
 		if (o_id == -1) {
 			return "redirect:/index";

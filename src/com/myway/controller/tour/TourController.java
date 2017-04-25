@@ -1,6 +1,5 @@
 package com.myway.controller.tour;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +19,6 @@ import com.github.pagehelper.Page;
 import com.myway.dto.CommonDto;
 import com.myway.dto.MyPage;
 import com.myway.pojo.Tour;
-import com.myway.pojo.TourMember;
 import com.myway.pojo.TourOrder;
 import com.myway.pojo.TourPrice;
 import com.myway.pojo.TourWithBLOBs;
@@ -51,6 +50,7 @@ public class TourController {
 		myPage.setAllCount(((Page) list).getTotal());
 		myPage.setCurrPage(pageNum.longValue());
 		model.addAttribute("myPage", myPage);
+		model.addAttribute("queryName", queryTour.getName());
 		return "/tour-result-grid";
 	}
 
@@ -70,6 +70,7 @@ public class TourController {
 		myPage.setAllCount(((Page) list).getTotal());
 		myPage.setCurrPage(pageNum.longValue());
 		model.addAttribute("myPage", myPage);
+		model.addAttribute("queryName", names);
 		return "/tour-result-grid";
 	}
 
@@ -124,27 +125,31 @@ public class TourController {
 	}
 
 	@RequestMapping("/pay/confirm")
-	public String payConfirm(String token, Integer number, Integer pId, String price, TourMember tourMember,
-			HttpSession session, Model model) {
+	public String payConfirm(TourOrder tourOrder, HttpSession session, Model model) {
 		User user = (User) session.getAttribute("userInfo");
-		TourOrder tourOrder = new TourOrder();
-		tourOrder.setPeople(number);
-		tourOrder.setpId(pId);
 		tourOrder.setuId(user.getuId());
 		tourOrder.setoDate(new Date());
-		tourOrder.setToken(token);
-		BigDecimal priceDecimal = new BigDecimal(price);
-		tourOrder.setPrice(priceDecimal);
-		int o_id = tourService.confirmTourOrder(token, tourOrder, tourMember);
+		tourOrder.setoType("unsuccess");
+		int o_id = tourService.confirmTourOrder(tourOrder.getToken(), tourOrder);
 		if (o_id == -1) {
 			return "redirect:/index";
 		}
-		TourPrice tourPrice = tourService.getTourPriceByPriceId(pId);
+		TourPrice tourPrice = tourService.getTourPriceByPriceId(tourOrder.getpId());
 		Tour tour = tourService.getTourById(tourPrice.gettId());
 		model.addAttribute("tourOrder", tourOrder);
 		model.addAttribute("tourPrice", tourPrice);
 		model.addAttribute("tour", tour);
-		model.addAttribute("tourMember", tourMember);
 		return "/tour-confirm";
+	}
+
+	@RequestMapping("/rest/{priceId}/{number}")
+	@ResponseBody
+	public String isRemain(@PathVariable int priceId, @PathVariable int number) {
+		TourPrice tourPrice = tourService.getTourPriceByPriceId(priceId);
+		if (tourPrice.getRemain() < number) {
+			return "no";
+		} else {
+			return "yes";
+		}
 	}
 }

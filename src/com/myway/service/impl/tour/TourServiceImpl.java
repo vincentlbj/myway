@@ -7,13 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.myway.mapper.TourMapper;
-import com.myway.mapper.TourMemberMapper;
 import com.myway.mapper.TourOrderMapper;
 import com.myway.mapper.TourPriceMapper;
 import com.myway.mapper.UserMapper;
 import com.myway.pojo.Tour;
 import com.myway.pojo.TourExample;
-import com.myway.pojo.TourMember;
 import com.myway.pojo.TourOrder;
 import com.myway.pojo.TourOrderExample;
 import com.myway.pojo.TourPrice;
@@ -28,9 +26,6 @@ public class TourServiceImpl implements TourService {
 
 	@Autowired
 	private TourPriceMapper tourPriceMapper;
-
-	@Autowired
-	private TourMemberMapper tourMemberMapper;
 
 	@Autowired
 	private TourOrderMapper tourOrderMapper;
@@ -59,7 +54,7 @@ public class TourServiceImpl implements TourService {
 	}
 
 	@Override
-	public int confirmTourOrder(String token, TourOrder tourOrder, TourMember tourMember) {
+	public int confirmTourOrder(String token, TourOrder tourOrder) {
 		// 避免重复提交表单
 		TourOrderExample tourOrderExample = new TourOrderExample();
 		tourOrderExample.or().andTokenEqualTo(token);
@@ -67,14 +62,12 @@ public class TourServiceImpl implements TourService {
 		if (existOrderList.size() > 0) {
 			return -1;
 		}
-		// 插入旅行联系信息
-		tourMemberMapper.insertSelective(tourMember);
 		// 插入旅行订单信息
 		int o_id = tourOrderMapper.insertSelective(tourOrder);
 		// 更新旅行价格信息
-		TourPrice tourPrice = tourPriceMapper.selectByPrimaryKey(tourMember.getpId());
+		TourPrice tourPrice = tourPriceMapper.selectByPrimaryKey(tourOrder.getpId());
 		// 余量减1
-		tourPrice.setRemain(tourPrice.getRemain() - tourMember.getNumber());
+		tourPrice.setRemain(tourPrice.getRemain() - tourOrder.getPeople());
 		TourPriceExample tourPriceExample = new TourPriceExample();
 		tourPriceExample.or().andIdEqualTo(tourPrice.getId());
 		tourPriceMapper.updateByExampleSelective(tourPrice, tourPriceExample);

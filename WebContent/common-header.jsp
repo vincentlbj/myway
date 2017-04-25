@@ -22,13 +22,13 @@
 										<ul class="clearfix">
 											<c:if test="${sessionScope.userInfo==null }">												
 												<li class="user-action">
-													<a href="<%=request.getContextPath()%>/loginPage" class="btn">登录/注册</a>
+													<a href="<%=request.getContextPath()%>/loginPage" class="btn" style="font-size:20px">登录/注册</a>
 												</li>
 											</c:if>
 											<c:if test="${sessionScope.userInfo!=null }">												
 												<li class="user-action">
-													<a href="<%=request.getContextPath()%>/user/info" class="btn">欢迎你,${sessionScope.userInfo.userName }</a>
-													<a href="<%=request.getContextPath()%>/user/logout" class="btn">注销</a>
+													<a href="<%=request.getContextPath()%>/user/info" class="btn" style="font-size:20px">欢迎你,${sessionScope.userInfo.userName }</a>
+													<a href="<%=request.getContextPath()%>/user/logout" class="btn" style="font-size:20px">注销</a>
 												</li>
 											</c:if>
 										</ul>
@@ -48,48 +48,48 @@
 					
 						<div class="row">
 						
-							<div class="col-sm-9">
+							<div class="col-sm-10">
 								
 								<div id="navbar" class="collapse navbar-collapse navbar-arrow">
 									<ul class="nav navbar-nav" id="responsive-menu">
-										<li><a href="<%=request.getContextPath()%>/index">主页</a>
+										<li><a href="<%=request.getContextPath()%>/index" style="font-size:20px">主页</a>
 										</li>
-										<li><a href="<%=request.getContextPath()%>/tour/result/grid">度假</a>
+										<li><a href="<%=request.getContextPath()%>/tour/result/grid" style="font-size:20px">度假</a>
 										</li>
-										<li><a href="<%=request.getContextPath()%>/hotel/result/grid">酒店</a>
+										<li><a href="<%=request.getContextPath()%>/hotel/result/grid" style="font-size:20px">酒店</a>
 										</li>
-										<li><a href="<%=request.getContextPath()%>/ticket/result/grid">门票</a>
+										<li><a href="<%=request.getContextPath()%>/ticket/result/grid" style="font-size:20px">门票</a>
 										</li>
-										<li><a href="<%=request.getContextPath()%>/traffic/checkTraffic">交通出行</a>
-										</li>
-										<li>
-											<a href="<%=request.getContextPath()%>/blog/result">驴友日记</a>
-											<ul>
-												<li><a href="<%=request.getContextPath()%>/blog/writeBlog">写日记</a></li>
-												<li><a href="<%=request.getContextPath()%>/blog/result">看日记</a></li>
-											</ul>
-										</li>
-										<li><a href="<%=request.getContextPath()%>/exposure/list">曝光台</a>
+										<li><a href="<%=request.getContextPath()%>/traffic/checkTraffic" style="font-size:20px">交通出行</a>
 										</li>
 										<li>
-											<a href="#">个人中心</a>
+											<a href="<%=request.getContextPath()%>/blog/result" style="font-size:20px">驴友日记</a>
 											<ul>
-												<li><a href="<%=request.getContextPath()%>/user/info">我的信息</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/tour">我的行程</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/hotel">我的酒店</a></li>
-												<li><a href="<%=request.getContextPath()%>/user/ticket">我的门票</a></li>
+												<li><a href="<%=request.getContextPath()%>/blog/writeBlog" style="font-size:20px">写日记</a></li>
+												<li><a href="<%=request.getContextPath()%>/blog/result" style="font-size:20px">看日记</a></li>
 											</ul>
 										</li>
-										<li><a href="<%=request.getContextPath()%>/contact">联系我们</a></li>
+										<li><a href="<%=request.getContextPath()%>/exposure/list" style="font-size:20px">曝光台</a>
+										</li>
+										<li>
+											<a href="#" style="font-size:20px">个人中心</a>
+											<ul>
+												<li><a href="<%=request.getContextPath()%>/user/info" style="font-size:20px">我的信息</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/tour" style="font-size:20px">我的行程</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/hotel" style="font-size:20px">我的酒店</a></li>
+												<li><a href="<%=request.getContextPath()%>/user/ticket" style="font-size:20px">我的门票</a></li>
+											</ul>
+										</li>
+										<li><a href="<%=request.getContextPath()%>/contact" style="font-size:20px">联系我们</a></li>
 									</ul>
 									
 								</div>
 								
 							</div>
 							
-							<div class="col-sm-3">
+							<div class="col-sm-2">
 							
-								<div class="navbar-phone"><i class="fa fa-phone"></i> 联系我们: +88888888</div>
+								<div class="navbar-phone" style="font-size:14px"><i class="fa fa-phone"></i> 联系我们: +88888888</div>
 							</div>
 
 					</div>

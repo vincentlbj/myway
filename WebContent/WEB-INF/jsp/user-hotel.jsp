@@ -95,19 +95,27 @@
 											<table class="table">
 											   <thead>
 											      <tr>
+											      	 <th>订单编号</th>
 											         <th>酒店</th>
-											         <th>人数</th>
-											         <th>天数</th>
+											         <th>房间数</th>
 											         <th>总价</th>
+											         <th>操作</th>
 											      </tr>
 											   </thead>
 											   <tbody>
-											   	  <c:forEach items="${hotelOrderList}" var="hotelOrder">
+											   	  <c:forEach items="${hotelOrderList}" var="userHotelOrder">
 												      <tr>
-												         <td><a href="<%=request.getContextPath()%>/hotel/detail/${hotelOrder.hotel.id}">${hotelOrder.hotel.name} </a></td>
-												         <td>${hotelOrder.hotelOrder.people } 人</td>
-												         <td>${hotelOrder.hotelOrder.day } 天</td>
-												         <td>￥${hotelOrder.hotelOrder.price } 元</td>
+												         <td>${userHotelOrder.hotelOrder.id }</td>
+												         <td><a href="<%=request.getContextPath()%>/hotel/detail/${hotelOrder.hotel.id}">${userHotelOrder.hotel.name} </a></td>
+												         <td>${userHotelOrder.hotelOrder.room } 间</td>
+												         <td>￥${userHotelOrder.hotelOrder.price } 元</td>
+												         <c:if test="${userHotelOrder.hotelOrder.oType=='success'}">
+												         	<td>已支付</td>
+												         </c:if>
+												         <c:if test="${userHotelOrder.hotelOrder.oType=='unsuccess'}">
+												         	<td>未支付</td>
+												         	<td><a href="<%=request.getContextPath()%>/mockPay/show/hotel/${userHotelOrder.hotelOrder.id }" class="btn btn-primary" target="_blank">马上支付</a></td>
+												         </c:if>
 												      </tr>
 											      </c:forEach>
 											   </tbody>

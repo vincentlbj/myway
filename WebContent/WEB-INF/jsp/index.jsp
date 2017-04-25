@@ -187,7 +187,7 @@
 								<div class="icon"> <i class="pe-7s-smile"></i></div>
 								<div class="content">
 									<h6>20000+ 用户</h6>
-									<span>旅游五湖四海</span>
+									<span>驴友五湖四海</span>
 								</div>
 							</div>
 						</div>

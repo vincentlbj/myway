@@ -93,7 +93,7 @@
 								
 									<div class="content">
 										
-										<h2 class="heading uppercase mt-0 text-success">您的门票已成功预订</h2>
+										<h2 class="heading uppercase mt-0 text-success">您的酒店已成功预订</h2>
 										<p>您的订单编号为 <span class="text-primary font700">${hotelOrder.id }</span></p>
 									
 									</div>
@@ -108,16 +108,16 @@
 								
 									<ul class="book-sum-list">
 										<li><span class="font600">订单编号: </span>${hotelOrder.id }</li>
-										<li><span class="font600">人数: </span>${hotelOrder.people }</li>
-										<li><span class="font600">天数: </span>${hotelOrder.day }</li>
-										<li><span class="font600">价格: </span>￥${hotelOrder.price }</li>
+										<li><span class="font600">预订日期: </span><fmt:formatDate value="${hotelOrder.date }"  pattern="yyyy-MM-dd"/></li>
+										<li><span class="font600">房间数: </span>${hotelOrder.room }</li>
+										<li><span class="font600">总价格: </span>￥${hotelOrder.price }</li>
 										<li><span class="font600">联系电话: </span>${hotelOrder.memberPhone } </li>
 									</ul>
 									
 								</div>
 								
 								
-								<a href="<%=request.getContextPath()%>/index" class="btn btn-primary">返回主页</a>
+								<a href="<%=request.getContextPath()%>/mockPay/show/hotel/${hotelOrder.id }" class="btn btn-primary" target="_blank">马上支付</a>
 							
 							</div>
 							

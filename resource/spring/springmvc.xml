@@ -12,7 +12,17 @@
 	<!-- 扫描controller -->
 	<context:component-scan base-package="com.myway.controller" ></context:component-scan>
 	
-	<mvc:annotation-driven validator="validator"></mvc:annotation-driven>
+	<mvc:annotation-driven validator="validator" conversion-service="conversionService"></mvc:annotation-driven>
+	
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dateConvert"/>
+            </set>
+        </property>
+    </bean>
+    
+    <bean id="dateConvert" class="com.myway.converter.DateConvert"/>
 	
 	<!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->  
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">  
@@ -24,6 +34,8 @@
 	<mvc:resources mapping="/icons/**" location="/icons/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
 	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/assets/**" location="/assets/" />
+	<mvc:resources mapping="/dist/**" location="/dist/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

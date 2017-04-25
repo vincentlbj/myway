@@ -1,5 +1,6 @@
 package com.myway.controller.hotel;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -86,6 +87,8 @@ public class HotelController {
 	public String payConfirm(HotelOrder hotelOrder, HttpSession session, Model model) throws Exception {
 		User user = (User) session.getAttribute("userInfo");
 		hotelOrder.setUserId(user.getuId());
+		hotelOrder.setoType("unsucess");
+		hotelOrder.setoDate(new Date());
 		int o_id = hotelService.confirmHotelOrder(hotelOrder);
 		if (o_id == -1) {
 			return "redirect:/index";

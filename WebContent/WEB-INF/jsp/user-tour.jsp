@@ -95,17 +95,28 @@
 											<table class="table">
 											   <thead>
 											      <tr>
+											      	 <th>订单编号</th>
 											         <th>旅程</th>
 											         <th>人数</th>
 											         <th>总价</th>
+											         <th>支付状态</th>
+											         <th>操作</th>
 											      </tr>
 											   </thead>
 											   <tbody>
 											   	  <c:forEach items="${userTourOrderList}" var="userTourOrder">
 												      <tr>
+												         <td>${userTourOrder.tourOrder.oId }</td>
 												         <td><a href="<%=request.getContextPath()%>/tour/detail/${userTourOrder.tour.id}">${userTourOrder.tour.name} </a></td>
 												         <td>${userTourOrder.tourOrder.people } 人</td>
 												         <td>￥${userTourOrder.tourOrder.price } 元</td>
+												         <c:if test="${userTourOrder.tourOrder.oType=='success'}">
+												         	<td>已支付</td>
+												         </c:if>
+												         <c:if test="${userTourOrder.tourOrder.oType=='unsuccess'}">
+												         	<td>未支付</td>
+												         	<td><a href="<%=request.getContextPath()%>/mockPay/show/tour/${userTourOrder.tourOrder.oId }" class="btn btn-primary" target="_blank">马上支付</a></td>
+												         </c:if>
 												      </tr>
 											      </c:forEach>
 											   </tbody>

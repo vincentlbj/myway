@@ -64,8 +64,8 @@
 				<div class="container">
 				
 					<ol class="breadcrumb-list booking-step">
-						<li><span>详情</span></li>
-						<li><span>付款</span></li>
+						<li><span style="font-size:20px">详情</span></li>
+						<li><span style="font-size:20px">付款</span></li>
 					</ol>
 					
 				</div>
@@ -82,7 +82,7 @@
 	
 							<div class="section-title text-left">
 								
-								<h3>${tour.name } <small> ${fn:split(tour.during,",")[0]} 天 / ${fn:split(tour.during,",")[1]} 夜</small></h3>
+								<h1>${tour.name } <small> ${fn:split(tour.during,",")[0]} 天 / ${fn:split(tour.during,",")[1]} 夜</small></h1>
 								
 							</div>
 							
@@ -101,7 +101,7 @@
 											<div class="row gap-10">
 											
 												<div class="col-sm-9">
-													<h5 class="heading mt-0">您选择的出游时间</h5>
+													<h2 class="heading mt-0" >您选择的出游时间</h2>
 												</div>
 
 											</div>
@@ -111,7 +111,7 @@
 										<div class="payment-content">
 										
 											<div class="payment-content">
-												<p>您的出游时间: <fmt:formatDate value="${tourPrice.go }"  pattern="yyyy-MM-dd"/> 至 <fmt:formatDate value="${tourPrice.back }"  pattern="yyyy-MM-dd"/></p>
+												<p style="font-size:20px">您的出游时间: <fmt:formatDate value="${tourPrice.go }"  pattern="yyyy-MM-dd"/> 至 <fmt:formatDate value="${tourPrice.back }"  pattern="yyyy-MM-dd"/></p>
 											</div>
 											
 										</div>
@@ -125,86 +125,50 @@
 											<div class="number">
 												2
 											</div>
+
+											<div class="row gap-10">
 											
-											<h5 class="heading mt-0">旅游细项</h5>
-										
+												<div class="col-sm-9">
+													<h2 class="heading mt-0">报名人数</h2>
+												</div>
+
+											</div>
+
 										</div>
 										
 										<div class="payment-content">
-											
-											<div class="payment-traveller">
-											
-												<div class="row gap-0">
-												
-													<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
-														<h6 class="heading">填写详细信息</h6>
+										
+											<div class="payment-content">
+												<div class="form-horizontal">
+													<div class="form-group gap-20 select2-input-hide">
+														<label class="col-sm-3 col-md-2 control-label" style="font-size:17px">成人:</label>
+														<div class="col-sm-3 col-md-2">
+															<select id="adult" class="form-control" required onchange="changeNumber();">
+																<option value="1" selected = "selected">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+															</select>
+														</div>
 													</div>
-													
 												</div>
 												
-
-
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">联系人姓名:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="name" name="name" type="text" class="form-control" value="" required>
-															</div>
+												<div class="form-horizontal">
+													<div class="form-group gap-20 select2-input-hide">
+														<label class="col-sm-3 col-md-2 control-label" style="font-size:17px">儿童（半价）:</label>
+														<div class="col-sm-3 col-md-2">
+															<select id="children" class="form-control" required onchange="changeNumber();">
+															    <option value="0" selected = "selected">0</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+															</select>
 														</div>
 													</div>
-													
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">报名人数:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="number" name="number" type="text" class="form-control digits" onblur="changeNumber();" value="" required>
-															</div>
-														</div>
-													</div>
-													
-													
-													<div class="form-horizontal">
-														<div class="form-group gap-20 select2-input-hide">
-															<label class="col-sm-3 col-md-2 control-label">联系人性别:</label>
-															<div class="col-sm-3 col-md-2">
-																<select name="sex" class="select2-no-search form-control" data-placeholder="性别">
-																	<option value="male">男</option>
-																	<option value="female">女</option>
-																</select>
-															</div>
-														</div>
-													</div>
-													
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">联系人身份证:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="idCard" name="idCard" class="form-control digits" value="" required>
-															</div>
-														</div>
-													</div>
-													
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">国籍:</label>
-															<div class="col-sm-5 col-md-4">
-																<select name="nation" class="select2-single form-control" data-placeholder="国籍">
-																	<option value="中国">中国</option>
-																	<option value="非中国">非中国</option>
-																</select>
-															</div>
-														</div>
-													</div>
-													
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">联系电话:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="phone" name="phone" class="form-control digits" value="" required>
-															</div>
-														</div>
-													</div>
-												
+												</div>
 												
 											</div>
 											
@@ -220,85 +184,34 @@
 												3
 											</div>
 											
-											<h5 class="heading mt-0">完成付款 <small>/ <i class="fa fa-lock"></i> 安全</small></h5>
-
+											<h2 class="heading mt-0">旅游细项</h2>
+										
 										</div>
 										
 										<div class="payment-content">
 											
-											<div id="paymentOption" class="payment-option-wrapper">
-	
-												<div class="row">
+											<div class="payment-traveller">
+											
+												<div class="row gap-0">
 												
-													<div class="col-sm-12">
-													
-														<div class="radio-block">
-															<input id="payments1" name="payments" type="radio" class="radio digits" value="paymentsCreditCard" required/>
-															<label class="" for="payments1"><span>信用卡</span> <img src="<%=request.getContextPath()%>/images/payment-credit-cards.jpg" alt="Image"></label>
-														</div>
-														
-													</div>
-													
-
-													
-												</div>
-												
-												<div id="paymentsCreditCard" class="payment-option-form">
-												
-													<div class="inner">
-													
-														<h5 class="mb-15">订单单价:  <span id="price">${tour.price }</span> 元</h5>
-														<h5 class="mb-15">参团人数:  <span id="number2"></span> 位</h5>
-														<h5 class="mb-15">总金额:  <span id="allPrice"></span> 元</h5>
-														<p>一旦预订成功，将会从您的信用卡账户中扣取<span id="allPrice2"></span>元 </p>
-													
-														<div class="form-horizontal">
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡持有者</label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_owner" type="text" class="form-control mb-0" placeholder="" required>
-																</div>
-															</div>
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">所属银行 </label>
-																<div class="col-sm-3 col-md-2">
-																	<select class="select2-no-search form-control" data-placeholder="所属银行">	
-																		<option value="1">邮政储蓄</option>
-																		<option value="2">工商银行</option>
-																		<option value="3">建设银行</option>
-																		<option value="4">中国银行</option>
-																		<option value="5">农业银行</option>
-																		<option value="6">交通银行</option>
-																		<option value="7">招商银行</option>
-																		<option value="8">民生银行</option>
-																	</select>
-																</div>
-															</div>
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡号 </label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_number" type="text" class="form-control mb-0 digits" placeholder="" required>
-																</div>
-															</div>
-
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡密码 </label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_password" type="password" class="form-control mb-0 digits" placeholder="" required>
-																</div>
-															</div>
-														</div>
-													
-													
+													<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
+														<h3 class="heading">填写详细信息</h3>
 													</div>
 													
 												</div>
-
+												
+												<div id="allInfo">
+													
+												</div>											
 											</div>
-
+											
 										</div>
 										
 									</div>
+									
+									<h3 class="mb-15">订单单价:  <span id="price">${tourPrice.price }</span> 元</h3>
+									<h3 class="mb-15">参团人数:  <span id="number2"></span> 位</h3>
+									<h3 class="mb-15">总金额:  <span id="allPrice"></span> 元</h3>
 									
 									<div class="checkbox-block">
 										<input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard" required/>
@@ -311,16 +224,20 @@
 										
 											<p class="line18 mt-10"><span class="font600">注意事项</span>: 请确认以上信息填写无误之后点击“完成付款”.</p>
 
-											<button onclick="$('#form').submit();" class="btn btn-primary">完成付款</button>
+											<button onclick="submitOrder();" type="button" class="btn btn-primary">提交订单</button>
 											
 										
 										</div>
 										
 									</div>
 									<input name="tourId" type="hidden" value="${tour.id }">
+									<input id="people" name="people" type="hidden" value="">
+									<input id="adultstr" name="adult" type="hidden" value="">
+									<input id="childrenstr" name="children" type="hidden" value="">
 									<input name="pId" type="hidden" value="${tourPrice.id }">
 									<input name="token" type="hidden" value="${token }">
 									<input id="pricestr" name="price" type="hidden" value="">
+									<input id="infostr" name="info"  type="hidden" value="">
 								</form>
 								
 							</div>
@@ -347,7 +264,35 @@
 		 <a href="#"><i class="fa fa-angle-up"></i></a>
 	</div>
 	<!-- end Back To Top -->
-
+	
+<div id="info" style="display: none;">
+	<div class="form-horizontal">
+		<div class="form-group gap-20">
+			<label class="col-sm-3 col-md-2 control-label" style="font-size:17px">参团人姓名:</label>
+			<div class="col-sm-5 col-md-4">
+				<input id="name{0}" class="form-control" value="" required>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-horizontal">
+		<div class="form-group gap-20">
+			<label class="col-sm-3 col-md-2 control-label" style="font-size:17px">参团人身份证:</label>
+			<div class="col-sm-5 col-md-4">
+				<input id="idCard{0}" class="form-control digits" value="" required>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-horizontal">
+		<div class="form-group gap-20">
+			<label class="col-sm-3 col-md-2 control-label" style="font-size:17px">联系电话:</label>
+			<div class="col-sm-5 col-md-4">
+				<input id="phone{0}" class="form-control digits" value="" required>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <!-- JS -->
@@ -427,16 +372,64 @@
 }(window.jQuery)
 
 function changeNumber(){
-	$("#number2").html($("#number").val());
-	var allPrice = parseInt($("#price").html()) * parseInt($("#number2").html());
+	var adult = parseInt($("#adult").val());
+	var children = parseInt($("#children").val());
+	var allpeople = adult + children;
+	addPerson(allpeople);
+	$("#number2").html(allpeople);
+	var allPrice = parseInt($("#price").html()) * (children*0.5 + adult);
 	$("#allPrice").html(allPrice);
-	$("#allPrice2").html(allPrice);
 	$("#pricestr").val(allPrice);
+	
+}
+
+function addPerson(number){
+	$("#allInfo").empty();
+	for (var i = 0; i < number; i++){
+		//为每个输入框添加验证
+		var element = jQuery.validator.format($.trim($("#info").html()));
+		$("#allInfo").append(element(i));
+		$("#allInfo").append('<br>');
+	}
+}
+
+function submitOrder(){
+	var adult = parseInt($("#adult").val());
+	var children = parseInt($("#children").val());
+	var allpeople = adult + children;
+	$.ajax({
+		  type: 'GET',
+		  url: '<%=request.getContextPath()%>/tour/rest/${tourPrice.id}/'+allpeople,
+		  success: function(result){
+			  if(result=='no'){
+				  alert('该团人数已达上限！');
+				  return false;
+			  }
+		  }
+		});
+	var infos = new Array();
+	for(var i = 0; i < allpeople; i++){
+		var p = new person($("#name"+i).val(),$("#idCard"+i).val(),$("#phone"+i).val());
+		infos[i] = p;
+	}
+	$("#people").attr("value",allpeople);
+	$("#adultstr").attr("value",adult);
+	$("#childrenstr").attr("value",children);
+	$("#infostr").attr("value",JSON.stringify(infos));
+	$("#form").submit();
+}
+
+function person(name,idCard,phone){
+	this.name = name;
+	this.idCard = idCard;
+	this.phone = phone;
 }
   
 $().ready(function(){
+	changeNumber();
 	$("#form").validate();
 });
+
 </script>
 
 </body>

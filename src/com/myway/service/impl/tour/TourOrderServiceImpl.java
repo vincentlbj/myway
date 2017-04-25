@@ -45,4 +45,9 @@ public class TourOrderServiceImpl implements TourOrderService {
 		return userTourOrderList;
 	}
 
+	@Override
+	public TourOrder getTourOrder(int id) {
+		return tourOrderMapper.selectByPrimaryKey(id);
+	}
+
 }

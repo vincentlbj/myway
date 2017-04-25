@@ -95,17 +95,27 @@
 											<table class="table">
 											   <thead>
 											      <tr>
+											      	 <th>订单编号</th>
 											         <th>景点</th>
 											         <th>人数</th>
 											         <th>总价</th>
+											         <th>操作</th>
 											      </tr>
 											   </thead>
 											   <tbody>
-											   	  <c:forEach items="${ticketOrderList}" var="ticketOrder">
+											   	  <c:forEach items="${ticketOrderList}" var="userTicketOrder">
 												      <tr>
-												         <td><a href="<%=request.getContextPath()%>/ticket/detail/${ticketOrder.ticket.id}">${ticketOrder.ticket.name} </a></td>
-												         <td>${ticketOrder.ticketOrder.people } 人</td>
-												         <td>￥${ticketOrder.ticketOrder.price } 元</td>
+												      	 <td>${userTicketOrder.ticketOrder.id }</td>
+												         <td><a href="<%=request.getContextPath()%>/ticket/detail/${userTicketOrder.ticket.id}">${userTicketOrder.ticket.name} </a></td>
+												         <td>${userTicketOrder.ticketOrder.people } 人</td>
+												         <td>￥${userTicketOrder.ticketOrder.price } 元</td>
+												         <c:if test="${userTicketOrder.ticketOrder.oType=='success'}">
+												         	<td>已支付</td>
+												         </c:if>
+												         <c:if test="${userTicketOrder.ticketOrder.oType=='unsuccess'}">
+												         	<td>未支付</td>
+												         	<td><a href="<%=request.getContextPath()%>/mockPay/show/ticket/${userTicketOrder.ticketOrder.id }" class="btn btn-primary" target="_blank">马上支付</a></td>
+												         </c:if>
 												      </tr>
 											      </c:forEach>
 											   </tbody>

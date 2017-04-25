@@ -82,7 +82,7 @@
 	
 							<div class="section-title text-left">
 								
-								<h3>${ticket.name }</h3>
+								<h3>${hotel.name }</h3>
 								
 							</div>
 							
@@ -114,33 +114,31 @@
 													
 												</div>
 													
+													
 													<div class="form-horizontal">
 														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">住店人数:</label>
+															<label class="col-sm-3 col-md-2 control-label">住店日期:</label>
 															<div class="col-sm-5 col-md-4">
-																<input id="people" name="people" type="text" class="form-control digits" onblur="changeNumber();" value="1" required>
+																<input type="text" class="form-control" id="date" name="date">
 															</div>
 														</div>
 													</div>
 													
 													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">住店天数:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="day" name="day" type="text" class="form-control digits" onblur="changeNumber();" value="1" required>
+														<div class="form-group gap-20 select2-input-hide">
+															<label class="col-sm-3 col-md-2 control-label">套房数:</label>
+															<div class="col-sm-3 col-md-2">
+																<select id="room" class="form-control" onchange="changeNumber();" required>
+																	<option value="1" selected = "selected">1</option>
+																	<option value="2">2</option>
+																</select>
 															</div>
 														</div>
 													</div>
 													
-													<div class="form-horizontal">
-														<div class="form-group gap-20">
-															<label class="col-sm-3 col-md-2 control-label">联系电话:</label>
-															<div class="col-sm-5 col-md-4">
-																<input id="memberPhone" name="memberPhone" class="form-control digits" value="" required>
-															</div>
-														</div>
-													</div>
-												
+													<h5 class="mb-15">订单单价:  <span id="price">${hotel.price }</span> 元</h5>
+													<h5 class="mb-15">套房数:  <span id="room2"></span> 间</h5>
+													<h5 class="mb-15">总金额:  <span id="allPrice"></span> 元</h5>
 												
 											</div>
 											
@@ -153,86 +151,41 @@
 										<div class="payment-header clearfix">
 										
 											<div class="number">
-												3
+												2
 											</div>
 											
-											<h5 class="heading mt-0">完成付款 <small>/ <i class="fa fa-lock"></i> 安全</small></h5>
-
+											<h5 class="heading mt-0">旅游细项</h5>
+										
 										</div>
 										
 										<div class="payment-content">
 											
-											<div id="paymentOption" class="payment-option-wrapper">
-	
-												<div class="row">
+											<div class="payment-traveller">
+											
+												<div class="row gap-0">
 												
-													<div class="col-sm-12">
-													
-														<div class="radio-block">
-															<input id="payments1" name="payments" type="radio" class="radio digits" value="paymentsCreditCard" required/>
-															<label class="" for="payments1"><span>信用卡</span> <img src="<%=request.getContextPath()%>/images/payment-credit-cards.jpg" alt="Image"></label>
-														</div>
-														
-													</div>
-													
-
-													
-												</div>
-												
-												<div id="paymentsCreditCard" class="payment-option-form">
-												
-													<div class="inner">
-													
-														<h5 class="mb-15">订单单价:  <span id="price">${hotel.price }</span> 元</h5>
-														<h5 class="mb-15">住店人数:  <span id="number2"></span> 位</h5>
-														<h5 class="mb-15">住店天数:  <span id="number3"></span> 天</h5>
-														<h5 class="mb-15">总金额:  <span id="allPrice"></span> 元</h5>
-														<p>一旦预订成功，将会从您的信用卡账户中扣取<span id="allPrice2"></span>元 </p>
-													
-														<div class="form-horizontal">
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡持有者</label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_owner" type="text" class="form-control mb-0" placeholder="" required>
-																</div>
-															</div>
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">所属银行 </label>
-																<div class="col-sm-3 col-md-2">
-																	<select class="select2-no-search form-control" data-placeholder="所属银行">	
-																		<option value="1">邮政储蓄</option>
-																		<option value="2">工商银行</option>
-																		<option value="3">建设银行</option>
-																		<option value="4">中国银行</option>
-																		<option value="5">农业银行</option>
-																		<option value="6">交通银行</option>
-																		<option value="7">招商银行</option>
-																		<option value="8">民生银行</option>
-																	</select>
-																</div>
-															</div>
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡号 </label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_number" type="text" class="form-control mb-0 digits" placeholder="" required>
-																</div>
-															</div>
-
-															<div class="form-group gap-20">
-																<label class="col-sm-3 col-md-3 control-label">信用卡密码 </label>
-																<div class="col-sm-6 col-md-6">
-																	<input id="card_password" type="password" class="form-control mb-0 digits" placeholder="" required>
-																</div>
-															</div>
-														</div>
-													
-													
+													<div class="col-sm-9 col-sm-offser-3 col-md-10 col-md-offset-2">
+														<h6 class="heading">填写详细信息</h6>
 													</div>
 													
 												</div>
-
+												
+												<div class="form-horizontal">
+													<div class="form-group gap-20">
+														<label class="col-sm-3 col-md-2 control-label">联系电话:</label>
+														<div class="col-sm-5 col-md-4">
+															<input id="memberPhone" name="memberPhone" class="form-control" value="" required>
+														</div>
+													</div>
+												</div>
+												
+												<br>
+												
+												<div id="allInfo">
+													
+												</div>											
 											</div>
-
+											
 										</div>
 										
 									</div>
@@ -248,7 +201,7 @@
 										
 											<p class="line18 mt-10"><span class="font600">注意事项</span>: 请确认以上信息填写无误之后点击“完成付款”.</p>
 
-											<button onclick="$('#form').submit();" class="btn btn-primary">完成付款</button>
+											<button onclick="submitOrder();" class="btn btn-primary">提交订单</button>
 											
 										
 										</div>
@@ -257,6 +210,8 @@
 									<input name="token" type="hidden" value="${token }">
 									<input id="pricestr" name="price" type="hidden" value="">
 									<input name="hotelId" type="hidden" value="${hotel.id }">
+									<input id="infostr" name="info" type="hidden" value="">
+									<input id="roomstr" name="room" type="hidden" value="">
 								</form>
 								
 							</div>
@@ -283,7 +238,25 @@
 		 <a href="#"><i class="fa fa-angle-up"></i></a>
 	</div>
 	<!-- end Back To Top -->
-
+<div id="info" style="display: none;">
+	<div class="form-horizontal">
+		<div class="form-group gap-20">
+			<label class="col-sm-3 col-md-2 control-label">住客姓名:</label>
+			<div class="col-sm-5 col-md-4">
+				<input id="name{0}" class="form-control" value="" required>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-horizontal">
+		<div class="form-group gap-20">
+			<label class="col-sm-3 col-md-2 control-label">住客身份证:</label>
+			<div class="col-sm-5 col-md-4">
+				<input id="idCard{0}" class="form-control digits" value="" required>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <!-- JS -->
@@ -308,6 +281,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/validator.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.raty.js"></script> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/customs.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/bootstrap-datetimepicker.js"></script>
 
 <script>
 
@@ -363,16 +337,51 @@
 }(window.jQuery)
 
 function changeNumber(){
-	$("#number2").html($("#people").val());
-	$("#number3").html($("#day").val());
-	var allPrice = parseInt($("#price").html()) * parseInt($("#number2").html()) * parseInt($("#number3").html());
+	var room = $("#room").val();
+	$("#room2").html(room);
+	var allPrice = parseInt($("#price").html()) * room;
 	$("#allPrice").html(allPrice);
-	$("#allPrice2").html(allPrice);
-	$("#pricestr").val(allPrice);
+	addId(room);
 }
+
+
+function addId(number){
+	$("#allInfo").empty();
+	for (var i = 0; i < number; i++){
+		//为每个输入框添加验证
+		var element = jQuery.validator.format($.trim($("#info").html()));
+		$("#allInfo").append(element(i));
+		$("#allInfo").append('<br>');
+	}
+}
+
+function submitOrder(){
+	var infos = new Array();
+	var room = $("#room").val();
+	for(var i = 0; i < room; i++){
+		var p = new person($("#name"+i).val(),$("#idCard"+i).val());
+		infos[i] = p;
+	}
+	$("#infostr").attr("value",JSON.stringify(infos));
+	$("#roomstr").attr("value",room);
+	$("#pricestr").attr("value",$("#allPrice").html());
+	$("#form").submit();
+}
+
+function person(name,idCard){
+	this.name = name;
+	this.idCard = idCard;
+}
+
+$('#date').datetimepicker({
+	format: 'yyyy-mm-dd',
+	minView: 'month',
+	autoclose: true
+});
   
 $().ready(function(){
 	$("#form").validate();
+	changeNumber();
 });
 </script>
 

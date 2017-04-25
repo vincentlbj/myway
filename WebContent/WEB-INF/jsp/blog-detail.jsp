@@ -128,7 +128,7 @@
 										</div>
 									</div>
 									
-									<h4 class="uppercase">关于作者</h4>
+									<h4 class="uppercase">作者</h4>
 									<div class="blog-author">
 										<div class="author-label">
 											<img src="<%=request.getContextPath()%>/images/man/01.jpg" alt="author image" class="img-circle" />
@@ -138,8 +138,7 @@
 											</ul>
 											<div class="clear-xs"></div>
 											<h5 class="heading">${user.userName }</h5>
-											<p>Prepared do an dissuade be so whatever steepest. Yet her beyond looked either day wished nay. By doubtful disposed do juvenile an. Now curiosity you explained immediate why behaviour. An dispatched impossible of of melancholy favourable. </p>
-										</div>
+											<p></p>										</div>
 									</div>
 									
 									<h4 id="allNum" class="uppercase">${remarkCount }条评论</h4>

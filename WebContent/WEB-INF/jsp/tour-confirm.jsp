@@ -109,17 +109,15 @@
 									<ul class="book-sum-list">
 										<li><span class="font600">订单编号: </span>${tourOrder.oId }</li>
 										<li><span class="font600">价格: </span>￥${tourOrder.price }</li>
-										<li><span class="font600">参团人: </span>${tourMember.name }</li>
 										<li><span class="font600">团名: </span>${tour.name }</li>
 										<li><span class="font600">出发: </span><fmt:formatDate value="${tourPrice.go }"  pattern="yyyy-MM-dd"/></li>
 										<li><span class="font600">返程: </span><fmt:formatDate value="${tourPrice.back }"  pattern="yyyy-MM-dd"/></li>
-										<li><span class="font600">联系电话: </span>${tourMember.phone } </li>
 									</ul>
 									
 								</div>
 								
 								
-								<a href="<%=request.getContextPath()%>/index" class="btn btn-primary">返回主页</a>
+								<a href="<%=request.getContextPath()%>/mockPay/show/tour/${tourOrder.oId }" class="btn btn-primary" target="_blank">马上支付</a>
 							
 							</div>
 							

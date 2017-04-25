@@ -238,7 +238,7 @@
 										
 											<p class="line18 mt-10"><span class="font600">注意事项</span>: 请确认以上信息填写无误之后点击“完成付款”.</p>
 
-											<button onclick="$('#form').submit();" class="btn btn-primary">完成付款</button>
+											<button onclick="$('#form').submit();" class="btn btn-primary">提交订单</button>
 											
 										
 										</div>
